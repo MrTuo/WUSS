@@ -1,5 +1,5 @@
 html { 
-    background: url(../img/140656-106.jpg) no-repeat center center fixed; 
+    background: url(/static/img/140656-106.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -19,13 +19,20 @@ body h1{
 	margin: 0 auto;
 	height: 20%;
 }
-.Menu{
+.Menu_homepage{
 	width: 300px;
 	height: 400px;
 	background-color: rgba(158, 158, 158, 0.62);
 	border-width: 2px;
 	margin: 0 auto;
-	margin-top:10%;
+  position: relative;
+}
+.Menu_register{
+    width: 600px;
+	height: 400px;
+	background-color: rgba(158, 158, 158, 0.62);
+	border-width: 2px;
+	margin: 0 auto;
   position: relative;
 }
 .adm{
@@ -132,4 +139,11 @@ a{
 	color: black;
 	position: relative;
 	top: 60px;
+}
+span{
+    float: right;
+    position: relative;
+    font-size: 0.8em;
+    right: 40px;
+    top: 8px;
 }

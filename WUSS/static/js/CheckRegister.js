@@ -35,7 +35,7 @@ function check(obj, info, fun, click){
         } else {
 
             sp.innerHTML = info;
-            sp.style.color = "red";
+            sp.style.color = "#05ffe3";
         }
     }
 

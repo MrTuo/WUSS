@@ -18,8 +18,7 @@ from django.contrib import admin
 from Myuser import views;
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.homepage),
-    url(r'^HomePage/$',views.homepage),
+    url(r'^$',views.logic),
+    url(r'^judgelogic/$',views.judgelogic),
     url(r'^Register/$',views.Register),
-    url(r'^text/$',views.text),
 ]

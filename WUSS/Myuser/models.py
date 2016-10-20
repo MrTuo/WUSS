@@ -1,7 +1,11 @@
+from __future__ import unicode_literals
+
 from django.db import models
+
 from django.contrib.auth.models import User
 
-class MyUser(models.Model):
-    user = models.CharField(max_length=14)
-    email = models.EmailField()
-    password = models.CharField(max_length=14)
+class WUSSUser(models.Model):
+    user = models.OneToOneField(User)
+    url = models.CharField(max_length=199)
+    def __str__(self):
+		return self.user.username

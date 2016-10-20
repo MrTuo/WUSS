@@ -5,29 +5,23 @@ from django.template import Context
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import MySQLdb
+from Myuser import models
 
-def homepage(request):
-    db = MySQLdb.connect(user='root', db='WUSS_User', passwd='501874997', host='localhost')
-    cursor = db.cursor()
-    cursor.execute('SELECT * FROM Myuser_myuser')
-    names = [row[1] for row in cursor.fetchall()]
-    db.close()
-    print names
-    if names[0]=='501874997@qq.com':
-        return render(request, 'homepage.html')
-    else:
-        return render(request, 'error.html')
+def logic(request):
+    return render(request, 'logic.html')
 
 def Register(request):
     return render(request, 'Register.html')
 
-def text(request):
-    if request.user.is_authenticated():
-        return HttpResponseRedirect(reverse('homepage'))
+def judgelogic(request):
     if request.method == 'POST':
-        username = request.POST.get('Myuser.name','')
-        password = request.POST.get('Myuser.password','')
-        user = auth.authenticate(username=username,password=password);
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+        print user
+        print username
+        print password
 
-    return render(request, 'text.html')
+    return render(request,'error.html')

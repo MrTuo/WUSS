@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^$',views.logic),
     url(r'^judgelogic/$',views.judgelogic),
     url(r'^Register/$',views.Register),
+    url(r'^gotoregiste/$',views.gotoregiste),
+    
 ]

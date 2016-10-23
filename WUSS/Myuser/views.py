@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import MySQLdb
 from Myuser import models
+
 import time
 
 def logic(request):
@@ -19,28 +19,22 @@ def Register(request):
 def judgelogic(request):
     logname = request.POST.get('username', '')
     logpassword = request.POST.get('password', '')
-    db = MySQLdb.connect("localhost","root","501874997","wuss" )
-    cursor = db.cursor()
-    sql="SELECT password FROM auth_user where username='%s'" % (logname)
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    db.close()
-    if results[0][0]==logpassword:
+    user = auth.authenticate(username=logname, password=logpassword)
+    if  user is not None:
+        auth.login(request, user)
         return render(request,'homepage.html')
-    else:
-        return render(request,'error.html')
+    return render(request,'logic.html')
 
 def gotoregiste(request):
     registname=request.POST.get('idname','')
     registemail=request.POST.get('idemail','')
     registpassword=request.POST.get('idpassword','')
-    last_login=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-    date_joined=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-    print registname
-    # db = MySQLdb.connect("localhost","root","501874997","wuss")
-    # cursor = db.cursor()
-    # sql = "insert into auth_user values(null,'%s','%s',0,'%s','null','null','%s',0,0,'%s')" %(registpassword,last_login,registname,registemail,date_joined)
-    # cursor.execute(sql)
-    # db.commit()
-    # db.close()
+    filterResult = User.objects.filter(username=registname)  # c************
+    if len(filterResult) > 0:
+        return render(request,'error.html')
+    user = User()  # d************************
+    user.username = registname
+    user.set_password(registpassword)
+    user.email = registemail
+    user.save()
     return render(request,'logic.html')

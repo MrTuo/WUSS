@@ -16,31 +16,32 @@
 		    left: 50%;
 		    margin-left: -300px;
 		    margin-top: -200px;">
-
-
 	<div class="Menu_register">
 		<h1>New Account</h1>
-		<form class="form-horizontal">
+		<form class="form-horizontal" action = "/gotoregiste/" method="post">
             <div style="left:50px;">
                 <div class="control-group">
                     <div style="margin-top:20px ">
                         <img src="/static/img/adm.png" class="adm">
-                        <input type="text" id="inputEmail" placeholder="Email" required><span></span>
+                        <input type="text" id="inputName" placeholder="UserName" required name='idname'><span></span>
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <img src="/static/img/key.png" class="key">
-                    <input type="password" id="inputPassword" placeholder="Password" required><span></span>
+                      <img src="/static/img/adm.png" class="adm">
+                      <input type="text" id="inputEmail" placeholder="Email" required name='idemail'><span></span>
                 </div>
 
                 <div class="control-group">
                     <img src="/static/img/key.png" class="key">
-                    <input type="password" id="inputPasswordAgain" placeholder="Password Again" required><span></span>
+                    <input type="password" id="inputPassword" placeholder="Password" required name='idpassword'><span></span>
+                </div>
+
+                <div class="control-group">
+                    <img src="/static/img/key.png" class="key">
+                    <input type="password" id="inputPasswordAgain" placeholder="Password Again" required name='idpasswordagain'><span></span>
                 </div>
             </div>
-
-
             <div style="left: 40px;position: relative;">
                 <input type="submit" onclick="myFunction()" value="Create Account" class="submit">
             </div>

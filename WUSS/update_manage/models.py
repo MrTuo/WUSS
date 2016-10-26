@@ -1,3 +1,4 @@
+# coding=utf-8
 from __future__ import unicode_literals
 
 from django.db import models
@@ -6,7 +7,7 @@ from django.db import models
 
 class RssItem(models.Model):
     '''
-    保存Rss中item标签内的内容
+    淇濆瓨Rss涓璱tem鏍囩鍐呯殑鍐呭
     '''
     title = models.CharField(max_length = 150)
     link = models.CharField(max_length = 150)

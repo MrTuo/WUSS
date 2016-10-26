@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.shortcuts import render
 import feedparser as fp
 import datetime
@@ -9,32 +10,32 @@ from url_manage.models import *
 
 def get_item(url):
     '''
-    ÊäÈë£ºRSSurl
-    ½«RSSÖĞ¸üĞÂÄÚÈİ±£´æ
+    è¾“å…¥ï¼šRSSurl
+    å°†RSSä¸­æ›´æ–°å†…å®¹ä¿å­˜
     :param url:
     :return:
     '''
     now = datetime.datetime.now()
-    is_update = 0#¼ÇÂ¼ÊÇ·ñÓĞÄÚÈİ¸üĞÂ
+    is_update = 0#è®°å½•æ˜¯å¦æœ‰å†…å®¹æ›´æ–°
     if url.st1:
         rss = fp.parse(url.url_content)
         items = rss.entries
         for item in items:
             pubTime = parse(item.published)
-            if pubTime > url.update_time:#·¢²¼Ê±¼ä´óÓÚ¸üĞÂÊ±¼ä
+            if pubTime > url.update_time:#å‘å¸ƒæ—¶é—´å¤§äºæ›´æ–°æ—¶é—´
                 is_update = 1
-                #É¾³ıurlËùÓĞÔ­ÓĞµÄitem
-                #±£´æĞÂµÄitemµ½url
+                #åˆ é™¤urlæ‰€æœ‰åŸæœ‰çš„item
+                #ä¿å­˜æ–°çš„itemåˆ°url
             else:
                 pass
-                #Î´¸üĞÂµÄitem
+                #æœªæ›´æ–°çš„item
         if is_update:
             pass
-            #ÉèÖÃurlÍÆËÍ×´Ì¬Îª1
+            #è®¾ç½®urlæ¨é€çŠ¶æ€ä¸º1
         else:
-            pass#ÎŞÓĞÍÆËÍÄÚÈİ
+            pass#æ— æœ‰æ¨é€å†…å®¹
     else:
-        #¸Ãurl×´Ì¬ÎªÎ´¸ú×Ù
+        #è¯¥urlçŠ¶æ€ä¸ºæœªè·Ÿè¸ª
         pass
 
 

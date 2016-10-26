@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.shortcuts import render,render_to_response,HttpResponse
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -32,20 +33,20 @@ def judgelogic(request):
     return HttpResponseRedirect("/")
 
 def gotoregiste(request):
-    # if request.user.is_authenticated():  #Èç¹ûµÇÂ¼ÁË¾Í²»ÓÃÔÚ×¢²áÁË
+    # if request.user.is_authenticated():  #å¦‚æœç™»å½•äº†å°±ä¸ç”¨åœ¨æ³¨å†Œäº†
     #     return HttpResponseRedirect("/user")
     registname=request.POST.get('idname','')
     registemail=request.POST.get('idemail','')
     registpassword=request.POST.get('idpassword','')
-    filterResult = User.objects.filter(username=registname)  #ÅĞ¶ÏÓÃ»§ÊÇ·ñ´æÔÚ
+    filterResult = User.objects.filter(username=registname)  #åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­˜åœ¨
     if len(filterResult) > 0:
-        return render(request,'error.html')#Èç¹û´æÔÚÔÚÕâÀïÏÈÌø×ªµ½´íÎóÒ³Ãæ
-    user = User()  # ½«ÓÃ»§µÄ×ÊÁÏ´æÈëµ½Êı¾İ¿âÖĞ
+        return render(request,'error.html')#å¦‚æœå­˜åœ¨åœ¨è¿™é‡Œå…ˆè·³è½¬åˆ°é”™è¯¯é¡µé¢
+    user = User()  # å°†ç”¨æˆ·çš„èµ„æ–™å­˜å…¥åˆ°æ•°æ®åº“ä¸­
     user.username = registname
     user.set_password(registpassword)
     user.email = registemail
     user.save()
-    return render(request,'logic.html')#·µ»Øµ½µÇÂ¼½çÃæ
+    return render(request,'logic.html')#è¿”å›åˆ°ç™»å½•ç•Œé¢
 
 def changeuser(request):
     if request.user.is_authenticated():
@@ -77,4 +78,4 @@ def gotochangeuser(request):
 @login_required
 def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect("/")  # ·µ»Øµ½µÇÂ¼½çÃæ
+    return HttpResponseRedirect("/")  # è¿”å›åˆ°ç™»å½•ç•Œé¢

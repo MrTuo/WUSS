@@ -1,3 +1,4 @@
+# coding=utf-8
 """WUSS URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,11 +16,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Web import views;
+from Myuser import views;
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.homepage),
-    url(r'^HomePage',views.homepage),
+    url(r'^$',views.logic),
+    url(r'^homepage/$',views.logic),
+    url(r'^judgelogic/$',views.judgelogic),
     url(r'^Register/$',views.Register),
-
+    url(r'^gotoregiste/$',views.gotoregiste),
+    url(r'^changeuser/$',views.changeuser),
+    url(r'^gotochangeuser/$',views.gotochangeuser),
+    url(r'^logout/$',views.logout),
+    url(r'^error/$',views.error),
 ]

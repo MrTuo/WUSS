@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+from url_manage.models import Urls
 # Create your models here.
 
 class RssItem(models.Model):
@@ -14,5 +14,6 @@ class RssItem(models.Model):
     pubDate = models.DateTimeField()
     author = models.CharField(max_length = 100)
     description = models.TextField()
+    url = models.ForeignKey(Urls)
     def __unicode__(self):
         return self.title

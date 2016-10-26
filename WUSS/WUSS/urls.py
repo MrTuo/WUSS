@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from Myuser import views;
+from update_manage import views as updateviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.logic),
@@ -28,4 +29,5 @@ urlpatterns = [
     url(r'^gotochangeuser/$',views.gotochangeuser),
     url(r'^logout/$',views.logout),
     url(r'^error/$',views.error),
+    url(r'^checkupdate/$',updateviews.check_update),
 ]

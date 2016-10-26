@@ -127,3 +127,5 @@ TEMPLATE_DIRS=(
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'),
 )
+#
+LOGIN_URL = '/homepage'

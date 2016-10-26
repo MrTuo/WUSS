@@ -1,0 +1,74 @@
+.mypublicpadding1{
+    padding-right: 0px;
+    padding-bottom: 40px;
+    padding-left: 0px;
+}
+.mypublicpadding2{
+    padding-left: 0px;
+}
+.mypublic_navigation{
+    background-color: #1f2021;
+}
+.mypublic_cut_off_rule{
+    border-top: 10px solid #eee;
+}
+.mypublic_cut_off_rule1{
+    border-top: 5px solid #eee;
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
+.mypublic_cut_off_rule2{
+    border-top: 10px solid #eee;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.left_nav_wrap{
+    background-color:#222;
+    overflow:auto;
+    overflow-x:hidden;
+    height:100%;
+    width:260px;
+    float:left;
+    position:relative;
+    -webkit-transition:width .2s linear;
+    -moz-transition:width .2s linear;
+    -o-transition:width .2s linear;
+    transition:width .2s linear
+}
+.ct_layout {
+    width: 64px;
+}
+.lef_nav_inner {
+    margin-bottom: 45px;
+    overflow: hidden;
+}
+.lef_nav_inner .layout {
+    display: block;
+    text-align: right;
+    overflow: hidden;
+    padding-top: 27px;
+    padding-bottom: 78px;
+    padding-right: 18px;
+    cursor: pointer;
+}
+.layout_icon {
+    background-position: 0 0;
+    height: 23px;
+    width: 30px;
+    display: inline-block;
+    zoom: 1;
+}
+.lef_nav_inner .nav_content {
+    padding-left: 22px;
+}
+.index_icon {
+    background-position: 0 -27px;
+    height: 20px;
+    width: 23px;
+    _background: url(../img/left_index_icon_ie6.png) no-repeat;
+    _background-position: 0 0;
+}
+.layout_icon, .index_icon, .dy_icon, .myDy_icon, .myFav_icon, .loginDy_icon, .introUp_icon, .introDown_icon, .pre_arrow, .next_arrow, .ws .pre_arrow, .ws .next_arrow, .search_icon, .add_dy_small, .cancel_dy_small, .cancel_dy_small:hover, .tie_num_icon, .share_num_icon, .con_tie_icon, .search_icon_small, .enter_icon, .dmore_icon, .error_icon, .close-btn, .rtriangle_icon, .btriangle_icon {
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+}

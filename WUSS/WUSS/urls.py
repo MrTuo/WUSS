@@ -19,8 +19,11 @@ from Myuser import views;
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.logic),
-    url(r'^judgelogic/$',views.judgelogic),
+    url(r'^homepage/$',views.logic),
+    url(r'^homepage1/$',views.logic1),
     url(r'^Register/$',views.Register),
-    url(r'^gotoregiste/$',views.gotoregiste),
-    
+    url(r'^changeuser/$',views.changeuser),
+    url(r'^gotochangeuser/$',views.gotochangeuser),
+    url(r'^logout/$',views.logout),
+    url(r'^error/$',views.error),
 ]

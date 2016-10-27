@@ -73,25 +73,30 @@ def send_update_email(req):
     :return:
     '''
     urls = Urls.objects.filter(user = req.user)
-    for url in urls:
-        items = RssItem.objects.filter(url = url)
-        #url['items'] = items
-    html_content = loader.render_to_string(
-        'mail_template.html',
-        {
-            'username':req.user.username,
-            'urls':urls,
-        }
-    )
-    subject = "订阅更新通知 - BY WUSS SYSTEM"
-    msg = EmailMessage(
-        subject,
-        html_content,
-        'wussapp@163.com',
-        ['595983351@qq.com'],
-    )
-    msg.content_subtype = "html"
-    msg.send()
+    context = {}
+    context['urls'] = urls
+    context['username'] = req.user.username
+    return render_to_response('mail_template.html',context)
+    # for url in urls:
+    #     items = RssItem.objects.filter(url = url)
+    #     #url['items'] = items
+    # html_content = loader.render_to_string(
+    #     'mail_template.html',
+    #     {
+    #         'username':req.user.username,
+    #         'urls':urls,
+    #     }
+    # )
+    # subject = "订阅更新通知 - BY WUSS SYSTEM"
+    # msg = EmailMessage(
+    #     subject,
+    #     html_content,
+    #     'wussapp@163.com',
+    #     ['595983351@qq.com'],
+    # )
+    # msg.content_subtype = "html"
+    # msg.send()
+    # return HttpResponse('send success!')
 
 
     # subject = "订阅更新通知 - BY WUSS SYSTEM"

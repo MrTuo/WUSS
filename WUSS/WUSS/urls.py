@@ -18,12 +18,14 @@ from django.contrib import admin
 from Myuser import views;
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.logic),
-    url(r'^homepage/$',views.logic),
-    url(r'^homepage1/$',views.logic1),
+    url(r'^$',views.mainhomepage),
+    url(r'^userhomepage/$',views.userhomepage),
+    url(r'^usermanagement/$',views.usermanagement),
+    url(r'^logic/$',views.logic),
+    url(r'^homepage/$',views.mainhomepage),
     url(r'^Register/$',views.Register),
     url(r'^changeuser/$',views.changeuser),
-    url(r'^gotochangeuser/$',views.gotochangeuser),
     url(r'^logout/$',views.logout),
     url(r'^error/$',views.error),
+    url(r'^Userjudge/$',views.Userjudge),
 ]

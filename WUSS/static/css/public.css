@@ -1,3 +1,15 @@
+body{
+    background: url(/static/img/140656-106.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 .mypublicpadding1{
     padding-right: 0px;
     padding-bottom: 40px;
@@ -5,6 +17,12 @@
 }
 .mypublicpadding2{
     padding-left: 0px;
+    width: 62px;
+    position: absolute;
+}
+.mypubliccontrol_homepage_change_picutre{
+    width:157px;
+    height: 327px;
 }
 .mypublic_navigation{
     background-color: #1f2021;
@@ -22,6 +40,47 @@
     margin-bottom: 40px;
     margin-top: 40px;
 }
+.mypublic_main_show{
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 500px;
+    margin: 0px 0px 0px 0px;
+    /*border:10px solid yellow;*/
+}
+.mypublic_main_show1{
+    margin: 0px 5% 0px 5%;
+    background-color: rgba(128, 128, 128, 0.56);
+    color: rgb(255, 255, 255);
+    width: 1046px;
+    /*border:10px solid yellow;*/
+}
+.mypublicbottom{
+    border-bottom: 10px solid green;
+    background-color: #dddddd;
+    height: 60px;
+}
+.mypublicleft_show{
+    height: 1000px;
+    width: 62px;
+    /*border: 10px solid red;*/
+    margin:0px 0px 0px 0px;
+    position: absolute;
+}
+.add_more {
+    color: #888;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    line-height: 51px;
+    text-align: center;
+    font-weight: bold;
+}
+.article_sec .section_more {
+    height: 57px;
+    background-color: #f0f0f0;
+    margin-top: 39px;
+    margin-bottom: 48px;
+    position: relative;
+}
 .left_nav_wrap{
     background-color:#222;
     overflow:auto;
@@ -37,6 +96,7 @@
 }
 .ct_layout {
     width: 64px;
+    height: 1000px;
 }
 .lef_nav_inner {
     margin-bottom: 45px;
@@ -71,4 +131,18 @@
 .layout_icon, .index_icon, .dy_icon, .myDy_icon, .myFav_icon, .loginDy_icon, .introUp_icon, .introDown_icon, .pre_arrow, .next_arrow, .ws .pre_arrow, .ws .next_arrow, .search_icon, .add_dy_small, .cancel_dy_small, .cancel_dy_small:hover, .tie_num_icon, .share_num_icon, .con_tie_icon, .search_icon_small, .enter_icon, .dmore_icon, .error_icon, .close-btn, .rtriangle_icon, .btriangle_icon {
     background-image: url(../img/sprite.png);
     background-repeat: no-repeat;
+}
+
+.user_navigation{
+    width: 100px;
+    color: red;
+    border: 1px solid;
+    margin-right: 0px;
+    position: relative;
+}
+.usermain{
+    width:1046px;
+    height: 500px;
+    border: 1px solid blue;
+    margin-top: 20px;
 }

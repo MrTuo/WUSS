@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^logout/$',views.logout),
     url(r'^error/$',views.error),
     url(r'^checkupdate/$',updateviews.check_update),
+    url(r'^sendmail/$',updateviews.send_update_email),
+
 ]

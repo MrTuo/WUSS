@@ -1,3 +1,5 @@
+# coding=utf-8
+
 """
 Django settings for WUSS project.
 
@@ -27,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+DEFAULT_CHARSET = 'utf-8'
 # Application definition
 
 INSTALLED_APPS = [
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -123,9 +125,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 TEMPLATE_DIRS=(
-        './Myuser/templates/',)
+        './Myuser/templates/',
+        './update_manage/templates',
+)
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'),
 )
-#
+#定义@login require跳转链接
 LOGIN_URL = '/homepage'
+
+#定义Email信息
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.163.com'            #SMTP服务器
+EMAIL_PORT = 25                        #SMTP服务器端口
+EMAIL_HOST_USER = 'wussapp@163.com'    #用户名
+EMAIL_HOST_PASSWORD = 'wussapp20162016'#第三方邮件收发授权码

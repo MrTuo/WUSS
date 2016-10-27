@@ -29,7 +29,10 @@ def judgelogic(request):
     if  user is not None:
         auth.login(request, user)
         # return render(request,'homepage.html')
-        return HttpResponseRedirect("/homepage")
+        try:
+            return HttpResponseRedirect(request.GET['next'])
+        except:
+            return HttpResponseRedirect('/homepage')
     return HttpResponseRedirect("/")
 
 def gotoregiste(request):

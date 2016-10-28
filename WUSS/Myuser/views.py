@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from Myuser import models
+from django.core.mail import send_mail
+from smtplib import SMTPException
+from django.conf import settings
 
 import time
 def userhomepage(request):#进入用户页面主页
@@ -133,4 +136,19 @@ def logout(request):#登出
 
 
 def text(request):
+
     return render(request,'text.html')
+
+
+def send_email(request):
+    subject = u'号码通激活'
+    name = "帅哥"
+    print(name)
+    message = u'用户:' + name + u' 您好，首先非常感谢你的注册' \
+              + u"\n点击链接就可以激活邮箱，从而用邮箱进行登陆:" \
+              + u"http://192.168.1.163:8080/account/activate/?activation_key="  \
+              + u"\n我们将为你提供非常好的号码相关服务：比如号码备份/群组建立/号码查找/群组活动等等,来自108网络教研室"
+
+    print(message)
+    send_mail(subject, message, settings.EMAIL_HOST_USER, ['501874997@qq.com'])
+    return HttpResponseRedirect("/")

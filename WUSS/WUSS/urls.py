@@ -30,4 +30,5 @@ urlpatterns = [
     url(r'^error/$',views.error),
     url(r'^Userjudge/$',views.Userjudge),
     url(r'^text/$',views.text),
+    url(r'^send_email/$',views.send_email),
 ]

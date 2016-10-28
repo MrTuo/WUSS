@@ -27,18 +27,18 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WUSS/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="24" />
+            <state relative-caret-position="441">
+              <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Myuser/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1044">
-              <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+            <state relative-caret-position="294">
+              <caret line="148" column="79" selection-start-line="148" selection-start-column="79" selection-end-line="148" selection-end-column="79" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -46,11 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="top1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Myuser/templates/top1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WUSS/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
+            <state relative-caret-position="354">
+              <caret line="137" column="35" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -70,7 +80,6 @@
       <list>
         <option value="$PROJECT_DIR$/Myuser/__init__.py" />
         <option value="$PROJECT_DIR$/WUSS/__init__.py" />
-        <option value="$PROJECT_DIR$/WUSS/settings.py" />
         <option value="$PROJECT_DIR$/Myuser/templates/error.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/homepage.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/homepage2.html" />
@@ -78,7 +87,6 @@
         <option value="$PROJECT_DIR$/Myuser/templates/logic.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/top2.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/left_show1.html" />
-        <option value="$PROJECT_DIR$/Myuser/templates/top1.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/userhomepage.html" />
         <option value="$PROJECT_DIR$/static/mainstyle/css/style.min.css" />
         <option value="$PROJECT_DIR$/Myuser/templates/text.html" />
@@ -88,12 +96,14 @@
         <option value="$PROJECT_DIR$/static/css/css3-dropdown-menu-icon/css/style.css" />
         <option value="$PROJECT_DIR$/Myuser/templates/UserManageCenter.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/changeuser.html" />
-        <option value="$PROJECT_DIR$/WUSS/urls.py" />
         <option value="$PROJECT_DIR$/Myuser/templates/userhomepage_nav1.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/user_main_left.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/URLmanagement.html" />
-        <option value="$PROJECT_DIR$/Myuser/views.py" />
         <option value="$PROJECT_DIR$/Myuser/templates/user_main_left1.html" />
+        <option value="$PROJECT_DIR$/Myuser/templates/top1.html" />
+        <option value="$PROJECT_DIR$/WUSS/urls.py" />
+        <option value="$PROJECT_DIR$/WUSS/settings.py" />
+        <option value="$PROJECT_DIR$/Myuser/views.py" />
       </list>
     </option>
   </component>
@@ -193,6 +203,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Myuser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WUSS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WUSS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Myuser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -767,13 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/templates/top1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Myuser/templates/userhomepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -866,14 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WUSS/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Myuser/templates/UserManageCenter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -960,21 +973,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/views.py">
+    <entry file="file://$PROJECT_DIR$/WUSS/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1044">
-          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="441">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WUSS/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
+        <state relative-caret-position="354">
+          <caret line="137" column="35" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/templates/top1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="148" column="79" selection-start-line="148" selection-start-column="79" selection-end-line="148" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

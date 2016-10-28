@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^$',views.mainhomepage),
     url(r'^userhomepage/$',views.userhomepage),
     url(r'^usermanagement/$',views.usermanagement),
+    url(r'^urlmanagement/$',views.urlmanagement),
     url(r'^logic/$',views.logic),
     url(r'^homepage/$',views.mainhomepage),
     url(r'^Register/$',views.Register),
@@ -28,4 +29,5 @@ urlpatterns = [
     url(r'^logout/$',views.logout),
     url(r'^error/$',views.error),
     url(r'^Userjudge/$',views.Userjudge),
+    url(r'^text/$',views.text),
 ]

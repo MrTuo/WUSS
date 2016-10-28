@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>修改密码</title>
+    <title>URL管理</title>
 </head>
 <body>
 
@@ -32,18 +32,10 @@
 
     <div class="usermain">
         <div class="usermain_left_nav">
-            {% include 'user_main_left.html' %}
+            {% include 'user_main_left1.html' %}
         </div>
         <div class="usermain_right_mainboard" style="color: white;">
-            <span><a href="UserManageCenter.html">账号管理</a>>>修改密码 </span>
-            <hr>
-            <form action="../changeuser/" method="POST">
-                <label>账号</label><label>{{ username }}</label><br>
-                <label>原密码</label><input type="text" placeholder="Text input" name="oldpassword"><br>
-                <label>新密码</label><input type="text" placeholder="Text input" name="newpassword"><br>
-                <label>确认密码</label><input type="text" placeholder="Text input" name="newpasswordagain"><br>
-                <input type="submit" value="确认修改">
-            </form>
+
         </div>
     </div>
 </body>

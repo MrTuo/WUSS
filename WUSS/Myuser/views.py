@@ -17,16 +17,30 @@ def userhomepage(request):#进入用户页面主页
     }
     return render(request, 'userhomepage.html', content)
 
-def usermanagement(request):
+def usermanagement(request):#进入用户账号管理页面
     if request.user.is_authenticated():
         content={
             'user_is_logic': 'YES',
             'user': request.user,
             'chooise':2,
+            'chooise_user_left_nav':1,
+            'username':request.user,
+            'useremail':request.user.email,
+            'usertime':request.user.last_login,
         }
         return render(request,'UserManageCenter.html',content)
     return HttpResponseRedirect('/error')
 
+def urlmanagement(request):
+    if request.user.is_authenticated():
+        content={
+            'user_is_logic': 'YES',
+            'user': request.user,
+            'chooise':3,
+            'chooise_user_left_nav':1,
+        }
+        return render(request,'URLmanagement.html',content)
+    return HttpResponseRedirect('/error')
 def Userjudge(request):#判断是否登录
     print(request.user)
     if request.user.is_authenticated():
@@ -85,7 +99,7 @@ def Register(request):#注册
         user.set_password(registpassword)
         user.email = registemail
         user.save()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/logic')
     return render(request, 'Register.html')
 
 def error(request):#错误页面
@@ -95,7 +109,8 @@ def changeuser(request):#修改密码
     if request.user.is_authenticated():
         user = request.user
         content={
-            'username':user.username
+            'username':user.username,
+            'chooise_user_left_nav':2,
         }
     if request.method == "POST":
         username = user.username
@@ -115,3 +130,7 @@ def changeuser(request):#修改密码
 def logout(request):#登出
     auth.logout(request)
     return HttpResponseRedirect("/")  # 返回到登录界面
+
+
+def text(request):
+    return render(request,'text.html')

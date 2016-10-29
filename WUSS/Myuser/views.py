@@ -13,12 +13,15 @@ from django.conf import settings
 
 import time
 def userhomepage(request):#进入用户页面主页
-    content = {
-        'user_is_logic': 'YES',
-        'user': request.user,
-        'chooise':1,
-    }
-    return render(request, 'userhomepage.html', content)
+    if request.user.is_authenticated():
+        content = {
+            'user_is_logic': 'YES',
+            'user': request.user,
+            'chooise':1,
+            'chooise_user_left_nav':1,
+        }
+        return render(request, 'userhomepage.html', content)
+    return HttpResponseRedirect('/error')
 
 def usermanagement(request):#进入用户账号管理页面
     if request.user.is_authenticated():
@@ -45,7 +48,6 @@ def urlmanagement(request):
         return render(request,'URLmanagement.html',content)
     return HttpResponseRedirect('/error')
 def Userjudge(request):#判断是否登录
-    print(request.user)
     if request.user.is_authenticated():
         return HttpResponseRedirect("/userhomepage")
     else:
@@ -114,8 +116,10 @@ def changeuser(request):#修改密码
         content={
             'username':user.username,
             'chooise_user_left_nav':2,
+            'user_is_logic': 'YES',
+            'chooise':2,
         }
-    if request.method == "POST":
+    if request.method == "POST" and request.user.is_authenticated():
         username = user.username
         oldpassword = request.POST.get('oldpassword', '')
         newpassword = request.POST.get('newpassword', '')
@@ -150,5 +154,5 @@ def send_email(request):
               + u"\n我们将为你提供非常好的号码相关服务：比如号码备份/群组建立/号码查找/群组活动等等,来自108网络教研室"
 
     print(message)
-    send_mail(subject, message, settings.EMAIL_HOST_USER, ['501874997@qq.com'])
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [request.user.email])
     return HttpResponseRedirect("/")

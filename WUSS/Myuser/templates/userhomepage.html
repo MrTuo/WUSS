@@ -6,19 +6,26 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/public.css">
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     {% include 'top1.html' %}
-    {% include 'left_show1.html' %}
-    <div class="mypublic_main_show" style="border: 1px solid red">
-        <div class="mypublic_main_show1"  style="border: 1px solid yellow">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    {% include 'userhomepage_nav1.html' %}
-                </div>
+    <div class="navcontrol">
+        <div class="navbar">
+            <div class="navbar-inner">
+                {% include 'userhomepage_nav1.html' %}
             </div>
+        </div>
+    </div>
+
+    <div class="usermain">
+        <div class="usermain_left_nav">
+            {% include 'user_main_left0.html' %}
+        </div>
+        <div class="usermain_right_mainboard" style="color: white;">
+            {% include 'user_subscription_show.html' %}
         </div>
     </div>
 </body>

@@ -1,264 +1,53 @@
-<!doctype html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Material Design隐藏侧边栏网页布局模板|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
-	<link rel="stylesheet" type="text/css" href="/static/mainstyle/css/default.css">
-  	<link rel="stylesheet" href="/static/mainstyle/css/style.min.css">
-    <script src="/static/mainstyle/js/development/materialMenu.js"></script>
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--[if IE]>
-		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
-	<![endif]-->
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-    {% include 'top1.html' %}
-
-	<div id="wrapper" class="wrapper">
-        <div class="mypublic_main_show">
-            <div class="mypublic_main_show1">
-                <div class="row clearfix">
-                <div class="col-md-2 column">
-                    <img alt="" src="/static/img/subscibe.jpg" height="200" width="200" />
-                </div>
-                <div class="col-md-8 column">
-
-                </div>
-                <div class="col-md-2 column">
-
-                </div>
+    <div class="container">
+        <form action="/text/" method="post">
+            <div class="form-group">
+                <label class="sr-only">username</label>
+{#                用户名输入框#}
+                <input type="text" class="form-control" name="username" id="username"  placeholder="用户名"/>
             </div>
-                <div class="carousel slide " id="carousel-195588">
-                    <ol class="carousel-indicators" style="width: 628px;left: 530px;margin-left: -314px">
-                        <li class="active" data-slide-to="0" data-target="#carousel-195588">
-                        </li>
-                        <li data-slide-to="1" data-target="#carousel-195588">
-                        </li>
-                        <li data-slide-to="2" data-target="#carousel-195588">
-                        </li>
-                    </ol>
-                    <div class="carousel-inner" style="width: 1046px">
-                        <div class="item active">
-                            <img alt="" src="/static/img/default (1).jpg" />
-                            <div class="carousel-caption">
-                                <h4>
-                                    First Thumbnail label
-                                </h4>
-                                <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img alt="" src="/static/img/default (2).jpg" />
-                            <div class="carousel-caption">
-                                <h4>
-                                    Second Thumbnail label
-                                </h4>
-                                <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img alt="" src="/static/img/default (3).jpg" />
-                            <div class="carousel-caption">
-                                <h4>
-                                    Third Thumbnail label
-                                </h4>
-                                <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <hr align="left" width="1046px" color="#FF0000" size="60" class="mypublic_cut_off_rule"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-6 column">
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 column">
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr align="left" width="1046px" color="#FF0000" size="60" class="mypublic_cut_off_rule1"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                    </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
-                    </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2" />
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                    </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
-                    </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                    </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
-                    </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                    </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
-                    </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                    </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
-                    </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="mypublicbottom section_more">
-                    <span>
-                        <a href="#" class="add_more" >+ 加载更多</a>
-                    </span>
-
-                </div>
-		    </div>
-        </div>
-    </div>
-
-
-	<button id="mm-menu-toggle" class="mm-menu-toggle" style="top: 113px;">Toggle Menu</button>
-	<nav id="mm-menu" class="mm-menu" style="top: 93px;">
-	  <div class="mm-menu__header">
-	    <h2 class="mm-menu__title">Nick Salloum</h2>
-	  </div>
-	  <ul class="mm-menu__items">
-	    <li class="mm-menu__item">
-	      <a class="mm-menu__link" href="#">
-	        <span class="mm-menu__link-text"><i class="md md-home"></i> Home</span>
-	      </a>
-	    </li>
-	    <li class="mm-menu__item">
-	      <a class="mm-menu__link" href="#">
-	        <span class="mm-menu__link-text"><i class="md md-person"></i> Profile</span>
-	      </a>
-	    </li>
-	    <li class="mm-menu__item">
-	      <a class="mm-menu__link" href="#">
-	        <span class="mm-menu__link-text"><i class="md md-inbox"></i> Inbox</span>
-	      </a>
-	    </li>
-	    <li class="mm-menu__item">
-	      <a class="mm-menu__link" href="#">
-	        <span class="mm-menu__link-text"><i class="md md-favorite"></i> Favourites</span>
-	      </a>
-	    </li>
-	    <li class="mm-menu__item">
-	      <a class="mm-menu__link" href="#">
-	        <span class="mm-menu__link-text"><i class="md md-settings"></i> Settings</span>
-	      </a>
-	    </li>
-	  </ul>
-	</nav><!-- /nav -->
-
-	<script src="js/production/materialMenu.min.js"></script>
-	<script>
-	  var menu = new Menu;
-	</script>
+            <div class="form-group">
+                <label class="sr-only">Password</label>
+{#                密码输入框#}
+                <input type="password" class="form-control" name="passwd" placeholder="密码"/>
+            </div>
+            <div class="form-group">
+{#                登录按钮#}
+                <input class="btn btn-primary" type="submit" value="登录">
+            </div>
+{#            通过模版语言的变量显示错误提示信息#}
+            {{ error_info }}
+        </form>
+</div>
+<script type="application/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+<script type="application/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script>
+{#    根据<input>的id获取设定输入框焦点离开时的操作#}
+    $('#username').blur(function(){
+{#       获取用户输入的用户名 #}
+       var input_name=$(this).val();
+{#       调用ajax提交数据 #}
+       $.ajax({
+{#                指定提交的url#}
+                url:"/text/",
+{#                指定将获取的用户名提交给login()函数里的username变量用于验证#}
+                data:{username:input_name},
+{#                指定提交的数据的格式#}
+                type:'POST',
+{#                success用来接收login()函数执行之后的return HttpResponse返回值#}
+                success:function(arg){
+{#                    用arg接收到返回值后通过alert将返回的内容输出到页面上#}
+                    alert(arg)
+                }
+            });
+    });
+</script>
 </body>
 </html>

@@ -20,7 +20,9 @@
 
 	<div class="Menu_homepage">
 		<h1>Please Logic</h1>
+
 		<form class="form-horizontal" method='POST' action="../logic/">
+            {% csrf_token %}
             <div class="control-group">
                 <div style="margin-top:20px ">
                     <img src="/static/img/adm.png" class="adm">
@@ -46,7 +48,7 @@
             </div>
 
             <div>
-                <a href="/homepage1" style="float: left;left: 40px">忘记密码？</a>
+                <a href="/forgetpassword" style="float: left;left: 40px">忘记密码？</a>
                 <a href="/Register" style="float: right;right: 40px">注册</a>
             </div>
         </form>

@@ -1,4 +1,4 @@
-from django.shortcuts import render,render_to_response,HttpResponse
+from django.shortcuts import render,render_to_response,HttpResponse,redirect
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.template import Context
@@ -10,8 +10,10 @@ from Myuser import models
 from django.core.mail import send_mail
 from smtplib import SMTPException
 from django.conf import settings
-
+from random import Random
 import time
+
+yanzhengma = "000000"
 def userhomepage(request):#进入用户页面主页
     if request.user.is_authenticated():
         content = {
@@ -37,7 +39,7 @@ def usermanagement(request):#进入用户账号管理页面
         return render(request,'UserManageCenter.html',content)
     return HttpResponseRedirect('/error')
 
-def urlmanagement(request):
+def urlmanagement(request):#URL管理页面
     if request.user.is_authenticated():
         content={
             'user_is_logic': 'YES',
@@ -47,6 +49,8 @@ def urlmanagement(request):
         }
         return render(request,'URLmanagement.html',content)
     return HttpResponseRedirect('/error')
+
+
 def Userjudge(request):#判断是否登录
     if request.user.is_authenticated():
         return HttpResponseRedirect("/userhomepage")
@@ -76,16 +80,17 @@ def logic(request):#登录
         logname = request.POST.get('username', '')
         logpassword = request.POST.get('password', '')
         user = auth.authenticate(username=logname, password=logpassword)
-        if user is not None:
-            print("0000000")
+        #user = auth.authenticate(username=logname)
+        if user is not None:#表示用户找到了
             auth.login(request, user)
-            # return render(request,'homepage.html')
             content={
                 'user_is_logic':'YES',
                 'user':logname,
             }
             return render(request, 'homepage1.html', content)
-        return HttpResponseRedirect("/error")
+        else:
+            return HttpResponseRedirect("/error")
+
     return render(request, 'logic.html')
 
 def Register(request):#注册
@@ -95,6 +100,7 @@ def Register(request):#注册
         registname = request.POST.get('idname', '')
         registemail = request.POST.get('idemail', '')
         registpassword = request.POST.get('idpassword', '')
+
         filterResult = User.objects.filter(username=registname)  # 判断用户是否存在
         filterResultemail = User.objects.filter(email=registemail) #判断email是否存在
         if len(filterResult) > 0 or len(filterResultemail) > 0:
@@ -119,7 +125,7 @@ def changeuser(request):#修改密码
             'user_is_logic': 'YES',
             'chooise':2,
         }
-    if request.method == "POST" and request.user.is_authenticated():
+    if request.method == 'POST' and request.user.is_authenticated():
         username = user.username
         oldpassword = request.POST.get('oldpassword', '')
         newpassword = request.POST.get('newpassword', '')
@@ -139,20 +145,53 @@ def logout(request):#登出
     return HttpResponseRedirect("/")  # 返回到登录界面
 
 
-def text(request):
-
-    return render(request,'text.html')
-
 
 def send_email(request):
+    forgetusername = request.POST.get('forgetusername', '')
+    forgetuseremail = request.POST.get('forgetuseremail', '')
+    yanzhengma=random_str()
     subject = u'号码通激活'
     name = "帅哥"
     print(name)
-    message = u'用户:' + name + u' 您好，首先非常感谢你的注册' \
+    message = u'用户:' + name + u' 您好，首先非常感谢你的注册' +yanzhengma\
               + u"\n点击链接就可以激活邮箱，从而用邮箱进行登陆:" \
               + u"http://192.168.1.163:8080/account/activate/?activation_key="  \
               + u"\n我们将为你提供非常好的号码相关服务：比如号码备份/群组建立/号码查找/群组活动等等,来自108网络教研室"
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [forgetuseremail])
+    print(yanzhengma)
+    return HttpResponseRedirect('/forgetpassword')
 
-    print(message)
-    send_mail(subject, message, settings.EMAIL_HOST_USER, [request.user.email])
-    return HttpResponseRedirect("/")
+constname =""
+constemail = ""
+def forgetpassword(request):#忘记密码
+    if request.method == 'POST':
+        forgetusername = request.POST.get('forgetusername','')
+        forgetuseremail = request.POST.get('forgetuseremail','')
+        constemail=forgetuseremail
+        constname=forgetusername
+        content = {
+            'username': constname,
+            'useremail': constemail,
+        }
+        send_email(request)
+        yanzhengma1 = request.POST.get('yanzhengma','')
+        if yanzhengma1 == yanzhengma:
+            return HttpResponseRedirect("/")
+        else:
+            request.method = None
+            return render(request,'forget_password.html',content)
+    else:
+        return render(request,'forget_password.html')
+
+
+def random_str(randomlength=6):
+    str = ''
+    chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
+    length = len(chars) - 1
+    random = Random()
+    for i in range(randomlength):
+        str+=chars[random.randint(0, length)]
+    return str
+
+def text(request):
+    return true

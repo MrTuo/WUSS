@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^Userjudge/$',views.Userjudge),
     url(r'^text/$',views.text),
     url(r'^send_email/$',views.send_email),
+    url(r'^forgetpassword/$',views.forgetpassword),
 ]

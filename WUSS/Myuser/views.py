@@ -164,9 +164,9 @@ def logout(request):#登出
 #     msg.send()
 #     return HttpResponseRedirect("/")
 def send_email(request):
-    subject = u'号码通激活'
+    subject = u'测试'
     name = "帅哥"
-    mail_list = ['501874997@qq.com', ]
+    mail_list = ['501874997@qq.com' ,]
     from_email = settings.EMAIL_HOST_USER
     message = u'用户:' + name + u' 这是测试邮件'
     email_template_name = 'text.html'

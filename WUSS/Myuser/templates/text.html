@@ -1,53 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>login</title>
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <form action="/text/" method="post">
-            <div class="form-group">
-                <label class="sr-only">username</label>
-{#                用户名输入框#}
-                <input type="text" class="form-control" name="username" id="username"  placeholder="用户名"/>
-            </div>
-            <div class="form-group">
-                <label class="sr-only">Password</label>
-{#                密码输入框#}
-                <input type="password" class="form-control" name="passwd" placeholder="密码"/>
-            </div>
-            <div class="form-group">
-{#                登录按钮#}
-                <input class="btn btn-primary" type="submit" value="登录">
-            </div>
-{#            通过模版语言的变量显示错误提示信息#}
-            {{ error_info }}
-        </form>
-</div>
-<script type="application/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
-<script type="application/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
-<script>
-{#    根据<input>的id获取设定输入框焦点离开时的操作#}
-    $('#username').blur(function(){
-{#       获取用户输入的用户名 #}
-       var input_name=$(this).val();
-{#       调用ajax提交数据 #}
-       $.ajax({
-{#                指定提交的url#}
-                url:"/text/",
-{#                指定将获取的用户名提交给login()函数里的username变量用于验证#}
-                data:{username:input_name},
-{#                指定提交的数据的格式#}
-                type:'POST',
-{#                success用来接收login()函数执行之后的return HttpResponse返回值#}
-                success:function(arg){
-{#                    用arg接收到返回值后通过alert将返回的内容输出到页面上#}
-                    alert(arg)
-                }
-            });
-    });
-</script>
-</body>
-</html>
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" version="2.0">
+<channel>
+<title>哈尔滨工业大学综合信息服务网</title>
+<link>http://news.hit.edu.cn</link>
+<description>哈尔滨工业大学综合信息服务网</description>
+<dc:language>zh-cn</dc:language>
+<dc:creator>fdy,gebi</dc:creator>
+<dc:date>2005-05-14T21:35:35Z</dc:date>
+<item>
+<title>土木工程学院组织教工活动日</title>
+<link>http://today.hit.edu.cn/2007/01-30/01112531.htm</link>
+<description>
+<![CDATA[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2007年1月20日下午，土木工程学院工会组织了教工活动日，忙碌了一年的教职工欢聚一堂，通过棋牌、球类、游泳、游戏等活动促进了了解，加强了感情的交流。学院还为60岁以上的整旬老人
+]]>
+</description>
+<guid isPermaLink="false">http://today.hit.edu.cn/2007/01-30/01112531.htm</guid>
+<dc:subject>院系快讯</dc:subject>
+<dc:date>2007-1-30 11:25:31</dc:date>
+</item>
+<item>
+<title>土木工程学院召开年终总结大会</title>
+<link>http://today.hit.edu.cn/2007/01-30/01112244.htm</link>
+<description>
+<![CDATA[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp; 2007年1月20日下午，土木工程学院在三楼报告厅召开了年终总结大会，院长邹超英对学院2006年在教学、科研、学科建设、师资队伍、人才培养、学生工作以及本科教学评估等方面取得
+]]>
+</description>
+<guid isPermaLink="false">http://today.hit.edu.cn/2007/01-30/01112244.htm</guid>
+<dc:subject>院系快讯</dc:subject>
+<dc:date>2007-1-30 11:22:44</dc:date>
+</item>
+<item>
+<title>杜善义院士参加浙大航空航天学院成立庆祝活动并作专题学术报告</title>
+<link>http://today.hit.edu.cn/2007/01-30/01085602.htm</link>
+<description>
+<![CDATA[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2007年1月21日，浙江大学航空航天学院成立的当天下午，浙江大学航空航天学院院长沈荣骏在主持召开了该学院发展战略研讨会，中国航天科技集团张履谦院士、中国空气动力研究与发展中心乐嘉陵院士、哈尔滨工业大学
+]]>
+</description>
+<guid isPermaLink="false">http://today.hit.edu.cn/2007/01-30/01085602.htm</guid>
+<dc:subject>媒体工大</dc:subject>
+<dc:date>2007-1-30 8:56:02</dc:date>
+</item>
+</channel>
+</rss>

@@ -1,14 +1,10 @@
 from django.shortcuts import render,render_to_response,HttpResponse,redirect
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.template import Context
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from Myuser import models
 from django.core.mail import send_mail
-from smtplib import SMTPException
 from django.conf import settings
 from random import Random
 import time
@@ -194,4 +190,4 @@ def random_str(randomlength=6):
     return str
 
 def text(request):
-    return true
+    return render(request,'text.html')

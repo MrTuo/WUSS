@@ -28,10 +28,8 @@
         <entry file="file://$PROJECT_DIR$/WUSS/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-              <folding>
-                <element signature="e#638#670#0" expanded="true" />
-              </folding>
+              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -39,61 +37,46 @@
       <file leaf-file-name="text.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Myuser/templates/text.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Myuser/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="180" column="33" selection-start-line="180" selection-start-column="33" selection-end-line="180" selection-end-column="33" />
+            <state relative-caret-position="705">
+              <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
               <folding>
-                <element signature="e#0#76#0" expanded="true" />
+                <element signature="e#673#679#0#HTML" expanded="true" />
+                <element signature="e#679#685#0#HTML" expanded="true" />
+                <element signature="e#685#691#0#HTML" expanded="true" />
+                <element signature="e#691#697#0#HTML" expanded="true" />
+                <element signature="e#697#703#0#HTML" expanded="true" />
+                <element signature="e#703#709#0#HTML" expanded="true" />
+                <element signature="e#709#715#0#HTML" expanded="true" />
+                <element signature="e#715#721#0#HTML" expanded="true" />
+                <element signature="e#1110#1116#0#HTML" expanded="true" />
+                <element signature="e#1116#1122#0#HTML" expanded="true" />
+                <element signature="e#1122#1128#0#HTML" expanded="true" />
+                <element signature="e#1128#1134#0#HTML" expanded="true" />
+                <element signature="e#1134#1140#0#HTML" expanded="true" />
+                <element signature="e#1142#1148#0#HTML" expanded="true" />
+                <element signature="e#1148#1154#0#HTML" expanded="true" />
+                <element signature="e#1154#1160#0#HTML" expanded="true" />
+                <element signature="e#1562#1568#0#HTML" expanded="true" />
+                <element signature="e#1568#1574#0#HTML" expanded="true" />
+                <element signature="e#1574#1580#0#HTML" expanded="true" />
+                <element signature="e#1580#1586#0#HTML" expanded="true" />
+                <element signature="e#1586#1592#0#HTML" expanded="true" />
+                <element signature="e#1592#1598#0#HTML" expanded="true" />
+                <element signature="e#1598#1604#0#HTML" expanded="true" />
+                <marker date="1478006538000" expanded="true" signature="335:1891" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="text.asp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Myuser/templates/text.asp">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Myuser/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logic.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Myuser/templates/logic.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Register.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Myuser/templates/Register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forget_password.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Myuser/templates/forget_password.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="135">
+              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#76#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,7 +110,6 @@
         <option value="$PROJECT_DIR$/Myuser/templates/userhomepage_nav1.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/user_main_left.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/user_main_left1.html" />
-        <option value="$PROJECT_DIR$/Myuser/templates/top1.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/URLmanagement.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/user_main_left0.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/userhomepage.html" />
@@ -135,14 +117,15 @@
         <option value="$PROJECT_DIR$/Myuser/templates/homepage1.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/homepage_left_show.html" />
         <option value="$PROJECT_DIR$/static/js/Checklogic.js" />
-        <option value="$PROJECT_DIR$/Myuser/templates/text.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/text.asp" />
         <option value="$PROJECT_DIR$/Myuser/templates/logic.html" />
         <option value="$PROJECT_DIR$/Myuser/templates/Register.html" />
         <option value="$PROJECT_DIR$/WUSS/settings.py" />
         <option value="$PROJECT_DIR$/WUSS/urls.py" />
-        <option value="$PROJECT_DIR$/Myuser/views.py" />
         <option value="$PROJECT_DIR$/Myuser/templates/forget_password.html" />
+        <option value="$PROJECT_DIR$/Myuser/templates/top1.html" />
+        <option value="$PROJECT_DIR$/Myuser/templates/text.html" />
+        <option value="$PROJECT_DIR$/Myuser/views.py" />
       </list>
     </option>
   </component>
@@ -197,7 +180,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -358,7 +341,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -660,6 +643,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3173971" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -672,7 +656,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -703,9 +686,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#638#670#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -734,9 +715,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#638#670#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -908,15 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/templates/top1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,7 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,9 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -974,7 +940,7 @@
         <state relative-caret-position="255">
           <caret line="2" column="22638" selection-start-line="2" selection-start-column="22638" selection-end-line="2" selection-end-column="22638" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -987,35 +953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/templates/logic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/templates/Register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/templates/text.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/django/middleware/common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="852">
           <caret line="111" column="11" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,7 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1043,31 +982,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/templates/forget_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/templates/Register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/templates/logic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/templates/top1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WUSS/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/templates/text.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
           <folding>
-            <element signature="e#638#670#0" expanded="true" />
+            <element signature="e#673#679#0#HTML" expanded="true" />
+            <element signature="e#679#685#0#HTML" expanded="true" />
+            <element signature="e#685#691#0#HTML" expanded="true" />
+            <element signature="e#691#697#0#HTML" expanded="true" />
+            <element signature="e#697#703#0#HTML" expanded="true" />
+            <element signature="e#703#709#0#HTML" expanded="true" />
+            <element signature="e#709#715#0#HTML" expanded="true" />
+            <element signature="e#715#721#0#HTML" expanded="true" />
+            <element signature="e#1110#1116#0#HTML" expanded="true" />
+            <element signature="e#1116#1122#0#HTML" expanded="true" />
+            <element signature="e#1122#1128#0#HTML" expanded="true" />
+            <element signature="e#1128#1134#0#HTML" expanded="true" />
+            <element signature="e#1134#1140#0#HTML" expanded="true" />
+            <element signature="e#1142#1148#0#HTML" expanded="true" />
+            <element signature="e#1148#1154#0#HTML" expanded="true" />
+            <element signature="e#1154#1160#0#HTML" expanded="true" />
+            <element signature="e#1562#1568#0#HTML" expanded="true" />
+            <element signature="e#1568#1574#0#HTML" expanded="true" />
+            <element signature="e#1574#1580#0#HTML" expanded="true" />
+            <element signature="e#1580#1586#0#HTML" expanded="true" />
+            <element signature="e#1586#1592#0#HTML" expanded="true" />
+            <element signature="e#1592#1598#0#HTML" expanded="true" />
+            <element signature="e#1598#1604#0#HTML" expanded="true" />
+            <marker date="1478006538000" expanded="true" signature="335:1891" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Myuser/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="180" column="33" selection-start-line="180" selection-start-column="33" selection-end-line="180" selection-end-column="33" />
+        <state relative-caret-position="135">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/templates/forget_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>

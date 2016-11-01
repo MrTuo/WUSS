@@ -8,6 +8,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from random import Random
 import time
+from django.core.mail import EmailMultiAlternatives
+from django.template import Context, loader
 
 yanzhengma = "000000"
 def userhomepage(request):#进入用户页面主页
@@ -142,20 +144,43 @@ def logout(request):#登出
 
 
 
+# def send_email(request):
+#     yanzhengma=random_str()
+#     subject = u'号码通激活'
+#     mail_list=['501874997@qq.com',]
+#     from_email=settings.EMAIL_HOST_USER
+#     name = "帅哥"
+#     print(name)
+#     message = u'用户:' + name + u' 您好，首先非常感谢你的注册' +yanzhengma\
+#               + u"\n点击链接就可以激活邮箱，从而用邮箱进行登陆:" \
+#               + u"http://192.168.1.163:8080/account/activate/?activation_key="  \
+#               + u"\n我们将为你提供非常好的号码相关服务：比如号码备份/群组建立/号码查找/群组活动等等,来自108网络教研室"
+#     send_mail(subject, message, settings.EMAIL_HOST_USER, [])
+#     email_template_name = 'text.html'
+#     t = loader.get_template(email_template_name)
+#     html_content = t.render()
+#     msg = EmailMultiAlternatives(subject, html_content, from_email, mail_list)
+#     msg.attach_alternative(html_content, "text/html")
+#     msg.send()
+#     return HttpResponseRedirect("/")
 def send_email(request):
-    forgetusername = request.POST.get('forgetusername', '')
-    forgetuseremail = request.POST.get('forgetuseremail', '')
-    yanzhengma=random_str()
     subject = u'号码通激活'
     name = "帅哥"
-    print(name)
-    message = u'用户:' + name + u' 您好，首先非常感谢你的注册' +yanzhengma\
-              + u"\n点击链接就可以激活邮箱，从而用邮箱进行登陆:" \
-              + u"http://192.168.1.163:8080/account/activate/?activation_key="  \
-              + u"\n我们将为你提供非常好的号码相关服务：比如号码备份/群组建立/号码查找/群组活动等等,来自108网络教研室"
-    send_mail(subject, message, settings.EMAIL_HOST_USER, [forgetuseremail])
-    print(yanzhengma)
-    return HttpResponseRedirect('/forgetpassword')
+    mail_list = ['501874997@qq.com', ]
+    from_email = settings.EMAIL_HOST_USER
+    message = u'用户:' + name + u' 这是测试邮件'
+    email_template_name = 'text.html'
+    t = loader.get_template(email_template_name)
+    html_content = t.render()
+    msg = EmailMultiAlternatives(subject, html_content, from_email, mail_list)
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
+    # send_mail(subject, message, from_email, mail_list)
+    return HttpResponseRedirect("/")
+
+
+
+
 
 constname =""
 constemail = ""
@@ -180,7 +205,7 @@ def forgetpassword(request):#忘记密码
         return render(request,'forget_password.html')
 
 
-def random_str(randomlength=6):
+def random_str(randomlength=6):#生成随机验证码
     str = ''
     chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
     length = len(chars) - 1

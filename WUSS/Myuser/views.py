@@ -166,10 +166,10 @@ def logout(request):#登出
 def send_email(request):
     subject = u'测试'
     name = "帅哥"
-    mail_list = ['501874997@qq.com' ,]
-    from_email = settings.EMAIL_HOST_USER
+    mail_list = ['501874997@qq.com' ,]#这里放入的是收件人
+    from_email = settings.EMAIL_HOST_USER#这里放的是发件人
     message = u'用户:' + name + u' 这是测试邮件'
-    email_template_name = 'text.html'
+    email_template_name = 'send_email_template.html'#这里是邮件模板
     t = loader.get_template(email_template_name)
     html_content = t.render()
     msg = EmailMultiAlternatives(subject, html_content, from_email, mail_list)

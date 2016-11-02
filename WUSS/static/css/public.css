@@ -147,7 +147,7 @@ html, body {
 .usermain{
     width:1046px;
     height: 500px;
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
     margin-top: 20px;
     position: relative;
     margin:0 auto;
@@ -167,7 +167,15 @@ html, body {
 .usermain_right_mainboard{
     width: 846px;
     height: 800px;
-    border: 1px solid purple;
+    /*border: 1px solid purple;*/
+    position: absolute;
+    right:0px;
+    background-color: rgba(158, 158, 158, 0.58);
+}
+.usermain_right_mainboard_for_URL{
+    width: 1046px;
+    height: 800px;
+    /*border: 1px solid purple;*/
     position: absolute;
     right:0px;
     background-color: rgba(158, 158, 158, 0.58);
@@ -175,4 +183,17 @@ html, body {
 .navcontrol{
     width: 1046px;
     margin: 0 auto;
+}
+.urltable{
+    width: 700px;
+    table-layout:fixed;
+    left: 50%;
+    margin-left:-350px;
+    border:purple solid 1px;
+    position: absolute;
+}
+.urltitle{
+    width: 1046px;
+    text-align: center;
+
 }

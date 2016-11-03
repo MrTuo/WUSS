@@ -1,0 +1,86 @@
+body,.backgroundTable{
+			background-color:#FFFFCC;
+		}
+		#contentTable{
+			border:0px none #000000;
+			margin-top:10px;
+		}
+		.headerTop{
+			background-color:#ececec;
+			border-top:0px none #000000;
+			border-bottom:0px none #FFFFFF;
+			text-align:center;
+			padding:0px;
+		}
+		.adminText{
+			font-size:11px;
+			color:#000000;
+			line-height:100%;
+			font-family:Arial;
+			text-decoration:none;
+		}
+		.headerBar{
+			background-color:#FFFFFF;
+			border-top:0px none #333333;
+			border-bottom:0px none #FFFFFF;
+			padding:0px;
+		}
+		.headerBarText{
+			color:#ffffff;
+			font-size:14px;
+			font-family:Arial;
+			font-weight:normal;
+			text-align:left;
+		}
+		.title{
+			font-size:18px;
+			font-weight:bold;
+			color:#000000;
+			font-family:Arial;
+			line-height:100%;
+		}
+		.subTitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#000000;
+			font-style:normal;
+			font-family:Arial;
+		}
+		.defaultText{
+			font-size:14px;
+			color:#333333;
+			line-height:100%;
+			font-family:Georgia;
+			background-color:#FFFFFF;
+			padding:0px;
+			border:0px none #FFFFFF;
+		}
+		.footerRow{
+			background-color:#333333;
+			border-top:0px none #FFFFFF;
+			padding:0px;
+		}
+		.footerText{
+			font-size:11px;
+			color:#ffffff;
+			line-height:100%;
+			font-family:Arial;
+		}
+		a,a:link,a:visited{
+			color:#800000;
+			text-decoration:underline;
+			font-weight:normal;
+		}
+		.headerTop a{
+			color:#33ccff;
+			text-decoration:none;
+			font-weight:normal;
+		}
+		.footerRow a{
+			color:#800000;
+			text-decoration:underline;
+			font-weight:normal;
+		}
+		body,.backgroundTable{
+			background-color:#ececec;
+		}

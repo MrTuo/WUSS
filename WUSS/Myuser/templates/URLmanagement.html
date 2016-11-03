@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL管理</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号管理</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    {% include 'top1.html' %}
+
+    <div class="navcontrol">
+        <div class="navbar">
+            <div class="navbar-inner">
+                {% include 'userhomepage_nav1.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="usermain">
+        <div class="usermain_right_mainboard_for_URL" style="color: white;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="urltable">
+                <tr>
+                    <th>URL管理</th>
+                </tr>
+                <tr>
+                    <td><hr></td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="urltable">
+                            {# 在这用for循环 #}
+                            <tr>
+                                <td>URL地址:192.168.1.1<a href="#">修改</a> </td>
+                                <td>添加时间:</td>
+                                <td>上次更新时间:</td>
+                            </tr>
+                            <tr><td><hr></td><td><hr></td><td><hr></td></tr>
+                            <tr>
+                                <td>URL地址:192.168.1.1<a href="#">修改</a> </td>
+                                <td>添加时间:</td>
+                                <td>上次更新时间:</td>
+                            </tr>
+                            <tr><td><hr></td><td><hr></td><td><hr></td></tr>
+                            <tr>
+                                <td>URL地址:192.168.1.1<a href="#">修改</a> </td>
+                                <td>添加时间:</td>
+                                <td>上次更新时间:</td>
+                            </tr>
+                            <tr><td><hr></td><td><hr></td><td><hr></td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

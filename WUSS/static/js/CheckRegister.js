@@ -35,7 +35,7 @@ function check(obj, info, fun, click){
         } else {
 
             sp.innerHTML = info;
-            sp.style.color = "red";
+            sp.style.color = "#05ffe3";
         }
     }
 
@@ -57,9 +57,22 @@ function regs(click){
     inputEmail = document.getElementById('inputEmail');
     inputPassword = document.getElementById('inputPassword');
     inputPasswordAgain = document.getElementById('inputPasswordAgain');
+    inputName = document.getElementById('inputName');
 
+    check(inputName, "用户名最长为20个字符由英文字母和数字组成", function(val){
+        var re = /^([a-z]|[A-Z]|[0-9]){1,20}$/;
+        console.log(val);
+        if (re.test(val)){
+            return true;
+        }
+        else{
+            stat = false;
+            return false;
+        }
 
-    check(inputEmail, "用户名由邮箱组成，例如user@host.domainnames", function(val){
+    }, click);
+
+    check(inputEmail, "请输入正确的邮箱格式例如:user@host.domainnames", function(val){
         var re = /^([a-z]|[A-Z]|[0-9]){1,20}@([a-z]|[A-Z]|[0-9]|.){1,10}$/;
         console.log(val);
         if (re.test(val)){

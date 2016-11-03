@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from Myuser import views;
+<<<<<<< HEAD
 from update_manage import views as updateviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -32,4 +33,22 @@ urlpatterns = [
     url(r'^checkupdate/$',updateviews.check_update),
     url(r'^sendmail/$',updateviews.send_update_email),
 
+=======
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^$',views.mainhomepage),
+    url(r'^userhomepage/$',views.userhomepage),
+    url(r'^usermanagement/$',views.usermanagement),
+    url(r'^urlmanagement/$',views.urlmanagement),
+    url(r'^logic/$',views.logic),
+    url(r'^homepage/$',views.mainhomepage),
+    url(r'^Register/$',views.Register),
+    url(r'^changeuser/$',views.changeuser),
+    url(r'^logout/$',views.logout),
+    url(r'^error/$',views.error),
+    url(r'^Userjudge/$',views.Userjudge),
+    url(r'^text/$',views.text),
+    url(r'^send_email/$',views.send_email),
+    url(r'^forgetpassword/$',views.forgetpassword),
+>>>>>>> 5a57dd37e3febc184b985be55e9d2de555d5dd86
 ]

@@ -20,7 +20,9 @@
 
 	<div class="Menu_homepage">
 		<h1>Please Logic</h1>
-		<form class="form-horizontal" method='POST' action="judgelogic/">
+
+		<form class="form-horizontal" method='POST' action="../logic/">
+            {% csrf_token %}
             <div class="control-group">
                 <div style="margin-top:20px ">
                     <img src="/static/img/adm.png" class="adm">
@@ -38,7 +40,7 @@
 			      	<label for="slideThree"></label>
 			    </div>
 		 	</div>
-		 	<div class="remember_text">Remember me</div>
+		 	<div class="remember_text">记住密码</div>
             </div>
 
             <div style="left: 40px;position: relative;">
@@ -46,8 +48,8 @@
             </div>
 
             <div>
-                <a href="" style="float: left;left: 40px">Forget Password?</a>
-                <a href="/Register" style="float: right;right: 40px">Sign up</a>
+                <a href="/forgetpassword" style="float: left;left: 40px">忘记密码？</a>
+                <a href="/Register" style="float: right;right: 40px">注册</a>
             </div>
         </form>
 	</div>

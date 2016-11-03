@@ -67,7 +67,6 @@ def mainhomepage(request):#进入到主页
     return render(request,'homepage1.html',content)
 
 def logic(request):#登录
-    print(request.user)
     if request.user.is_authenticated():
         content = {
             'user_is_logic': 'YES',
@@ -75,19 +74,24 @@ def logic(request):#登录
         }
         return render(request, 'userhomepage.html',content)
     if request.method == 'POST':
-        logname = request.POST.get('username', '')
-        logpassword = request.POST.get('password', '')
-        user = auth.authenticate(username=logname, password=logpassword)
+        # logname = request.POST.get('username', '')
+        # if logname=='':
+        lognameforajax =request.POST['lognameforajax'].strip()
+        # logpassword = request.POST.get('password', '')
+        # if logpassword=='':
+        logpasswordforajax = request.POST['logpasswordforajax'].strip()
+        user = auth.authenticate(username=lognameforajax,password=logpasswordforajax)
         #user = auth.authenticate(username=logname)
         if user is not None:#表示用户找到了
             auth.login(request, user)
             content={
                 'user_is_logic':'YES',
-                'user':logname,
+                'user':lognameforajax,
             }
-            return render(request, 'homepage1.html', content)
+            print(user)
+            return render(request,'homepage1.html', content)
         else:
-            return HttpResponseRedirect("/error")
+            return HttpResponse("账号或密码错误")
 
     return render(request, 'logic.html')
 

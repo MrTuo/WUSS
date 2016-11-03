@@ -8,6 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/homepage.css">
     <script src="/static/js/CheckRegister.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("button").click(function(){
+            time=1
+            clock = setInterval(doLoop(time), 1000);
+            if (time <= 0)
+                $("#test").hide();
+        });
+    });
+</script>
 </head>
 <body>
 <div style="top: 50%;
@@ -23,7 +34,7 @@
                 <div class="control-group">
                     <div style="margin-top:20px ">
                         <img src="/static/img/adm.png" class="adm">
-                        <input type="text" id="inputName" placeholder="UserName" required name='idname'><span></span>
+                        <input type="text" id="inputName" placeholder="UserName" required name='idname' onblur="judge()"><span></span>
                     </div>
                 </div>
 

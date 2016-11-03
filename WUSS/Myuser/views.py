@@ -200,32 +200,41 @@ def send_email(request):
     # send_mail(subject, message, from_email, mail_list)
     return HttpResponseRedirect("/")
 
+emailsend=""#记录发送的email避免更改email
+def send_email_to_changepassword(request):
+    yanzhengma = random_str()
+    email=request.POST['email'].strip()
+    emailsend=email
+    print(email)
+    print(emailsend)
+    try:
+        user=User.objects.get(email=email)
+    except:
+        print("herer")
+        return HttpResponse("邮箱未注册无法发送")
+    subject = u'WUSS用户忘记密码'
+    from_email=settings.EMAIL_HOST_USER
+    message = u'亲爱的用户:'+ email + "您在WUSS请求的验证码是:"+yanzhengma
+    send_mail(subject, message, from_email, [email,])
+    return HttpResponse("发送成功")
 
 
-
-
-constname =""
-constemail = ""
 def forgetpassword(request):#忘记密码
-    if request.method == 'POST':
-        forgetusername = request.POST.get('forgetusername','')
-        forgetuseremail = request.POST.get('forgetuseremail','')
-        constemail=forgetuseremail
-        constname=forgetusername
-        content = {
-            'username': constname,
-            'useremail': constemail,
-        }
-        send_email(request)
-        yanzhengma1 = request.POST.get('yanzhengma','')
-        if yanzhengma1 == yanzhengma:
-            return HttpResponseRedirect("/")
-        else:
-            request.method = None
-            return render(request,'forget_password.html',content)
-    else:
-        return render(request,'forget_password.html')
+    return render(request,'forget_password.html')
 
+def applyfor(request):
+    email = request.POST['email'].strip()
+    yanzhengma1=request.POST['yanzhengma'].strip()
+    print(email+'1')
+    print(emailsend+'2')
+    if email!=emailsend:
+        return HttpResponse("两次邮箱不同！")
+    if yanzhengma!=yanzhengma1:
+        return HttpResponse("验证码错误")
+    return HttpResponse("验证成功")
+
+def forgetandchangepassword(request):
+    return render(request,'forgetandchangepassword.html')
 
 def random_str(randomlength=6):#生成随机验证码
     str = ''

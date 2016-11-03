@@ -34,4 +34,7 @@ urlpatterns = [
     url(r'^forgetpassword/$',views.forgetpassword),
     url(r'^Registerajax/$',views.Registerajax),
     url(r'^Registerajaxemail/$',views.Registerajaxemail),
+    url(r'^send_email_to_changepassword/$',views.send_email_to_changepassword),
+    url(r'^forgetandchangepassword/$',views.forgetandchangepassword),
+    url(r'^applyfor/$',views.applyfor),
 ]

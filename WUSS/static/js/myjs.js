@@ -6,10 +6,23 @@ var nums = 3;
 var btn;
 function sendCode(thisBtn)
 {
+    email=$("#femail").val()
+    $.ajax({
+        url:'/send_email_to_changepassword/',
+        data:{
+            name:name,
+            email:email,
+        },
+        type:'post',
+        success:function(arg){
+            alert(arg)
+        }
+    })
     btn = thisBtn;
     btn.disabled = true; //将按钮置为不可点击
     btn.value = nums+'秒后可重新获取';
     clock = setInterval(doLoop, 1000); //一秒执行一次
+
  }
 function doLoop()
 {
@@ -79,4 +92,22 @@ function myFunction()
     var btn2=$("#btnemail").val()
     if (btn1!="可以使用该用户"||btn2!="可以使用该邮箱")
         alert("用户名或注册邮箱重复")
+}
+function apply()
+{
+    email=$("#femail").val()
+    yanzhengma=$("#fyanzhengma").val()
+    $.ajax({
+        url:"/applyfor/",
+        data:{
+            email:email,
+            yanzhengma:yanzhengma,
+        },
+        type:'post',
+        success:function(arg){
+            alert(arg)
+            if (arg=="验证成功")
+                window.location.href='/forgetandchangepassword/'
+        }
+    })
 }

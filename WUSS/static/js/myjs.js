@@ -29,7 +29,7 @@ function send()
     var email=$("#inputEmail").val();
     var password=$("#inputPassword").val()
     $.ajax({
-        url:"../logic/",
+        url:"../login/",
         data:{
             lognameforajax:email,
             logpasswordforajax:password
@@ -42,4 +42,41 @@ function send()
                 window.location.href='/'
         }
     })
+}
+function judgeforexisting(thisbtn)
+{
+    var name=$("#inputName").val()
+    var btn=thisbtn
+    $.ajax({
+        url:"/Registerajax/",
+        data:{
+            name:name,
+        },
+        type:'post',
+        success:function (arg) {
+            btn.value=arg
+        }
+    })
+}
+function judgeforemail(thisbtn)
+{
+    var email=$("#inputEmail").val()
+    var btn=thisbtn
+    $.ajax({
+        url:"/Registerajaxemail/",
+        data:{
+            email:email,
+        },
+        type:'post',
+        success:function (arg) {
+            btn.value=arg
+        }
+    })
+}
+function myFunction()
+{
+    var btn1=$("#btnname").val()
+    var btn2=$("#btnemail").val()
+    if (btn1!="可以使用该用户"||btn2!="可以使用该邮箱")
+        alert("用户名或注册邮箱重复")
 }

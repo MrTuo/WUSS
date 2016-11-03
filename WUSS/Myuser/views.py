@@ -10,6 +10,7 @@ from random import Random
 import time
 from django.core.mail import EmailMultiAlternatives
 from django.template import Context, loader
+from django.core.exceptions import ObjectDoesNotExist
 
 yanzhengma = "000000"
 def userhomepage(request):#进入用户页面主页
@@ -53,7 +54,7 @@ def Userjudge(request):#判断是否登录
     if request.user.is_authenticated():
         return HttpResponseRedirect("/userhomepage")
     else:
-        return HttpResponseRedirect("/logic")
+        return HttpResponseRedirect("/login")
 
 def mainhomepage(request):#进入到主页
     if request.user.is_authenticated():
@@ -66,7 +67,7 @@ def mainhomepage(request):#进入到主页
     }
     return render(request,'homepage1.html',content)
 
-def logic(request):#登录
+def login(request):#登录
     if request.user.is_authenticated():
         content = {
             'user_is_logic': 'YES',
@@ -93,7 +94,7 @@ def logic(request):#登录
         else:
             return HttpResponse("账号或密码错误")
 
-    return render(request, 'logic.html')
+    return render(request, 'login.html')
 
 def Register(request):#注册
     # if request.user.is_authenticated():  #如果登录了就不用在注册了
@@ -114,6 +115,23 @@ def Register(request):#注册
         user.save()
         return HttpResponseRedirect('/logic')
     return render(request, 'Register.html')
+
+def Registerajax(request):#注册页面判断用户是否已经注册了
+    name=request.POST['name'].strip()
+    try:
+        user=User.objects.get(username=name)
+    except:
+        return HttpResponse("可以使用该用户名")
+    return HttpResponse("用户已存在")
+
+
+def Registerajaxemail(request):#注册页面判断邮箱是否注册过
+    email = request.POST['email'].strip()
+    try:
+        user = User.objects.get(email=email)
+    except:
+        return HttpResponse("可以使用该邮箱")
+    return HttpResponse("邮箱已注册")
 
 def error(request):#错误页面
     return render(request,'error.html')

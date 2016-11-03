@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^userhomepage/$',views.userhomepage),
     url(r'^usermanagement/$',views.usermanagement),
     url(r'^urlmanagement/$',views.urlmanagement),
-    url(r'^logic/$',views.logic),
+    url(r'^login/$',views.login),
     url(r'^homepage/$',views.mainhomepage),
     url(r'^Register/$',views.Register),
     url(r'^changeuser/$',views.changeuser),
@@ -32,4 +32,6 @@ urlpatterns = [
     url(r'^text/$',views.text),
     url(r'^send_email/$',views.send_email),
     url(r'^forgetpassword/$',views.forgetpassword),
+    url(r'^Registerajax/$',views.Registerajax),
+    url(r'^Registerajaxemail/$',views.Registerajaxemail),
 ]

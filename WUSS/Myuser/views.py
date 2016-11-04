@@ -1,3 +1,5 @@
+# This Python file uses the following encoding: utf-8
+
 from django.shortcuts import render,render_to_response,HttpResponse,redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -11,9 +13,12 @@ import time
 from django.core.mail import EmailMultiAlternatives
 from django.template import Context, loader
 from django.core.exceptions import ObjectDoesNotExist
+from Myuser.models import VerificationCode
 
-yanzhengma = "000000"
-def userhomepage(request):#进入用户页面主页
+
+
+#encoding:utf-8
+def userhomepage(request):#into the userhomepage
     if request.user.is_authenticated():
         content = {
             'user_is_logic': 'YES',
@@ -24,7 +29,7 @@ def userhomepage(request):#进入用户页面主页
         return render(request, 'userhomepage.html', content)
     return HttpResponseRedirect('/error')
 
-def usermanagement(request):#进入用户账号管理页面
+def usermanagement(request):#into the UserManageCenter
     if request.user.is_authenticated():
         content={
             'user_is_logic': 'YES',
@@ -38,7 +43,7 @@ def usermanagement(request):#进入用户账号管理页面
         return render(request,'UserManageCenter.html',content)
     return HttpResponseRedirect('/error')
 
-def urlmanagement(request):#URL管理页面
+def urlmanagement(request):#URL management
     if request.user.is_authenticated():
         content={
             'user_is_logic': 'YES',
@@ -50,13 +55,13 @@ def urlmanagement(request):#URL管理页面
     return HttpResponseRedirect('/error')
 
 
-def Userjudge(request):#判断是否登录
+def Userjudge(request):# if login or not
     if request.user.is_authenticated():
         return HttpResponseRedirect("/userhomepage")
     else:
         return HttpResponseRedirect("/login")
-
-def mainhomepage(request):#进入到主页
+#encoding:utf-8
+def mainhomepage(request):#into the homepage
     if request.user.is_authenticated():
         content={
             'user_is_logic':'YES'
@@ -67,7 +72,7 @@ def mainhomepage(request):#进入到主页
     }
     return render(request,'homepage1.html',content)
 
-def login(request):#登录
+def login(request):#login
     if request.user.is_authenticated():
         content = {
             'user_is_logic': 'YES',
@@ -96,19 +101,17 @@ def login(request):#登录
 
     return render(request, 'login.html')
 
-def Register(request):#注册
-    # if request.user.is_authenticated():  #如果登录了就不用在注册了
-    #     return HttpResponseRedirect("/user")
+def Register(request):#register
     if request.method == 'POST':
         registname = request.POST.get('idname', '')
         registemail = request.POST.get('idemail', '')
         registpassword = request.POST.get('idpassword', '')
 
-        filterResult = User.objects.filter(username=registname)  # 判断用户是否存在
-        filterResultemail = User.objects.filter(email=registemail) #判断email是否存在
+        filterResult = User.objects.filter(username=registname)  # judge the exciting of user
+        filterResultemail = User.objects.filter(email=registemail) #judge the exciting of email
         if len(filterResult) > 0 or len(filterResultemail) > 0:
-            return render(request, 'error.html')  # 如果存在在这里先跳转到错误页面
-        user = User()  # 将用户的资料存入到数据库中
+            return render(request, 'error.html')  # if yes ,go to the error
+        user = User()  # save the user
         user.username = registname
         user.set_password(registpassword)
         user.email = registemail
@@ -116,7 +119,7 @@ def Register(request):#注册
         return HttpResponseRedirect('/logic')
     return render(request, 'Register.html')
 
-def Registerajax(request):#注册页面判断用户是否已经注册了
+def Registerajax(request):#judge if the username exciting or not
     name=request.POST['name'].strip()
     try:
         user=User.objects.get(username=name)
@@ -125,7 +128,7 @@ def Registerajax(request):#注册页面判断用户是否已经注册了
     return HttpResponse("用户已存在")
 
 
-def Registerajaxemail(request):#注册页面判断邮箱是否注册过
+def Registerajaxemail(request):#judge if the email exciting or not
     email = request.POST['email'].strip()
     try:
         user = User.objects.get(email=email)
@@ -133,10 +136,10 @@ def Registerajaxemail(request):#注册页面判断邮箱是否注册过
         return HttpResponse("可以使用该邮箱")
     return HttpResponse("邮箱已注册")
 
-def error(request):#错误页面
+def error(request):#error
     return render(request,'error.html')
 
-def changeuser(request):#修改密码
+def changeuser(request):#change password  PS:remeber the username and oldpassword
     if request.user.is_authenticated():
         user = request.user
         content={
@@ -160,9 +163,9 @@ def changeuser(request):#修改密码
 
 
 @login_required
-def logout(request):#登出
+def logout(request):#exiting
     auth.logout(request)
-    return HttpResponseRedirect("/")  # 返回到登录界面
+    return HttpResponseRedirect("/")  # return to the login
 
 
 
@@ -188,10 +191,10 @@ def logout(request):#登出
 def send_email(request):
     subject = u'测试'
     name = "帅哥"
-    mail_list = ['501874997@qq.com' ,]#这里放入的是收件人
-    from_email = settings.EMAIL_HOST_USER#这里放的是发件人
+    mail_list = ['501874997@qq.com' ,]#recipients
+    from_email = settings.EMAIL_HOST_USER#addressor
     message = u'用户:' + name + u' 这是测试邮件'
-    email_template_name = 'send_email_template.html'#这里是邮件模板
+    email_template_name = 'send_email_template.html'#email html
     t = loader.get_template(email_template_name)
     html_content = t.render()
     msg = EmailMultiAlternatives(subject, html_content, from_email, mail_list)
@@ -200,18 +203,24 @@ def send_email(request):
     # send_mail(subject, message, from_email, mail_list)
     return HttpResponseRedirect("/")
 
-emailsend=""#记录发送的email避免更改email
 def send_email_to_changepassword(request):
     yanzhengma = random_str()
     email=request.POST['email'].strip()
-    emailsend=email
     print(email)
-    print(emailsend)
     try:
         user=User.objects.get(email=email)
     except:
         print("herer")
         return HttpResponse("邮箱未注册无法发送")
+    try:
+        VCodeUser = VerificationCode.objects.get(email=email)
+        VCodeUser.VCode = yanzhengma
+        VCodeUser.save()
+    except:
+        VCodeUser = VerificationCode()
+        VCodeUser.email = email
+        VCodeUser.VCode = yanzhengma
+        VCodeUser.save()
     subject = u'WUSS用户忘记密码'
     from_email=settings.EMAIL_HOST_USER
     message = u'亲爱的用户:'+ email + "您在WUSS请求的验证码是:"+yanzhengma
@@ -219,24 +228,28 @@ def send_email_to_changepassword(request):
     return HttpResponse("发送成功")
 
 
-def forgetpassword(request):#忘记密码
+def forgetpassword(request):#forget password
     return render(request,'forget_password.html')
 
 def applyfor(request):
     email = request.POST['email'].strip()
     yanzhengma1=request.POST['yanzhengma'].strip()
-    print(email+'1')
-    print(emailsend+'2')
-    if email!=emailsend:
-        return HttpResponse("两次邮箱不同！")
-    if yanzhengma!=yanzhengma1:
+    try:
+        VCodeUser=VerificationCode.objects.get(email=email)
+        VCode=VCodeUser.VCode
+    except:
+        return HttpResponse("两次邮箱不同")
+    print(yanzhengma1)
+    print(VCode)
+    if yanzhengma1!=VCode:
         return HttpResponse("验证码错误")
     return HttpResponse("验证成功")
 
 def forgetandchangepassword(request):
+
     return render(request,'forgetandchangepassword.html')
 
-def random_str(randomlength=6):#生成随机验证码
+def random_str(randomlength=6):#create the Verification Code
     str = ''
     chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
     length = len(chars) - 1

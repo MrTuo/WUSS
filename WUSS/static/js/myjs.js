@@ -7,6 +7,7 @@ var btn;
 function sendCode(thisBtn)
 {
     email=$("#femail").val()
+    mytext=$("#fyanzhengma")
     $.ajax({
         url:'/send_email_to_changepassword/',
         data:{
@@ -16,6 +17,7 @@ function sendCode(thisBtn)
         type:'post',
         success:function(arg){
             alert(arg)
+            mytext.attr("disabled",false);
         }
     })
     btn = thisBtn;
@@ -107,7 +109,10 @@ function apply()
         success:function(arg){
             alert(arg)
             if (arg=="验证成功")
-                window.location.href='/forgetandchangepassword/'
+                window.location.href='/forgetandchangepassword?email='+email
         }
     })
+}
+function text() {
+
 }

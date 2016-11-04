@@ -246,7 +246,22 @@ def applyfor(request):
     return HttpResponse("验证成功")
 
 def forgetandchangepassword(request):
-
+    if request.method=='GET':
+        email=request.GET['email']
+        user = User.objects.get(email=email)
+        content={
+            'email':email,
+            'username':user.username
+        }
+        return render(request,'forgetandchangepassword.html',content)
+    if request.method=='POST':
+        email=request.POST.get("useremail")
+        newpassword=request.POST.get("newpassword")
+        print(email)
+        user=User.objects.get(email=email)
+        user.set_password(newpassword)
+        user.save()
+        return HttpResponseRedirect('/login')
     return render(request,'forgetandchangepassword.html')
 
 def random_str(randomlength=6):#create the Verification Code

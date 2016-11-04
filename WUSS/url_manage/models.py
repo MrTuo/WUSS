@@ -12,7 +12,7 @@ class Urls(models.Model):
     update_fq = models.IntegerField(default = 1)   #更新频率
     track_status = models.BooleanField(default = 1)#是否跟踪
     push_status = models.BooleanField(default = 0) #推送状态
-   # user = models.ForeignKey(User)                 #所属用户
+    user = models.ForeignKey(User)                 #所属用户
     title = models.CharField(max_length = 30)      #url名（供推送显示）
 
     def __unicode__(self):

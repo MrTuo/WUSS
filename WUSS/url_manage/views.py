@@ -25,7 +25,10 @@ def add_url(request):
         return HttpResponseRedirect('/')
     return render(request, 'add_url.html')
 
-
+def delete_url(request, urlid):
+    p = Urls.objects.get(id=urlid)
+    p.delete()
+    return HttpResponseRedirect('/')
 
 
 

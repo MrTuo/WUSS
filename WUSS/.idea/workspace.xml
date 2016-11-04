@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Myuser/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="259" column="19" selection-start-line="259" selection-start-column="19" selection-end-line="259" selection-end-column="19" />
+            <state relative-caret-position="90">
+              <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
               <folding>
                 <element signature="e#55#131#0" expanded="true" />
               </folding>
@@ -66,7 +66,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forgetandchangepassword.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forgetandchangepassword.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Myuser/templates/forgetandchangepassword.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -127,8 +127,8 @@
         <option value="$PROJECT_DIR$/Myuser/models.py" />
         <option value="$PROJECT_DIR$/Myuser/templates/forget_password.html" />
         <option value="$PROJECT_DIR$/static/js/myjs.js" />
-        <option value="$PROJECT_DIR$/Myuser/views.py" />
         <option value="$PROJECT_DIR$/Myuser/templates/forgetandchangepassword.html" />
+        <option value="$PROJECT_DIR$/Myuser/views.py" />
       </list>
     </option>
   </component>
@@ -983,16 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Myuser/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="259" column="19" selection-start-line="259" selection-start-column="19" selection-end-line="259" selection-end-column="19" />
-          <folding>
-            <element signature="e#55#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/myjs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -1006,6 +996,16 @@
         <state relative-caret-position="135">
           <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Myuser/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding>
+            <element signature="e#55#131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

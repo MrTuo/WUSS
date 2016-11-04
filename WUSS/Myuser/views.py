@@ -18,6 +18,7 @@ from Myuser.models import VerificationCode
 
 
 #encoding:utf-8
+@login_required(login_url='/login/')
 def userhomepage(request):#into the userhomepage
     if request.user.is_authenticated():
         content = {
@@ -29,6 +30,7 @@ def userhomepage(request):#into the userhomepage
         return render(request, 'userhomepage.html', content)
     return HttpResponseRedirect('/error')
 
+@login_required(login_url='/login/')
 def usermanagement(request):#into the UserManageCenter
     if request.user.is_authenticated():
         content={
@@ -43,6 +45,7 @@ def usermanagement(request):#into the UserManageCenter
         return render(request,'UserManageCenter.html',content)
     return HttpResponseRedirect('/error')
 
+@login_required(login_url='/login/')
 def urlmanagement(request):#URL management
     if request.user.is_authenticated():
         content={
@@ -60,7 +63,8 @@ def Userjudge(request):# if login or not
         return HttpResponseRedirect("/userhomepage")
     else:
         return HttpResponseRedirect("/login")
-#encoding:utf-8
+
+
 def mainhomepage(request):#into the homepage
     if request.user.is_authenticated():
         content={
@@ -139,6 +143,7 @@ def Registerajaxemail(request):#judge if the email exciting or not
 def error(request):#error
     return render(request,'error.html')
 
+@login_required(login_url='/login/')
 def changeuser(request):#change password  PS:remeber the username and oldpassword
     if request.user.is_authenticated():
         user = request.user
@@ -167,27 +172,6 @@ def logout(request):#exiting
     auth.logout(request)
     return HttpResponseRedirect("/")  # return to the login
 
-
-
-# def send_email(request):
-#     yanzhengma=random_str()
-#     subject = u'号码通激活'
-#     mail_list=['501874997@qq.com',]
-#     from_email=settings.EMAIL_HOST_USER
-#     name = "帅哥"
-#     print(name)
-#     message = u'用户:' + name + u' 您好，首先非常感谢你的注册' +yanzhengma\
-#               + u"\n点击链接就可以激活邮箱，从而用邮箱进行登陆:" \
-#               + u"http://192.168.1.163:8080/account/activate/?activation_key="  \
-#               + u"\n我们将为你提供非常好的号码相关服务：比如号码备份/群组建立/号码查找/群组活动等等,来自108网络教研室"
-#     send_mail(subject, message, settings.EMAIL_HOST_USER, [])
-#     email_template_name = 'text.html'
-#     t = loader.get_template(email_template_name)
-#     html_content = t.render()
-#     msg = EmailMultiAlternatives(subject, html_content, from_email, mail_list)
-#     msg.attach_alternative(html_content, "text/html")
-#     msg.send()
-#     return HttpResponseRedirect("/")
 def send_email(request):
     subject = u'测试'
     name = "帅哥"

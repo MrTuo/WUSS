@@ -20,15 +20,13 @@ from Myuser.models import VerificationCode
 #encoding:utf-8
 @login_required(login_url='/login/')
 def userhomepage(request):#into the userhomepage
-    if request.user.is_authenticated():
-        content = {
-            'user_is_logic': 'YES',
-            'user': request.user,
-            'chooise':1,
-            'chooise_user_left_nav':1,
-        }
-        return render(request, 'userhomepage.html', content)
-    return HttpResponseRedirect('/error')
+    content = {
+        'user_is_logic': 'YES',
+        'user': request.user,
+        'chooise':1,
+        'chooise_user_left_nav':1,
+    }
+    return render(request, 'userhomepage.html', content)
 
 @login_required(login_url='/login/')
 def usermanagement(request):#into the UserManageCenter
@@ -45,7 +43,7 @@ def usermanagement(request):#into the UserManageCenter
         return render(request,'UserManageCenter.html',content)
     return HttpResponseRedirect('/error')
 
-@login_required(login_url='/login/')
+@login_required(login_url='/login/?next=/urlmanagement/')
 def urlmanagement(request):#URL management
     if request.user.is_authenticated():
         content={
@@ -81,28 +79,24 @@ def login(request):#login
         content = {
             'user_is_logic': 'YES',
             'user':request.user,
+            'chooise':1,
+            'chooise_user_left_nav': 1,
         }
         return render(request, 'userhomepage.html',content)
     if request.method == 'POST':
-        # logname = request.POST.get('username', '')
-        # if logname=='':
         lognameforajax =request.POST['lognameforajax'].strip()
-        # logpassword = request.POST.get('password', '')
-        # if logpassword=='':
         logpasswordforajax = request.POST['logpasswordforajax'].strip()
         user = auth.authenticate(username=lognameforajax,password=logpasswordforajax)
-        #user = auth.authenticate(username=logname)
         if user is not None:#表示用户找到了
             auth.login(request, user)
             content={
                 'user_is_logic':'YES',
                 'user':lognameforajax,
             }
-            print(user)
-            return render(request,'homepage1.html', content)
+            print("sss")
+            return HttpResponse("登录成功")
         else:
             return HttpResponse("账号或密码错误")
-
     return render(request, 'login.html')
 
 def Register(request):#register

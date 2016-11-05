@@ -53,8 +53,6 @@ function send()
         success:function(arg){
             if (arg=="账号或密码错误")
                 alert(arg)
-            else
-                window.location.href='/'
         }
     })
 }

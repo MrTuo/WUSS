@@ -1,3 +1,4 @@
+# This Python file uses the following encoding: utf-8
 """
 Django settings for WUSS project.
 
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Myuser',
+    'update_manage',
+    'url_manage',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -126,14 +129,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 TEMPLATE_DIRS=(
-        './Web/templates/',)
+        './Myuser/templates/',
+        './update_manage/templates',
+)
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'),
 )
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#encoding:utf-8
+
 EMAIL_USE_TLS = False
-EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST = 'smtp.163.com'#smtp 地址（这里需要注意，如果你和我一样使用 163 邮箱的话，默认
 EMAIL_HOST_USER = '15636808513@163.com'
 EMAIL_HOST_PASSWORD = 'hby501874997'
 DEFAULT_FROM_EMAIL = 'Arnold <501874997@qq.com>'

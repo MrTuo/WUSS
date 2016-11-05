@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Myuser import views;
+from Myuser import views
+from update_manage import views as updateviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.mainhomepage),
@@ -32,6 +33,7 @@ urlpatterns = [
     url(r'^text/$',views.text),
     url(r'^send_email/$',views.send_email),
     url(r'^forgetpassword/$',views.forgetpassword),
+    url(r'^checkupdate/$',updateviews.check_update),
     url(r'^Registerajax/$',views.Registerajax),
     url(r'^Registerajaxemail/$',views.Registerajaxemail),
     url(r'^send_email_to_changepassword/$',views.send_email_to_changepassword),

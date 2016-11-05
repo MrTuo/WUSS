@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <span style="color: rgb(255, 0, 0);"><b>您好:{{ username }}，WUSS向您推送{{ url.last_check_time }}订阅的内容：;</b></span>
+    {% for url in  urls%}
+        <h2>{{ url.title }}</h2>
+        {{ url.rssitem_set }}
+    {% endfor %}
+
+</body>
+</html>

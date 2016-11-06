@@ -1,7 +1,3 @@
-# coding=utf-8
-from django.shortcuts import render
-
-# Create your views here.
 from __future__ import unicode_literals
 
 from django.shortcuts import render
@@ -30,5 +26,6 @@ def delete_url(request, urlid):
     p.delete()
     return HttpResponseRedirect('/')
 
-
-
+def show_url(request):
+    urls= Urls.objects.all()
+    return render(request, "show_urls.html", {'urls':urls})

@@ -93,7 +93,6 @@ def login(request):#login
                 'user_is_logic':'YES',
                 'user':lognameforajax,
             }
-            print("sss")
             return HttpResponse("登录成功")
         else:
             return HttpResponse("账号或密码错误")

@@ -41,7 +41,7 @@ function doLoop()
 }
 function send()
 {
-    var email=$("#inputEmail").val();
+    var email=$("#inputEmail").val()
     var password=$("#inputPassword").val()
     $.ajax({
         url:"../login/",
@@ -53,6 +53,8 @@ function send()
         success:function(arg){
             if (arg=="账号或密码错误")
                 alert(arg)
+            else
+                alert("fuck you")
         }
     })
 }

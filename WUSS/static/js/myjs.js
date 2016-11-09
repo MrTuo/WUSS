@@ -54,7 +54,7 @@ function send()
             if (arg=="账号或密码错误")
                 alert(arg)
             else
-                alert("fuck you")
+                windows.location.reload()
         }
     })
 }

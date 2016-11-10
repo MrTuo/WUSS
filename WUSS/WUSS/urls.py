@@ -52,3 +52,11 @@ urlpatterns = [
     url(r'^forgetpassword/$',views.forgetpassword),
 >>>>>>> 5a57dd37e3febc184b985be55e9d2de555d5dd86
 ]
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^add_url/$', views.add_url),
+    url(r'^edit_find/(\d+)/$', views.edit_find),
+    url(r'^delete_url/(\d+)/$', views.delete_url),
+    url(r'^$', views.show_url),
+]

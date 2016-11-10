@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from models import Urls
+from url_manage.models import Urls
 import datetime
 from django.http import HttpResponseRedirect
 

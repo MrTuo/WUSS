@@ -17,23 +17,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from Myuser import views;
-<<<<<<< HEAD
-from update_manage import views as updateviews
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$',views.logic),
-    url(r'^homepage/$',views.logic),
-    url(r'^judgelogic/$',views.judgelogic),
-    url(r'^Register/$',views.Register),
-    url(r'^gotoregiste/$',views.gotoregiste),
-    url(r'^changeuser/$',views.changeuser),
-    url(r'^gotochangeuser/$',views.gotochangeuser),
-    url(r'^logout/$',views.logout),
-    url(r'^error/$',views.error),
-    url(r'^checkupdate/$',updateviews.check_update),
-    url(r'^sendmail/$',updateviews.send_update_email),
-
-=======
+#from update_manage import views as updateviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.mainhomepage),
@@ -50,11 +34,6 @@ urlpatterns = [
     url(r'^text/$',views.text),
     url(r'^send_email/$',views.send_email),
     url(r'^forgetpassword/$',views.forgetpassword),
->>>>>>> 5a57dd37e3febc184b985be55e9d2de555d5dd86
-]
-
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^add_url/$', views.add_url),
     url(r'^edit_find/(\d+)/$', views.edit_find),
     url(r'^delete_url/(\d+)/$', views.delete_url),

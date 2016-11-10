@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from __future__ import unicode_literals
 
 from django.shortcuts import render
@@ -51,3 +52,4 @@ def edit_find(request,urlid):
     print urlid
     edit_url=Urls.objects.get(id=urlid)
     return render(request, "edit_url.html", {'edit_url':edit_url})
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑url</title>
+</head>
+<body>
+
+<form action="." method="post">
+       <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
+       url{{ a }}:<input type="text" name="url"  value="{{ edit_url.url }}" /><br/>
+       标题:<input type="text" name="title" value="{{ edit_url.title }}"/><br/>
+       更新频率:<input type="text"size="1" name="update_fq " value="{{ edit_url.update_fq }}"/>天一次<br/>
+       是否跟踪:<input type="radio" name="track_status" value="True" checked>是
+            <input type="radio" name="track_status" value="False" checked>否<br/>
+       是否推送:<input type="radio" name="push_status" value="True" checked>是
+            <input type="radio" name="push_status" value="False" checked>否<br/>
+                        <input type="submit" value="确认修改">
+
+</form>
+
+
+</body>
+</html>

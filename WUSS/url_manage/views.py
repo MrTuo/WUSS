@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from url_manage.models import Urls
+
 import datetime
 from django.http import HttpResponseRedirect
 
@@ -31,7 +32,8 @@ def delete_url(request, urlid):
 
 def show_url(request):
     if request.user.is_authenticated():
-        urls= Urls.objects.all()
+        urls=Urls.objects.get(user=request.user)
+        #urls= Urls.objects.all()
         return render(request, "show_urls.html", {'urls':urls})
 
 

@@ -154,8 +154,8 @@ html, body {
 }
 .usermain_left_nav{
     width:200px;
-    height: 800px;
-    border:1px solid pink;
+    height: 400px;
+    /*border:1px solid pink;*/
     margin-left: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -166,11 +166,12 @@ html, body {
 }
 .usermain_right_mainboard{
     width: 846px;
-    height: 800px;
+    height: 400px;
     /*border: 1px solid purple;*/
     position: absolute;
     right:0px;
     background-color: rgba(158, 158, 158, 0.58);
+    overflow: auto;
 }
 .usermain_right_mainboard_for_URL{
     width: 1046px;
@@ -179,17 +180,16 @@ html, body {
     position: absolute;
     right:0px;
     background-color: rgba(158, 158, 158, 0.58);
+    overflow: auto;
 }
 .navcontrol{
     width: 1046px;
     margin: 0 auto;
 }
 .urltable{
-    width: 700px;
+    width: 1046px;
     table-layout:fixed;
-    left: 50%;
-    margin-left:-350px;
-    border:purple solid 1px;
+    /*border:purple solid 1px;*/
     position: absolute;
 }
 .urltitle{

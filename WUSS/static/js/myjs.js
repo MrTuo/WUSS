@@ -43,6 +43,8 @@ function send()
 {
     var email=$("#inputEmail").val()
     var password=$("#inputPassword").val()
+    var next=window.location.search.substr(6)
+
     $.ajax({
         url:"../login/",
         data:{
@@ -54,7 +56,10 @@ function send()
             if (arg=="账号或密码错误")
                 alert(arg)
             else
-                windows.location.reload()
+                if (next.length>0)
+                    window.location.href=next
+                else
+                    window.location.reload()
         }
     })
 }
@@ -108,10 +113,17 @@ function apply()
         type:'post',
         success:function(arg){
             alert(arg)
-            if (arg=="验证成功")
+            if (arg=="验证成功"){
                 window.location.href='/forgetandchangepassword?email='+email
+            }
+
         }
     })
+}
+
+function open_and_close(thistext)
+{
+    alert("test")
 }
 function text() {
 

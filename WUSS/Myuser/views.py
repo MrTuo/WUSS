@@ -1,34 +1,39 @@
 # This Python file uses the following encoding: utf-8
-
 from django.shortcuts import render,render_to_response,HttpResponse,redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
-from Myuser import models
 from django.core.mail import send_mail
 from django.conf import settings
 from random import Random
-import time
 from django.core.mail import EmailMultiAlternatives
 from django.template import Context, loader
-from django.core.exceptions import ObjectDoesNotExist
 from Myuser.models import VerificationCode
-
+from url_manage.models import Urls
+from update_manage.models import *
 
 
 #encoding:utf-8
-@login_required(login_url='/login/')
+@login_required(login_url='/login/?next=/userhomepage/')
 def userhomepage(request):#into the userhomepage
+    login_User = request.user
+    login_User_Urls = Urls.objects.filter(user=login_User)
+    login_User_Urls_items=[]
+    for i in range(0,len(login_User_Urls)):
+        login_User_Urls_items.append(RssItem.objects.filter(url=login_User_Urls[i]))
+
     content = {
         'user_is_logic': 'YES',
         'user': request.user,
         'chooise':1,
         'chooise_user_left_nav':1,
+        'urlall':login_User_Urls,
+        'urlitems':login_User_Urls_items,
     }
     return render(request, 'userhomepage.html', content)
 
-@login_required(login_url='/login/')
+@login_required(login_url='/login/?next=usermanagement/')
 def usermanagement(request):#into the UserManageCenter
     if request.user.is_authenticated():
         content={
@@ -45,12 +50,15 @@ def usermanagement(request):#into the UserManageCenter
 
 @login_required(login_url='/login/?next=/urlmanagement/')
 def urlmanagement(request):#URL management
+    login_User = request.user
+    login_User_Urls = Urls.objects.filter(user=login_User)
     if request.user.is_authenticated():
         content={
             'user_is_logic': 'YES',
             'user': request.user,
             'chooise':3,
             'chooise_user_left_nav':1,
+            'allurl':login_User_Urls,
         }
         return render(request,'URLmanagement.html',content)
     return HttpResponseRedirect('/error')
@@ -158,6 +166,11 @@ def changeuser(request):#change password  PS:remeber the username and oldpasswor
         else:
             return HttpResponseRedirect('/error')
     return render(request,'changeuser.html',content)
+
+@login_required(login_url='/login/?next=/URLchange/')
+def URLchange(request):
+
+    return render(request,'URLchange.html')
 
 
 @login_required

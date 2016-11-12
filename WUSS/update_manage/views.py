@@ -15,7 +15,7 @@ from django.template import loader
 @login_required
 def check_update(req):
     urls = Urls.objects.filter(user = req.user)
-    send_update_email()
+    # send_update_email()
     for url in urls:
         get_item(url)
     return HttpResponse('hello!')

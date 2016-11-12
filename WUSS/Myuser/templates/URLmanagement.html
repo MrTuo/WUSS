@@ -42,14 +42,24 @@
                 <tr>
                     <td>
                         <table class="urltable">
-                            {# 在这用for循环 #}
-                            {% for url in allurl %}
+                            {% for i in urls %}
                             <tr>
-                                <td>&nbsp URL地址:&nbsp{{ url.url }}<a href="#" style="float: right">修改</a> </td>
-                                <td>&nbsp URL名称:&nbsp{{ url.title }}</td>
-                                <td>&nbsp 上次更新时间:&nbsp{{ url.last_check_time }}</td>
+                                <td>URL地址:{{ i.url }}</td>
+                                <td> URL名称:{{ i.title }}</td>
+                                <td>上次更新时间:{{ i.last_check_time }}</td>
+                                <td width="50px">
+                                    <form action="/edit_find/{{ i.id }}" method="post">
+                                    <input type="submit" value="编辑"/>
+                                    </form>
+                                </td>
+                                <td width="50px">
+                                    <form action="delete_url/{{ i.id }}" method="post">
+                                    <input type="submit" value="删除"/>
+                                    </form>
+                                </td>
+
                             </tr>
-                            <tr><td><hr></td><td><hr></td><td><hr></td></tr>
+                            <tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>
                             {% endfor %}
                         </table>
                     </td>

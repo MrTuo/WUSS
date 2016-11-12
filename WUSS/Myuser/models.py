@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class MyUser(models.Model):
     user = models.OneToOneField(User)
+
     #url = models.CharField(max_length=199)
 class VerificationCode(models.Model):
     email = models.CharField(max_length=50)

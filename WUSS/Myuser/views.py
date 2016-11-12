@@ -58,7 +58,7 @@ def urlmanagement(request):#URL management
             'user': request.user,
             'chooise':3,
             'chooise_user_left_nav':1,
-            'allurl':login_User_Urls,
+            'urls':login_User_Urls,
         }
         return render(request,'URLmanagement.html',content)
     return HttpResponseRedirect('/error')

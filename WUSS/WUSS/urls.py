@@ -1,3 +1,4 @@
+# coding=utf-8
 """WUSS URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -17,12 +18,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from Myuser import views
 from update_manage import views as updateviews
+from url_manage import views as manageviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.mainhomepage),
     url(r'^userhomepage/$',views.userhomepage),
     url(r'^usermanagement/$',views.usermanagement),
     url(r'^urlmanagement/$',views.urlmanagement),
+    # url(r'^urlmanagement/$',manageviews.show_url),
     url(r'^login/$',views.login),
     url(r'^homepage/$',views.mainhomepage),
     url(r'^Register/$',views.Register),
@@ -39,4 +42,8 @@ urlpatterns = [
     url(r'^send_email_to_changepassword/$',views.send_email_to_changepassword),
     url(r'^forgetandchangepassword/$',views.forgetandchangepassword),
     url(r'^applyfor/$',views.applyfor),
+    url(r'^add_url/$', manageviews.add_url),
+    url(r'^edit_find/(\d+)/$', manageviews.edit_find),
+    url(r'^delete_url/(\d+)/$', manageviews.delete_url),
+    # url(r'^$', manageviews.show_url),
 ]

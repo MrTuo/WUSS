@@ -22,6 +22,7 @@ def userhomepage(request):#into the userhomepage
     login_User_Urls_items=[]
     for i in range(0,len(login_User_Urls)):
         login_User_Urls_items.append(RssItem.objects.filter(url=login_User_Urls[i]))
+        print(len(RssItem.objects.filter(url=login_User_Urls[i])))
 
     content = {
         'user_is_logic': 'YES',
@@ -264,4 +265,9 @@ def random_str(randomlength=6):#create the Verification Code
     return str
 
 def text(request):
-    return render(request,'text.html')
+    a=request.GET['a']
+    content={
+        'description':a,
+    }
+    print (a)
+    return render(request,'text.html',content)

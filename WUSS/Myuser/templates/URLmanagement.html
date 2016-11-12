@@ -48,14 +48,14 @@
                                 <td> URL名称:{{ i.title }}</td>
                                 <td>上次更新时间:{{ i.last_check_time }}</td>
                                 <td width="50px">
-                                    <form action="/edit_find/{{ i.id }}" method="post">
-                                    <input type="submit" value="编辑"/>
-                                    </form>
+                                    <a href="/edit_find/{{ i.id }}">
+                                        编辑
+                                    </a>
                                 </td>
                                 <td width="50px">
-                                    <form action="delete_url/{{ i.id }}" method="post">
-                                    <input type="submit" value="删除"/>
-                                    </form>
+                                    <a href="delete_url/{{ i.id }}/">
+                                        删除
+                                    </a>
                                 </td>
 
                             </tr>

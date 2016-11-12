@@ -43,7 +43,6 @@ def edit_find(request,urlid):
     if request.user.is_authenticated():
     #urlid=request.POST.get('urlid', '')
         if request.method == 'POST' :
-            urlid=request.POST.get('urlid', '')
             old = Urls.objects.get(id=urlid)
             new_url=request.POST.get('url', '')
             new_title=request.POST.get('title', '')

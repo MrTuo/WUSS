@@ -1,79 +1,216 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Demystifying Email Design</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body style="margin: 0; padding: 0;">
-	<table border="0" cellpadding="0" cellspacing="0" width="100%">
-		<tr>
-			<td style="padding: 10px 0 30px 0;">
-				<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
-					<tr>
-						<td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
-							<img src="/static/img/images/h1.gif" alt="Creating Email Magic" width="300" height="230" style="display: block;" />
-						</td>
-					</tr>
-					<tr>
-						<td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
-							<table border="0" cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<td style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
-										<b>感谢使用由WUSS提供的网页更新订阅系统</b>
-									</td>
-								</tr>
-								<tr>
-									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-									    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以下内容是我们根据您的url订阅而提供的更新提醒，我们所提供的是截止到20：00前所发生变化的网页信息，若是想查看更多详情，请登录127.0.0.0:8000。谢谢您对我们的支持
-                                    </td>
-								</tr>
-								<tr>
-									<td>
-										<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;">
-                                            {# 在这用for循环 #}
-                                            <hr>
-                                            <tr>
-                                                <td><a href="#"><b>题目  2016/11/01</b></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 230px;word-wrap:break-word;word-break:break-all;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;瑞士银行一直被看作全球最令人信赖的银行，据说世界上大约1/4的个人财富都被存放在这...</td>
-											</tr>
-                                            <tr>
-                                                <td><hr></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><a href="#"><b>题目  2016/11/01</b></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 230px;word-wrap:break-word;word-break:break-all;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;瑞士银行一直被看作全球最令人信赖的银行，据说世界上大约1/4的个人财富都被存放在这...</td>
-											</tr>
-                                            <tr>
-                                                <td><hr></td>
-                                            </tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-					<tr>
-						<td bgcolor="#ee4c50" style="padding: 30px 30px 30px 30px;">
-							<table border="0" cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" width="75%">
-										&reg; WUSS, 为您提供满意的服务 2016<br/>
-										<a href="#" style="color: #ffffff;"><font color="#ffffff">主页</font></a> 进入主页查看更多订阅信息
-									</td>
-
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-	</table>
-</body>
-</html>
+{{ description }}
+{#<div class="accordion" id="accordion2">#}
+{#    {% if urlall.0 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseOne>#}
+{#                订阅名称:{{ urlall.0.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseOne" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.0 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><p>{{ item.description }}</p></div>#}
+{#                <script>#}
+{#                    mytest()#}
+{#                </script>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#    {% endif %}#}
+{#{% if urlall.1 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseTwo>#}
+{#                订阅名称:{{ urlall.1.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseTwo" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.1 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#    {% if urlall.2 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseThree>#}
+{#                订阅名称:{{ urlall.2.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseThree" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.2 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#    {% endif %}#}
+{#{% if urlall.3 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseFour>#}
+{#                订阅名称:{{ urlall.3.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseFour" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.3 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% if urlall.4 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseFive>#}
+{#                订阅名称:{{ urlall.4.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseFive" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.4 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% if urlall.5 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseSix>#}
+{#                订阅名称:{{ urlall.5.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseSix" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.5 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% if urlall.6 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseSeven>#}
+{#                订阅名称:{{ urlall.6.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseSeven" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.6 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% if urlall.7 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseEight>#}
+{#                订阅名称:{{ urlall.7.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseEight" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.7 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% if urlall.8 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseNine>#}
+{#                订阅名称:{{ urlall.8.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseNine" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.8 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% if urlall.9 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseTen>#}
+{#                订阅名称:{{ urlall.9.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseTen" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.9 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% if urlall.10 %}#}
+{#    <div class="accordion-group">#}
+{#        <div class="accordion-heading">#}
+{#            <a style="color:mediumturquoise;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseEleven>#}
+{#                订阅名称:{{ urlall.10.title }}#}
+{#            </a>#}
+{#        </div>#}
+{#        <div id="collapseEleven" class="accordion-body collapse in">#}
+{#            {% for item in urlitems.10 %}#}
+{#            <div class="accordion-inner">#}
+{#                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>#}
+{#                <br>#}
+{#                <br>#}
+{#                <div id="general"><iframe style="width: 815px;" src="/text?a={{ item.description }}"></iframe></div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endif %}#}
+{#</div>#}
+{##}

@@ -125,6 +125,14 @@ function open_and_close(thistext)
 {
     alert("test")
 }
-function text() {
-
+ var myid="1";
+function mytest() {
+    var id=document.getElementById("general");
+    id.id=myid;
+    // alert(id.id)
+    // alert(myid)
+    var b;
+    b=$('#'+myid).text()
+    $('#'+myid).html(b)
+    myid++;
 }

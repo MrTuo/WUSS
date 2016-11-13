@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/homepage.css">
     <script src="/static/js/CheckRegister.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script src="/static/js/myjs.js"></script>
 </head>
 <body>
 <div style="top: 50%;
@@ -23,13 +25,15 @@
                 <div class="control-group">
                     <div style="margin-top:20px ">
                         <img src="/static/img/adm.png" class="adm">
-                        <input type="text" id="inputName" placeholder="UserName" required name='idname'><span></span>
+                        <input type="text" id="inputName" placeholder="UserName" required name='idname' ><span></span>
+                        <input type="button" onclick="judgeforexisting(this)" id="btnname" value="查看用户是否存在">
                     </div>
                 </div>
 
                 <div class="control-group">
-                      <img src="/static/img/adm.png" class="adm">
-                      <input type="text" id="inputEmail" placeholder="Email" required name='idemail'><span></span>
+                    <img src="/static/img/adm.png" class="adm">
+                    <input type="text" id="inputEmail" placeholder="Email" required name='idemail'><span></span>
+                    <input type="button" onclick="judgeforemail(this)" value="查看邮箱是否注册" id="btnemail">
                 </div>
 
                 <div class="control-group">
@@ -43,11 +47,10 @@
                 </div>
             </div>
             <div style="left: 40px;position: relative;">
-                <input type="submit" onclick="myFunction()" value="Create Account" class="submit">
+                <input type="submit"  value="Create Account" class="submit">
             </div>
-
             <div>
-                <a href="/HomePage" style="float: left;left: 40px">Back</a>
+                <a href="/HomePage" style="float: left;left: 40px;top:30px">Back</a>
             </div>
 		</form>
 	</div>

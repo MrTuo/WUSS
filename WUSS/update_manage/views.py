@@ -114,14 +114,16 @@ def send_update_email(user):
 def show_update_info(req):
     urls = Urls.objects.filter(user = req.user)
     dic_urls = []
-
-    for url in urls:
-        items = RssItem.objects.filter(url = url)
-        url['items'] = items
     context={}
-    context['urls']=urls
+    for url in urls:
+        dic_url = {}
+        dic_url['last_check_time']=url.last_check_time
+        dic_url['title'] = url.title
+        dic_url['items'] = RssItem.objects.filter(url = url)
+        dic_urls.append(dic_url)
+    context['urls']=dic_urls
     context['username']=req.user.username
-    return render_to_response('mail_template.html',context)
+    return render_to_response('send_email_template.html',context)
 
 def check_all_update():
     '''
@@ -131,4 +133,6 @@ def check_all_update():
     users = Myuser.objects.all()
     for user in users:
         check_update(user)
+
+
 

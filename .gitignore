@@ -5,8 +5,12 @@
 *.pyc
 
 # migrations 同步记录文件
-*/migrations/*
+WUSS/Myuser/migrations/*
+
 
 # 数据库文件
 *.sqlite3
 *.DS_Store
+
+# __pycache__
+*/__pycache__/*

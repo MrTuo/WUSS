@@ -6,6 +6,9 @@
 
 # migrations 同步记录文件
 WUSS/Myuser/migrations/*
+WUSS/WUSS/migrations/*
+WUSS/update_manage/migrations/*
+WUSS/url_manage/migrations/*
 
 
 # 数据库文件

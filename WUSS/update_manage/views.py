@@ -5,20 +5,19 @@ from django.contrib.auth.decorators import user_passes_test, login_required
 import feedparser as fp
 import datetime
 from dateutil.parser import parse
-from Myuser.models import *
-from url_manage.models import *
-from update_manage.models import *
+from Myuser.models import MyUser
+from url_manage.models import Urls
+from update_manage.models import RssItem
 from django.core.mail import send_mail,EmailMessage
 from django.template import loader
 
 # Create your views here.\
 @login_required
-def check_update(req):
-    urls = Urls.objects.filter(user = req.user)
-    send_update_email()
+def check_update(user):
+    urls = Urls.objects.filter(user = user)
     for url in urls:
         get_item(url)
-    return HttpResponse('hello!')
+    send_update_email(user)
 
 def get_item(url):
     '''
@@ -66,13 +65,17 @@ def get_item(url):
         pass
 
 @login_required
-def send_update_email(req):
+def send_update_email(user):
     '''
     邮件发送登录用户url所有的items
     :param req:
     :return:
     '''
-    urls = Urls.objects.filter(user = req.user)
+    urls = Urls.objects.filter(user = user,push_status=1)
+    for url in urls:
+        items = RssItem.objects.filter(url = url)
+        url['items'] = items
+
     context = {}
     context['urls'] = urls
     context['username'] = req.user.username
@@ -108,5 +111,24 @@ def send_update_email(req):
     #     ['595983351@qq.com'],
     #     fail_silently=False,
     # )
+def show_update_info(req):
+    urls = Urls.objects.filter(user = req.user)
+    dic_urls = []
 
+    for url in urls:
+        items = RssItem.objects.filter(url = url)
+        url['items'] = items
+    context={}
+    context['urls']=urls
+    context['username']=req.user.username
+    return render_to_response('mail_template.html',context)
+
+def check_all_update():
+    '''
+    检查所有用户的更新，并进行实时推送。后续考虑采用多线程进行优化
+    :return:
+    '''
+    users = Myuser.objects.all()
+    for user in users:
+        check_update(user)
 

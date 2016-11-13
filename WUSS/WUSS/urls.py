@@ -35,5 +35,5 @@ urlpatterns = [
     url(r'^send_email/$',views.send_email),
     url(r'^forgetpassword/$',views.forgetpassword),
     url(r'^checkupdate/$',updateviews.check_update),
-    url(r'^sendmail/$',updateviews.send_update_email),
+    url(r'^sendmail/$',updateviews.show_update_info),
 ]

@@ -19,6 +19,7 @@ from django.contrib import admin
 from Myuser import views
 from update_manage import views as updateviews
 from url_manage import views as manageviews
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.userhomepage),

@@ -12,14 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <title>账号管理</title>
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
-    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% include 'all_css_or_js.html' %}
 </head>
-<body>
+<body class="bodypublic">
     {% include 'top1.html' %}
 
     <div class="navcontrol">
@@ -35,8 +30,10 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" class="urltable">
                 <tr>
                     <th>URL管理</th>
+                    <th><a href="/add_url/">添加新的URL</a></th>
                 </tr>
                 <tr>
+                    <td><hr></td>
                     <td><hr></td>
                 </tr>
                 <tr>
@@ -53,7 +50,7 @@
                                     </a>
                                 </td>
                                 <td width="50px">
-                                    <a href="delete_url/{{ i.id }}/">
+                                    <a href="/delete_url/{{ i.id }}">
                                         删除
                                     </a>
                                 </td>

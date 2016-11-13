@@ -163,7 +163,7 @@ html, body {
     margin-right: 0px;
     position: absolute;
     left:0px;
-    background-color: rgba(158, 158, 158, 0.58);
+    background-color: rgba(158, 158, 158, 0.8);
 }
 .usermain_right_mainboard{
     width: 846px;
@@ -171,7 +171,7 @@ html, body {
     /*border: 1px solid purple;*/
     position: absolute;
     right:0px;
-    background-color: rgba(158, 158, 158, 0.58);
+    background-color: rgba(158, 158, 158, 0.8);
     overflow: auto;
 }
 .usermain_right_mainboard_for_URL{
@@ -180,7 +180,7 @@ html, body {
     /*border: 1px solid purple;*/
     position: absolute;
     right:0px;
-    background-color: rgba(158, 158, 158, 0.58);
+    background-color: rgba(158, 158, 158, 0.8);
     overflow: auto;
 }
 .navcontrol{

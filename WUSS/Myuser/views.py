@@ -197,7 +197,6 @@ def send_email(request):
 def send_email_to_changepassword(request):
     yanzhengma = random_str()
     email=request.POST['email'].strip()
-    print(email)
     try:
         user=User.objects.get(email=email)
     except:
@@ -214,7 +213,9 @@ def send_email_to_changepassword(request):
         VCodeUser.save()
     subject = u'WUSS用户忘记密码'
     from_email=settings.EMAIL_HOST_USER
-    message = u'亲爱的用户:'+ email + "您在WUSS请求的验证码是:"+yanzhengma
+    print (email)
+    print (from_email)
+    message = u'亲爱的用户:'+ email + "您在WUSS请求的是:"+yanzhengma
     send_mail(subject, message, from_email, [email,])
     return HttpResponse("发送成功")
 

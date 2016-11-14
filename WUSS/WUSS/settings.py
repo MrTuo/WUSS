@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 """
 Django settings for WUSS project.
 
@@ -21,14 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'io5x9=2ror04istxc^o!95w(er+gu7c9$39=ah=e!@n2!b_wri'
+SECRET_KEY = 'k5mjp42h=ghagyy1cr8s!-d_8_^u^rcvuxsmdjkv=%9xfjf6@_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+DEFAULT_CHARSET = 'utf-8'
 # Application definition
 
 INSTALLED_APPS = [
@@ -58,7 +57,8 @@ ROOT_URLCONF = 'WUSS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,12 +81,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        # 'NAME':'wuss',
-        # 'USER':'root',
-        # 'PASSWORD':'501874997',
-        # 'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        # 'PORT': '3306',
     }
 }
 
@@ -135,10 +129,12 @@ TEMPLATE_DIRS=(
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'),
 )
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#定义@login require跳转链接
+LOGIN_URL = '/homepage'
 
+#定义Email信息
 EMAIL_USE_TLS = False
-EMAIL_HOST = 'smtp.163.com'#smtp 地址（这里需要注意，如果你和我一样使用 163 邮箱的话，默认
-EMAIL_HOST_USER = '15636808513@163.com'
-EMAIL_HOST_PASSWORD = 'hby501874997'
-DEFAULT_FROM_EMAIL = 'Arnold <501874997@qq.com>'
+EMAIL_HOST = 'smtp.163.com'            #SMTP服务器
+EMAIL_PORT = 25                        #SMTP服务器端口
+EMAIL_HOST_USER = 'wussapp@163.com'    #用户名
+EMAIL_HOST_PASSWORD = 'wussapp20162016'#第三方邮件收发授权码

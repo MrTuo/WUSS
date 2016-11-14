@@ -20,8 +20,10 @@ from Myuser import views
 from update_manage import views as updateviews
 from url_manage import views as manageviews
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^$',views.mainhomepage),
     url(r'^$',views.userhomepage),
     url(r'^userhomepage/$',views.userhomepage),
     url(r'^usermanagement/$',views.usermanagement),
@@ -47,4 +49,5 @@ urlpatterns = [
     url(r'^edit_find/(\d+)/$', manageviews.edit_find),
     url(r'^delete_url/(\d+)/$', manageviews.delete_url),
     # url(r'^$', manageviews.show_url),
+    url(r'^sendmail/$',updateviews.show_update_info),
 ]

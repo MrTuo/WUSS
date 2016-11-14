@@ -12,25 +12,30 @@ from django.template import Context, loader
 from Myuser.models import VerificationCode
 from url_manage.models import Urls
 from update_manage.models import *
-
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import user_passes_test, login_required
+from django.core.mail import send_mail,EmailMessage
 
 #encoding:utf-8
 @login_required(login_url='/login/?next=/userhomepage/')
 def userhomepage(request):#into the userhomepage
     login_User = request.user
     login_User_Urls = Urls.objects.filter(user=login_User)
-    login_User_Urls_items=[]
-    for i in range(0,len(login_User_Urls)):
-        login_User_Urls_items.append(RssItem.objects.filter(url=login_User_Urls[i]))
-        print(len(RssItem.objects.filter(url=login_User_Urls[i])))
+    dic_urls=[]
+    for url in login_User_Urls:
+        dic_url = {}
+        dic_url['last_check_time']=url.last_check_time
+        dic_url['title'] = url.title
+        dic_url['items'] = RssItem.objects.filter(url = url)
+        dic_urls.append(dic_url)
 
     content = {
         'user_is_logic': 'YES',
         'user': request.user,
         'chooise':1,
         'chooise_user_left_nav':1,
-        'urlall':login_User_Urls,
-        'urlitems':login_User_Urls_items,
+        'urls':dic_urls,
     }
     return render(request, 'userhomepage.html', content)
 

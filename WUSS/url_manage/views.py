@@ -26,7 +26,7 @@ def add_url(request):
             user = request.user
             new_url = Urls(url=url, last_check_time=now, update_fq=update_fq,track_status=track_status, push_status= push_status,user=user,title=title)
             new_url.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/urlmanagement/')
         content={
             'user_is_logic': 'YES',
         }
@@ -37,7 +37,7 @@ def delete_url(request, urlid):
     if request.user.is_authenticated():
         p = Urls.objects.get(id=urlid)
         p.delete()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/urlmanagement/')
 
 @login_required(login_url='/login/')
 def show_url(request):

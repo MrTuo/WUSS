@@ -13,7 +13,7 @@ from update_manage.models import RssItem
 from django.core.mail import send_mail,EmailMessage
 from django.template import loader
 from django.utils import timezone
-from WUSS.settings import TIME_ZONE
+from WUSS.settings import TIME_ZONE, EMAIL_HOST_USER
 
 # Create your views here.\
 def check_update(user):
@@ -87,20 +87,26 @@ def send_update_email(user):
             'send_email_template.html',
             context,
         )
-        subject = "订阅更新通知 - BY WUSS SYSTEM"
+        subject = "WUSS订阅更新"
         msg = EmailMessage(
             subject,
             html_content,
-            'wussapp@163.com',
+            EMAIL_HOST_USER,
             [user.email],
         )
         msg.content_subtype = "html"
-        msg.send()
-        print ("---send_mail---",timezone.now())
-        print ("user:",user.username,"urls:")
+        print("---send_mail---", timezone.now())
+        print("user:", user.username, "urls:")
         for url in urls:
-            print (url.url)
-        urls.update(push_status = 0)#将推送状态设置为0
+            print(url.url)
+        try:
+            msg.send()
+            print("success!")
+
+        except Exception as e:
+            print(e)
+        urls.update(push_status=0)  # 将推送状态设置为0
+
 
 def check_all_update():
     '''

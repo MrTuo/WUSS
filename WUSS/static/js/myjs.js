@@ -123,16 +123,34 @@ function apply()
 
 function open_and_close(thistext)
 {
-    alert("test")
+    // alert("test")
 }
- var myid="1";
-function mytest() {
+
+var myid="1";
+var myid2=0;
+function mytest1() {
     var id=document.getElementById("general");
     id.id=myid;
     // alert(id.id)
     // alert(myid)
     var b;
+
     b=$('#'+myid).text()
     $('#'+myid).html(b)
+    // alert(id.id)
     myid++;
+
+}
+function mytest2() {
+    var number=["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve",
+    "Threeteen","Fourteen","Fifteen","Sixteen"]
+    var generala=document.getElementById("generala");
+    var generalb=document.getElementById("generalb");
+    // alert(generala.href)
+    generala.href="#collapse"+number[myid2]
+    generala.id="collapse"+number[myid2]+number[myid2]
+    // alert(generala.href)
+    generalb.id="collapse"+number[myid2]
+    myid2++;
+    // alert(1)
 }

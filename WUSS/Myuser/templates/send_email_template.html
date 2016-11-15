@@ -36,14 +36,13 @@
 									<td>
 										<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;">
                                             {% for item in url.items %}
-                                            <hr>
                                             <tr>
                                                 <td><a href="{{ item.link }}"><b>{{ item.title }}  {{ item.pubDate }}</b></a></td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 230px;word-wrap:break-word;word-break:break-all;">
                                                     <div class="wuss-description"></div>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.description|safe }}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.description|safe|truncatewords:"100" }}
                                                 </td>
 											</tr>
                                             <tr>

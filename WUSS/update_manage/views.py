@@ -17,7 +17,7 @@ from WUSS.settings import TIME_ZONE
 
 # Create your views here.\
 def check_update(user):
-    urls = Urls.objects.filter(user = user)
+    urls = Urls.objects.filter(user = user,track_status=1)
     if urls:
         for url in urls:
             if url.last_check_time+datetime.timedelta(url.update_fq)<=timezone.now():
@@ -92,14 +92,14 @@ def send_update_email(user):
             subject,
             html_content,
             'wussapp@163.com',
-            ['595983351@qq.com'],
+            [user.email],
         )
         msg.content_subtype = "html"
         msg.send()
-        print"---send_mail---",timezone.now()
-        print "user:",user.username,"urls:"
+        print ("---send_mail---",timezone.now())
+        print ("user:",user.username,"urls:")
         for url in urls:
-            print url.url
+            print (url.url)
         urls.update(push_status = 0)#将推送状态设置为0
 
 def check_all_update():

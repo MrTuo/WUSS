@@ -15,7 +15,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "WUSS.settings")
 
 application = get_wsgi_application()
 
-import thread
+import _thread
 from update_manage.views import check_all_update
 
-thread.start_new_thread(check_all_update,())
+_thread.start_new_thread(check_all_update,())

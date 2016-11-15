@@ -1,17 +1,17 @@
-# pycharm ÅäÖÃÎÄ¼ş
+# pycharm é…ç½®æ–‡ä»¶
 .idea/*
 
-# python ±àÒëÎÄ¼ş
+# python ç¼–è¯‘æ–‡ä»¶
 *.pyc
 
-# migrations Í¬²½¼ÇÂ¼ÎÄ¼ş
+# migrations åŒæ­¥è®°å½•æ–‡ä»¶
 WUSS/Myuser/migrations/*
 WUSS/WUSS/migrations/*
 WUSS/update_manage/migrations/*
 WUSS/url_manage/migrations/*
 
 
-# Êı¾İ¿âÎÄ¼ş
+# æ•°æ®åº“æ–‡ä»¶
 *.sqlite3
 *.DS_Store
 

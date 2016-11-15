@@ -2,21 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>新增Url</title>
+    <title>新增url</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<form action="/add_url/" method="post">
-       url:<input type="text" name="url"/><br/>
-       标题:<input type="text" name="title"/><br/>
-       更新频率:<input type="text"size="1" name="update_fq "/>天一次<br/>
-       是否跟踪:<input type="radio" name="track_status" value="True" checked>是
-            <input type="radio" name="track_status" value="False" checked>否<br/>
-       是否推送:<input type="radio" name="push_status" value="True" checked>是
-            <input type="radio" name="push_status" value="False" checked>否<br/>
-                        <input type="submit" value="确认添加">
+{% include 'top1.html' %}
 
-</form>
+    <div class="navcontrol">
+        <div class="navbar">
+            <div class="navbar-inner">
+                {% include 'userhomepage_nav1.html' %}
+            </div>
+        </div>
+    </div>
+
+<div class="usermain">
+        <div class="usermain_right_mainboard_for_URL" style="color: white;">
+            <div class="edit_url">
+                <form action="/add_url/" method="post">
+                    <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
+                    <table>
+                        <tr>
+                            <th width="100px"></th>
+                            <th width="300px"></th>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">url:</span></td>
+                            <td><input type="text" name="url" /><br/></td>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">标题:</span></td>
+                            <td><input type="text" name="title"/><br/></td>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">更新频率:</span></td>
+                            <td><input type="text"size="1" name="update_fq " value="{{ edit_url.update_fq }}"/>天一次<br/></td>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">是否跟踪:</span></td>
+                            <td>
+                                <input type="radio" name="track_status" value="True" checked>是
+                                <input type="radio" name="track_status" value="False" checked>否<br/>
+                            </td>
+                        </tr>
+{#                        <tr>#}
+{#                            <td><span class="edit_url_span">是否推送:</span></td>#}
+{#                            <td>#}
+{#                                <input type="radio" name="push_status" value="True" checked>是#}
+{#                                <input type="radio" name="push_status" value="False" checked>否<br/>#}
+{#                            </td>#}
+{#                        </tr>#}
+                    </table>
+                    <br>
+                    <table>
+                        <tr>
+                            <td width="140px"></td>
+                            <td width="80px"><a href="/../urlmanagement/" class="btn">返回</a> </td>
+                            <td><input type="submit" value="确认添加" class="btn"></td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
+        </div>
+</div>
 
 
 

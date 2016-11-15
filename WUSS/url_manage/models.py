@@ -15,5 +15,5 @@ class Urls(models.Model):
     user = models.ForeignKey(User)                 #所属用户
     title = models.CharField(max_length = 30)      #url名（供推送显示）
 
-    def __unicode__(self):
+    def __str__(self):
         return self.url

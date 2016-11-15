@@ -1,4 +1,4 @@
-# coding=utf-8
+# This Python file uses the following encoding: utf-8
 from django.shortcuts import render,render_to_response,HttpResponse,redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -12,25 +12,30 @@ from django.template import Context, loader
 from Myuser.models import VerificationCode
 from url_manage.models import Urls
 from update_manage.models import *
-
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import user_passes_test, login_required
+from django.core.mail import send_mail,EmailMessage
 
 #encoding:utf-8
 @login_required(login_url='/login/?next=/userhomepage/')
 def userhomepage(request):#into the userhomepage
     login_User = request.user
     login_User_Urls = Urls.objects.filter(user=login_User)
-    login_User_Urls_items=[]
-    for i in range(0,len(login_User_Urls)):
-        login_User_Urls_items.append(RssItem.objects.filter(url=login_User_Urls[i]))
-        print(len(RssItem.objects.filter(url=login_User_Urls[i])))
+    dic_urls=[]
+    for url in login_User_Urls:
+        dic_url = {}
+        dic_url['last_check_time']=url.last_check_time
+        dic_url['title'] = url.title
+        dic_url['items'] = RssItem.objects.filter(url = url)
+        dic_urls.append(dic_url)
 
     content = {
         'user_is_logic': 'YES',
         'user': request.user,
         'chooise':1,
         'chooise_user_left_nav':1,
-        'urlall':login_User_Urls,
-        'urlitems':login_User_Urls_items,
+        'urls':dic_urls,
     }
     return render(request, 'userhomepage.html', content)
 
@@ -177,7 +182,7 @@ def URLchange(request):
 @login_required
 def logout(request):#exiting
     auth.logout(request)
-    return HttpResponseRedirect("/")  # 返回到登录界面
+    return HttpResponseRedirect("/")  # return to the login
 
 def send_email(request):
     subject = u'测试'
@@ -197,7 +202,6 @@ def send_email(request):
 def send_email_to_changepassword(request):
     yanzhengma = random_str()
     email=request.POST['email'].strip()
-    print(email)
     try:
         user=User.objects.get(email=email)
     except:
@@ -214,7 +218,9 @@ def send_email_to_changepassword(request):
         VCodeUser.save()
     subject = u'WUSS用户忘记密码'
     from_email=settings.EMAIL_HOST_USER
-    message = u'亲爱的用户:'+ email + "您在WUSS请求的验证码是:"+yanzhengma
+    print (email)
+    print (from_email)
+    message = u'亲爱的用户:'+ email + "您在WUSS请求的是:"+yanzhengma
     send_mail(subject, message, from_email, [email,])
     return HttpResponse("发送成功")
 

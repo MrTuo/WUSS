@@ -16,4 +16,7 @@ WUSS/url_manage/migrations/*
 *.DS_Store
 
 # __pycache__
-*/__pycache__/*
+WUSS/__pycache__/*
+update_manage/__pycache__/*
+Myuser/__pycache__/*
+url_manage/__pycache__/*

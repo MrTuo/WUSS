@@ -55,13 +55,14 @@ def edit_find(request,urlid):
             new_url=request.POST.get('url', '')
             new_title=request.POST.get('title', '')
             new_update_fq = request.POST.get('update_fq', 0)
+            print (new_update_fq)
             new_track_status = request.POST.get('track_status', 'True')
-            new_push_status = request.POST.get('push_statu', 'True')
+            # new_push_status = request.POST.get('push_statu', 'True')
             old.url=new_url
             old.title=new_title
             old.update_fq=new_update_fq
             old.track_status=new_track_status
-            old.push_status=new_push_status
+            # old.push_status=new_push_status
             old.save()
             return HttpResponseRedirect('/')
         edit_url = Urls.objects.get(id=urlid)

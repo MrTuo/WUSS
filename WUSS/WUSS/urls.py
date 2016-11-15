@@ -19,8 +19,6 @@ from django.contrib import admin
 from Myuser import views
 from update_manage import views as updateviews
 from url_manage import views as manageviews
-
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$',views.mainhomepage),
@@ -39,7 +37,7 @@ urlpatterns = [
     url(r'^text/$',views.text),
     url(r'^send_email/$',views.send_email),
     url(r'^forgetpassword/$',views.forgetpassword),
-    url(r'^checkupdate/$',updateviews.check_update),
+    #url(r'^checkupdate/$',updateviews.check_update),
     url(r'^Registerajax/$',views.Registerajax),
     url(r'^Registerajaxemail/$',views.Registerajaxemail),
     url(r'^send_email_to_changepassword/$',views.send_email_to_changepassword),
@@ -49,5 +47,4 @@ urlpatterns = [
     url(r'^edit_find/(\d+)/$', manageviews.edit_find),
     url(r'^delete_url/(\d+)/$', manageviews.delete_url),
     # url(r'^$', manageviews.show_url),
-    url(r'^sendmail/$',updateviews.show_update_info),
 ]

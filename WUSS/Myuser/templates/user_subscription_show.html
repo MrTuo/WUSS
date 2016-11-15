@@ -15,7 +15,7 @@
                 <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>
                 <br>
                 <br>
-                <div id="general"><p>{{ item.description }}</p></div>
+                <div id="general"><p>{{ item.description|cut:"background"|cut:"color" }}</p></div>
                 <script>
                     mytest1()
                 </script>

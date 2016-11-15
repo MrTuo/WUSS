@@ -41,7 +41,8 @@ def get_item(url):
                     is_delete_origin_items = 1
                 #保存新的item到url
                 title = item.title
-                link = item.link
+                link = item.linkls
+
                 author = item.author
                 description = item.description
                 new_item = RssItem(

@@ -1,4 +1,4 @@
-# WUSS (Web update subscription system) 说明文档
+# 软工大作业-WUSS (Web update subscription system) 说明文档
 ## 项目简介
 WUSS系统是一个网页更新订阅系统。用户可以对自己感兴趣的URL进行订阅，系统定时自动追踪这也页面的更新（识别页面内容的变化），并把更新内容加以提取，通过email或者手机短信推送至用户。
 

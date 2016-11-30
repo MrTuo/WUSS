@@ -17,3 +17,14 @@ class RssItem(models.Model):
     url = models.ForeignKey(Urls)
     def __unicode__(self):
         return self.title
+
+class SpyderItem(models.Model):
+    '''
+    保存一般URL中的爬虫向导
+    '''
+    text_content = models.TextField()
+    url = models.ForeignKey(Urls)
+    def __unicode__(self):
+        return self.url.title
+
+

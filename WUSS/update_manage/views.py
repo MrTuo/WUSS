@@ -20,9 +20,9 @@ def check_update(user):
     urls = Urls.objects.filter(user = user,track_status=1)
     if urls:
         for url in urls:
-            if url.last_check_time+datetime.timedelta(url.update_fq)<=timezone.now():
-                get_item(url)
-        send_update_email(user)
+            if url.last_check_time+datetime.timedelta(url.update_fq)<=timezone.now():#到达更新时间
+                get_item(url) # 记录RSS中所有item更新
+        send_update_email(user)# 向用户发送更新邮件
 
 def get_item(url):
     '''
@@ -113,8 +113,8 @@ def check_all_update():
     检查所有用户的更新，并进行实时推送。后续考虑采用多线程进行优化
     :return:
     '''
-    users = User.objects.all()
     while 1:
+        users = User.objects.all()
         for user in users:
             check_update(user)
 

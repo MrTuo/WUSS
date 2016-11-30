@@ -20,8 +20,11 @@ class RssItem(models.Model):
 
 class SpyderItem(models.Model):
     '''
-    保存一般URL中的爬虫向导
+    保存一般URL中的用户指定标签内容
     '''
+    tag_name = models.CharField(max_length=100)
+    id_name = models.CharField(max_length=100)
+    class_name = models.ChrField(max_length=100)
     text_content = models.TextField()
     url = models.ForeignKey(Urls)
     def __unicode__(self):

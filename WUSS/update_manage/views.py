@@ -16,7 +16,7 @@ from django.utils import timezone
 from WUSS.settings import TIME_ZONE, EMAIL_HOST_USER
 import urllib.request
 from bs4 import BeautifulSoup
-
+import Levenshtein
 
 # Create your views here.\
 def check_update(user):
@@ -93,6 +93,7 @@ def get_spider_item(url):
 
         soup = BeautifulSoup(html_content, 'lxml')  # 创建bs对象处理html页面
         items = SpiderItem.objects.filter(url=url)# 获取当前页面用户选取的所有标签对象
+        is_update = False# 记录当前URL是否有更新
         for item in items:# 比较每一个标签对象是否发生更新
             attr_dic = get_attr_dic(item.attr_str)# 创建标签属性键值对
             tag_name = attr_dic['tag'] # 获取标签名称
@@ -103,13 +104,16 @@ def get_spider_item(url):
                 new_content = ""# 保存新爬取下来的内容
                 for string in target.stripped_strings:# 将target标签中所有文字信息提取并保存到new_content中
                     new_content += string + "\n"
-                pass
+                familiar = Levenshtein.ratio(new_content,item.text_content)
+                if familiar<=0.8: # 相似度小于阈值说明有内容更新
+                    is_update = True # 当前URL有更新
+                    item.push_status = True
+                    item.text_content = new_content
+                    item.save()
             else: # target中无元素，说明页面发生改变，用户需要重新选择区域。
                 item.has_changed = True
-
-
-    pass
-
+        if is_update: # 如果当前页面有区域发生内容更新，则推送状态为True
+            Urls.objects.filter(id=url.id).update(push_status=True, last_check_time=timezone.now())
 
 def send_update_email(user):
     '''

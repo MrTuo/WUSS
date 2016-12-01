@@ -18,6 +18,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 import Levenshtein
 
+
 # Create your views here.\
 def check_update(user):
     urls = Urls.objects.filter(user=user, track_status=1)
@@ -92,28 +93,29 @@ def get_spider_item(url):
         html_content = response1.read()  # 获取页面html信息
 
         soup = BeautifulSoup(html_content, 'lxml')  # 创建bs对象处理html页面
-        items = SpiderItem.objects.filter(url=url)# 获取当前页面用户选取的所有标签对象
-        is_update = False# 记录当前URL是否有更新
-        for item in items:# 比较每一个标签对象是否发生更新
-            attr_dic = get_attr_dic(item.attr_str)# 创建标签属性键值对
-            tag_name = attr_dic['tag'] # 获取标签名称
-            del attr_dic['tag'] # 删除标签名称键值对
-            target = soup.find_all(tag_name, attrs=attr_dic)# 根据标签属性键值定位到标签
-            if target: # target中有元素
-                target=target[0]
-                new_content = ""# 保存新爬取下来的内容
-                for string in target.stripped_strings:# 将target标签中所有文字信息提取并保存到new_content中
+        items = SpiderItem.objects.filter(url=url)  # 获取当前页面用户选取的所有标签对象
+        is_update = False  # 记录当前URL是否有更新
+        for item in items:  # 比较每一个标签对象是否发生更新
+            attr_dic = get_attr_dic(item.attr_str)  # 创建标签属性键值对
+            tag_name = attr_dic['tag']  # 获取标签名称
+            del attr_dic['tag']  # 删除标签名称键值对
+            target = soup.find_all(tag_name, attrs=attr_dic)  # 根据标签属性键值定位到标签
+            if target:  # target中有元素
+                target = target[0]
+                new_content = ""  # 保存新爬取下来的内容
+                for string in target.stripped_strings:  # 将target标签中所有文字信息提取并保存到new_content中
                     new_content += string + "\n"
-                familiar = Levenshtein.ratio(new_content,item.text_content)
-                if familiar<=0.8: # 相似度小于阈值说明有内容更新
-                    is_update = True # 当前URL有更新
+                familiar = Levenshtein.ratio(new_content, item.text_content)
+                if familiar <= 0.8:  # 相似度小于阈值说明有内容更新
+                    is_update = True  # 当前URL有更新
                     item.push_status = True
                     item.text_content = new_content
                     item.save()
-            else: # target中无元素，说明页面发生改变，用户需要重新选择区域。
+            else:  # target中无元素，说明页面发生改变，用户需要重新选择区域。
                 item.has_changed = True
-        if is_update: # 如果当前页面有区域发生内容更新，则推送状态为True
+        if is_update:  # 如果当前页面有区域发生内容更新，则推送状态为True
             Urls.objects.filter(id=url.id).update(push_status=True, last_check_time=timezone.now())
+
 
 def send_update_email(user):
     '''
@@ -123,16 +125,24 @@ def send_update_email(user):
     '''
     urls = Urls.objects.filter(user=user, push_status=1)
     if urls:
+        dic_RSSurls = []
         dic_urls = []
         context = {}
-        for url in urls:
-            dic_url = {}
-            dic_url['last_check_time'] = url.last_check_time
-            dic_url['title'] = url.title
-            dic_url['items'] = RssItem.objects.filter(url=url)
-            dic_urls.append(dic_url)
-        context['urls'] = dic_urls
+        for url in urls:  # 将url更新数据进行整理保存
+            if url.type == 0:  # url为RSS url
+                dic_RSSurl = {}
+                dic_RSSurl['last_check_time'] = url.last_check_time
+                dic_RSSurl['title'] = url.title
+                dic_RSSurl['items'] = RssItem.objects.filter(url=url)
+                dic_RSSurls.append(dic_RSSurl)
+            else:  # url为一般url
+                dic_url = {}
+                dic_url['items'] = SpiderItem.objects.filter(url=url)
+                dic_urls.append(dic_url)
+
+        context['RSSurls'] = dic_RSSurls
         context['username'] = user.username
+        context['urls'] = dic_urls
         html_content = loader.render_to_string(
             'send_email_template.html',
             context,

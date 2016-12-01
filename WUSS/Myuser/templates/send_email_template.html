@@ -20,7 +20,8 @@
 									    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好:{{ username }}，以下内容是我们根据您的url订阅而提供的更新提醒，我们所提供的是截止到20：00前所发生变化的网页信息，若是想查看更多详情，请登录127.0.0.0:8000。谢谢您对我们的支持
                                     </td>
 								</tr>
-                            {% for url in  urls%}
+                            {#RSSURL推送#}
+                            {% for url in  RSSurls%}
                                 <tr>
                                     <td><b>{{ url.title }}</b>(更新时间截止{{ url.last_check_time }})</td>
                                 </tr>
@@ -35,6 +36,31 @@
                                                 <td style="width: 230px;word-wrap:break-word;word-break:break-all;">
                                                     <div class="wuss-description"></div>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.description|safe|truncatewords:"100" }}
+                                                </td>
+											</tr>
+                                            <tr>
+                                                <td><hr></td>
+                                            </tr>
+                                            {% endfor %}
+										</table>
+									</td>
+								</tr>
+                            {% endfor %}
+
+                            {# 一般URL推送 #}
+                            {% for url in  urls%}
+                                 <tr>
+                                    <td><b>{{ url.title }}</b>(更新时间截止{{ url.last_check_time }})</td>
+                                </tr>
+								<tr>
+									<td>
+										<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;">
+                                            {% for item in url.items %}
+
+                                            <tr>
+                                                <td style="width: 230px;word-wrap:break-word;word-break:break-all;">
+                                                    <div class="wuss-description"></div>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.text_content|truncatewords:"100" }}
                                                 </td>
 											</tr>
                                             <tr>

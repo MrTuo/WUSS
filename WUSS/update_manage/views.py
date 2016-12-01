@@ -137,7 +137,7 @@ def send_update_email(user):
                 dic_RSSurls.append(dic_RSSurl)
             else:  # url为一般url
                 dic_url = {}
-                dic_url['items'] = SpiderItem.objects.filter(url=url)
+                dic_url['items'] = SpiderItem.objects.filter(url=url,push_status=1)
                 dic_urls.append(dic_url)
 
         context['RSSurls'] = dic_RSSurls
@@ -165,7 +165,13 @@ def send_update_email(user):
 
         except Exception as e:
             print(e)
-        urls.update(push_status=0)  # 将推送状态设置为0
+
+        for url in urls:   # 将所有已更新的一般url的item推送状态设为0
+            if url.type==1:
+                items= SpiderItem.objects.filter(url=url, push_status=1)
+                items.update(push_status=0)
+        urls.update(push_status=0)  # 将url推送状态设置为0
+
 
 
 def check_all_update():

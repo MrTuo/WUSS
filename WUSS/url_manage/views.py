@@ -25,7 +25,11 @@ def add_url(request):
             push_status = request.POST.get('push_status', 'True')
             user = request.user
             type = request.POST.get('type', 'True')
-            new_url = Urls(url=url, last_check_time=now, update_fq=update_fq,track_status=track_status, push_status= push_status,user=user,title=title,type=type)
+            if type == 'Ture':
+                spider_guide= request.POST.get('spider_guide', '')
+            else:
+                spider_guide=''
+            new_url = Urls(url=url, last_check_time=now, update_fq=update_fq,track_status=track_status, push_status= push_status,user=user,title=title,type=type,spider_guide=spider_guide)
             new_url.save()
             return HttpResponseRedirect('/urlmanagement/')
         content={
@@ -58,11 +62,16 @@ def edit_find(request,urlid):
             new_update_fq = request.POST.get('update_fq', 0)
             print (new_update_fq)
             new_track_status = request.POST.get('track_status', 'True')
+            new_type=request.POST.get('type', 'True')
             # new_push_status = request.POST.get('push_statu', 'True')
             old.url=new_url
             old.title=new_title
             old.update_fq=new_update_fq
             old.track_status=new_track_status
+            old.type=new_type
+            if new_type == 'True':
+                old.spider_guide=request.POST.get('spider_guide', '')
+
             # old.push_status=new_push_status
             old.save()
             return HttpResponseRedirect('/')

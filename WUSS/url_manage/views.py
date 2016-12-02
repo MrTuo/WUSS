@@ -24,7 +24,8 @@ def add_url(request):
             track_status = request.POST.get('track_status', 'True')
             push_status = request.POST.get('push_status', 'True')
             user = request.user
-            new_url = Urls(url=url, last_check_time=now, update_fq=update_fq,track_status=track_status, push_status= push_status,user=user,title=title)
+            type = request.POST.get('type', 'True')
+            new_url = Urls(url=url, last_check_time=now, update_fq=update_fq,track_status=track_status, push_status= push_status,user=user,title=title,type=type)
             new_url.save()
             return HttpResponseRedirect('/urlmanagement/')
         content={

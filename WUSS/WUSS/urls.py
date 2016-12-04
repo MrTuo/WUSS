@@ -46,5 +46,7 @@ urlpatterns = [
     url(r'^add_url/$', manageviews.add_url),
     url(r'^edit_find/(\d+)/$', manageviews.edit_find),
     url(r'^delete_url/(\d+)/$', manageviews.delete_url),
+    url(r'^addhtmlurl/$',views.addhtmlurl),
+
     # url(r'^$', manageviews.show_url),
 ]

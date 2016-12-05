@@ -17,7 +17,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from Myuser import views
-from update_manage import views as updateviews
 from url_manage import views as manageviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -47,6 +46,7 @@ urlpatterns = [
     url(r'^edit_find/(\d+)/$', manageviews.edit_find),
     url(r'^delete_url/(\d+)/$', manageviews.delete_url),
     url(r'^addhtmlurl/$',views.addhtmlurl),
+    # url(r'^addhtmlurl/$',views.add_url_by_HTML),
 
     # url(r'^$', manageviews.show_url),
 ]

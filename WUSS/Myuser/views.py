@@ -130,7 +130,7 @@ def Register(request):#register
         user.set_password(registpassword)
         user.email = registemail
         user.save()
-        return HttpResponseRedirect('/login')
+        return HttpResponseRedirect('/logic')
     return render(request, 'Register.html')
 
 def Registerajax(request):#judge if the username exciting or not

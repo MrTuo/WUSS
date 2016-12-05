@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>新增url</title>
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+{#    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">#}
     <link rel="stylesheet" type="text/css" href="/static/css/public.css">
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+{#    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>#}
+{#    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+    <script src="/static/js/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/jquery-1.4.2.min.js"></script>
     <script src="/static/js/addurl.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/addurl.css">
 
 </head>
-<body>
+<body onload="test()">
 
 {% include 'top1.html' %}
 
@@ -24,13 +26,13 @@
             </div>
         </div>
     </div>
-{#<div id="aaa" style="height: 100px;width: 100px;border: solid red 1px;" >#}
+{#<div id="aaa" style="height: 100px;width: 100px;border: solid red 1px;" class="lalala" id="ladasd" fuck="asdasdasd">#}
 {#    2232#}
 {#    <div style="height: 50px;width: 50px;border: solid yellow 1px;">#}
 {##}
 {#    </div>#}
 {#</div>#}
-{#<input type="button" onclick="test()" value="lalal">#}
+<input type="button" onclick="test()" value="lalal">
 <div class="usermain">
         <div class="usermain_right_mainboard_for_URL" style="color: white;">
             <form action="/add_url/" method="post" style="position: absolute;width: 523px">
@@ -67,13 +69,6 @@
                                 <input type="radio" name="track_status" value="False" checked style="margin: 0px">否<br/>
                             </td>
                         </tr>
-{#                        <tr>#}
-{#                            <td><span class="edit_url_span">是否推送:</span></td>#}
-{#                            <td>#}
-{#                                <input type="radio" name="push_status" value="True" checked>是#}
-{#                                <input type="radio" name="push_status" value="False" checked>否<br/>#}
-{#                            </td>#}
-{#                        </tr>#}
                     </table>
                     <br>
                     <table>
@@ -84,8 +79,7 @@
                         </tr>
                     </table>
                 </form>
-            <br>
-            <form action="/add_url_by_HTML/" method="post" style="position: absolute;width: 523px;top: 236px;">
+            <form action="/add_url_by_HTML/" method="post" style="position: absolute;width: 523px;top: 263px;">
                     <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
                     <table>
                         <tr>
@@ -122,7 +116,7 @@
                         <tr>
                             <td></td>
                             <td>
-                                <input type="text" name="detail" value="">
+                                <input type="hidden" name="spider_guide"  id="detailwuss" value="11" wuss="">
                             </td>
                         </tr>
 {#                        <tr>#}
@@ -148,87 +142,5 @@
 
         </div>
 </div>
-
-{#<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>#}
-{#        <script type="text/javascript">#}
-{#            var string=[]#}
-{#            choose1=document.getElementById("1");#}
-{#            choose2=document.getElementById("2");#}
-{#            $(document).ready(function() {#}
-{#                $("input[type=radio][value=1]").click(function() {#}
-{#                    var flag1 = $("input[type=radio][value=1]").attr("checked")=="checked"? false: "checked";#}
-{#                    $("input[type=radio][value=1]").attr("checked",flag1);#}
-{#                })#}
-{#                $("input[type=radio][value=2]").click(function() {#}
-{#                    var flag2 = $("input[type=radio][value=2]").attr("checked")=="checked"? false: "checked";#}
-{#                    $("input[type=radio][value=2]").attr("checked",flag2);#}
-{#                    if (flag2){#}
-{#                        var url1=$("#urlpart").val();#}
-{#                        var ifrm=document.getElementById("iframepart");#}
-{#                        ifrm.hidden = false;#}
-{#                    }#}
-{#                })#}
-{##}
-{#            })#}
-            {#       捕捉url变化，一旦url变化，iframe实时更新     #}
-{#            function urlchange(){#}
-{#                var url1=$("#urlpart").val();#}
-{#                var ifrm=document.getElementById("iframepart");#}
-{#                ifrm.hidden = false;#}
-{#                ifrm.src = "/addhtmlurl/?url1="+url1;#}
-{#                ifrm.onload = function(){#}
-{#                    var div=ifrm.contentWindow.document.getElementsByTagName("div")#}
-{#                    alert(div.length)#}
-{#                    alert(ifrm.contentWindow.document.getElementById('page').innerHTML);//弹出恭喜你操作到内部iframe中的元素了！！！#}
-{#        };#}
-{#            }#}
-{#            function onclickon(a) {#}
-{#                alert(a.style.backgroundColor);#}
-{#                if (a.style.backgroundColor!="rgba(76, 175, 80, 0.65098)"){#}
-{#                    a.style.backgroundColor="rgba(76, 175, 80, 0.65098)";#}
-{#                    a.wuss="no";#}
-{#                    (function(e){#}
-{#                        var e = window.event || e;#}
-{#                        if (e.stopPropagation) e.stopPropagation();#}
-{#                        else e.cancelBubble = true;#}
-{#                    })(event);#}
-{#                }#}
-{#                else{#}
-{#                    a.wuss="yes";#}
-{#                    a.style.backgroundColor="";#}
-{#                    (function(e){#}
-{#                        var e = window.event || e;#}
-{#                        if (e.stopPropagation) e.stopPropagation();#}
-{#                        else e.cancelBubble = true;#}
-{#                    })(event)#}
-{#                }#}
-{#            }#}
-{#            function mousemoveon(a) {#}
-{##}
-{#                if (a.wuss=="yes" || a.wuss==null)#}
-{#                    a.style.backgroundColor="rgba(33, 150, 243, 0.68)";#}
-{#            }#}
-{#            function mousemoveout(a){#}
-{#                if (a.wuss=="yes" || a.wuss==null)#}
-{#                    a.style.backgroundColor="";#}
-{#            }#}
-{#            function test() {#}
-{#                var lala=document.getElementsByTagName("div");#}
-{#                for (i=0;i<lala.length;i++){#}
-{#                    lala[i].wuss="yes";#}
-{#                    alert(lala[i].wuss);#}
-{#                    lala[i].addEventListener("mousemove",mousemoveon.bind(lala[i],lala[i]));#}
-{#                    lala[i].addEventListener("mouseout",mousemoveout.bind(lala[i],lala[i]));#}
-{#                    lala[i].addEventListener("click",onclickon.bind(lala[i],lala[i]));#}
-{#                }#}
-{#                var lala=document.getElementsByTagName("form");#}
-{#                for (i=0;i<lala.length;i++){#}
-{#                    lala[i].wuss="yes";#}
-{#                    lala[i].addEventListener("click",onclickon.bind(lala[i],lala[i]));#}
-{#                }#}
-{#            }#}
-{##}
-{#        </script>#}
-
 </body>
 </html>

@@ -34,12 +34,31 @@ function urlchange(){
 }
 function choose_property(str){
     s=str.toString();
-    console.log(s);
+    //console.log(s);
     for (i in s){
         if(s[i]==','||s[i]==':'||s[i]==';')
             return false;
     }
     return true;
+}
+function deletechoose(a){
+    b="";
+    $.each(a.attributes,function (ii,at) {
+        if (b==null){
+            // alert(at.value);
+            if(choose_property(at.value)){
+                b=at.name+":"+at.value+",";
+            }
+        }
+        else{
+            if(choose_property(at.value)){
+                b=b+at.name+":"+at.value+",";
+            }
+        }
+    });
+    b=b+";";
+    console.log(b);
+    return b;
 }
 function onclickon(a) {
     if (a.style.backgroundColor!="rgba(76, 175, 80, 0.65098)"){
@@ -71,8 +90,12 @@ function onclickon(a) {
         alert(b.wuss);
     }
     else{
+        var b=document.getElementsByName("spider_guide");
         a.wuss="yes";
         a.style.backgroundColor="";
+        c=deletechoose(a);
+        b.wuss=b.wuss.replace(c,"");
+        alert(b.wuss);
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();

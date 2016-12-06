@@ -11,7 +11,6 @@
 {#    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
     <script src="/static/js/jquery-1.10.2.min.js"></script>
     <script src="/static/js/jquery-1.4.2.min.js"></script>
-    <script src="/static/js/addurl.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/addurl.css">
 
 </head>
@@ -32,7 +31,7 @@
 {##}
 {#    </div>#}
 {#</div>#}
-{#<input type="button" onclick="test()" value="lalal">#}
+<input type="button" onclick="ced()" value="lalal">
 <div class="usermain">
         <div class="usermain_right_mainboard_for_URL" style="color: white;">
             <form action="/add_url/" method="post" style="position: absolute;width: 523px">
@@ -97,6 +96,7 @@
                         <tr>
                             <td><span class="edit_url_span">url:</span></td>
                             <td><input type="text" name="url" id="urlpart" placeholder="http://www.arnoldhby.pro" onchange="urlchange()"/><br/></td>
+                            <td><input type="button" onclick="ced()" value="确认添加" class="btn"></td>
                         </tr>
                         <tr>
                             <td><span class="edit_url_span">标题:</span></td>
@@ -116,7 +116,7 @@
                         <tr>
                             <td></td>
                             <td>
-                                <input type="hidden" name="spider_guide"  id="detailwuss" value="11" wuss="">
+                                <input type="hidden" name="spider_guide"  id="detailwuss" value="" wuss="">
                             </td>
                         </tr>
 {#                        <tr>#}
@@ -142,5 +142,6 @@
 
         </div>
 </div>
+    <script src="/static/js/addurl.js"></script>
 </body>
 </html>

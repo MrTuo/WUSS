@@ -57,14 +57,22 @@ function deletechoose(a){
         }
     });
     b=b+";";
-    console.log(b);
+    // console.log(b);
     return b;
+}
+function ced() {
+    var deptObjs= document.getElementById("iframepart").contentWindow.document.getElementById("detailwuss");
+    var b=document.getElementById("detailwuss");
+    b.value=deptObjs.value;
+    console.log(b.value);
+    // alert(deptObjs.value);
 }
 function onclickon(a) {
     if (a.style.backgroundColor!="rgba(76, 175, 80, 0.65098)"){
         a.style.backgroundColor="rgba(76, 175, 80, 0.65098)";
         a.wuss="no";
         var b=document.getElementsByName("spider_guide");
+        var bb=b[0];
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();
@@ -74,34 +82,37 @@ function onclickon(a) {
         // alert(a.toString())
         $.each(a.attributes,function (ii,at) {
            // console.log(ii+"name:"+at.name+"value:"+at.value);
-            if (b.wuss==null){
+            if (b.value==null){
                 // alert(at.value);
                 if(choose_property(at.value)){
-                    b.wuss=at.name+":"+at.value+",";
+                    b.value=at.name+":"+at.value+",";
                 }
             }
             else{
                 if(choose_property(at.value)){
-                    b.wuss=b.wuss+at.name+":"+at.value+",";
+                    b.value=b.value+at.name+":"+at.value+",";
                 }
             }
         });
-        b.wuss=b.wuss+";";
-        alert(b.wuss);
+        b.value=b.value+";";
     }
     else{
         var b=document.getElementsByName("spider_guide");
         a.wuss="yes";
         a.style.backgroundColor="";
         c=deletechoose(a);
-        b.wuss=b.wuss.replace(c,"");
-        alert(b.wuss);
+        b.value=b.value.replace(c,"");
+        // alert(b.wuss);
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();
             else e.cancelBubble = true;
         })(event)
     }
+    var qq=document.getElementById("detailwuss");
+    qq.value=b.value;
+    // console.log(qq);
+    // console.log(b.value);
 }
 function mousemoveon(a) {
     if (a.wuss=="yes" || a.wuss==null)

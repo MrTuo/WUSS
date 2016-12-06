@@ -18,4 +18,4 @@ application = get_wsgi_application()
 import _thread
 from update_manage.views import check_all_update
 
-_thread.start_new_thread(check_all_update,())
+# _thread.start_new_thread(check_all_update,())

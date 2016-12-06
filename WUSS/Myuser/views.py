@@ -283,7 +283,9 @@ def text(request):
 
 def addhtmlurl(request):
     url=request.GET.get('url1')
-    response = urllib.request.urlopen(url)
+    rq = urllib.request.Request(url)
+    rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
+    response = urllib.request.urlopen(rq)
     html = response.read()
     try:
         html=html.decode('UTF-8')

@@ -16,6 +16,9 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.mail import send_mail,EmailMessage
+import urllib
+import urlopen
+
 
 #encoding:utf-8
 @login_required(login_url='/login/?next=/userhomepage/')
@@ -277,3 +280,31 @@ def text(request):
     }
     print (a)
     return render(request,'text.html',content)
+
+def addhtmlurl(request):
+    url=request.GET.get('url1')
+    response = urllib.request.urlopen(url)
+    html = response.read()
+    try:
+        html=html.decode('UTF-8')
+    except:
+        try:
+            html=html.decode('gb2312')
+        except:
+            try:
+                html = html.decode('ANSI')
+            except:
+                try:
+                    html = html.decode('GBK')
+                except:
+                    try:
+                        html = html.decode('UNICODE')
+                    except:
+                        html = html.decode('ASCII')
+    content={
+        'htmlurl':html,
+    }
+    return render(request, 'addhtmlurl.html', content)
+
+import urllib.request
+

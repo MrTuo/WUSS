@@ -163,6 +163,7 @@ html, body {
     margin-right: 0px;
     position: absolute;
     left:0px;
+    border-right:1px solid rgba(12, 10, 10, 0.15);
     background-color: rgba(158, 158, 158, 0.8);
 }
 .usermain_right_mainboard{

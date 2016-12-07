@@ -17,7 +17,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.mail import send_mail,EmailMessage
 import urllib
-import urlopen
 
 
 #encoding:utf-8

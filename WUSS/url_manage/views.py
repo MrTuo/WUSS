@@ -58,6 +58,10 @@ def add_url(request):
 def delete_url(request, urlid):
     if request.user.is_authenticated():
         p = Urls.objects.get(id=urlid)
+        if p.type==True:
+            SpiderItem.objects.filter(url=p).delete()
+        else :
+            RssItem.objects.filter(url=p).delete()
         p.delete()
         return HttpResponseRedirect('/urlmanagement/')
 
@@ -79,7 +83,7 @@ def edit_find(request, urlid):
             new_url = request.POST.get('url', '')
             new_title = request.POST.get('title', '')
             new_update_fq = request.POST.get('update_fq', 0)
-            print(new_update_fq)
+
             new_track_status = request.POST.get('track_status', 'True')
             spider_guide = request.POST.get('spider_guide', '')  # 若为空代表为RSSurl，不空则为普通URL
             # new_push_status = request.POST.get('push_statu', 'True')
@@ -104,6 +108,10 @@ def edit_find(request, urlid):
         edit_url = Urls.objects.get(id=urlid)
 
         if edit_url.type == False:
+            content = {
+                'user_is_logic': 'YES',
+                'edit_url': edit_url,
+            }
             return render(request, "edit_url.html", content)
         else:
             rq = urllib.request.Request(edit_url.url)

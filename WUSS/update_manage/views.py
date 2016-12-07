@@ -93,6 +93,11 @@ def get_spider_item(url):
         html_content = response1.read()  # 获取页面html信息
 
         soup = BeautifulSoup(html_content, 'lxml')  # 创建bs对象处理html页面
+        img_tag = soup.find_all(name='img')  # 删除所有img标签
+        # s3 = s2.find_all(name='img')
+        for tag in img_tag:
+            tag.decompose()
+
         items = SpiderItem.objects.filter(url=url)  # 获取当前页面用户选取的所有标签对象
         is_update = False  # 记录当前URL是否有更新
         for item in items:  # 比较每一个标签对象是否发生更新
@@ -193,6 +198,7 @@ def get_attr_dic(attr_str):
     '''
     attr_dic = {}
     arr = attr_str.split(',')
+    arr.remove('')
     for a in arr:
         arr2 = a.split(':')
         if arr2[0]=='class':

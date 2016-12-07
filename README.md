@@ -56,7 +56,7 @@ Python3 + Django1.10
 ## 关于我们
 任何问题可以联系邮箱：
 - tuomingxiang@gmail.com（负责订阅模块实现）
-- 501874997@qq.com（负责URL管理模块实现）
-- zengxuwei9595@qq.com（负责整个网站前端以及用户模块实现）
+- 501874997@qq.com（负责整个网站前端以及用户模块实现）
+- zengxuwei9595@qq.com（负责URL管理模块实现）
 
 

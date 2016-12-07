@@ -305,6 +305,7 @@ def addhtmlurl(request):
                         html = html.decode('ASCII')
     content={
         'htmlurl':html,
+        'url':url,
     }
     return render(request, 'addhtmlurl.html', content)
 

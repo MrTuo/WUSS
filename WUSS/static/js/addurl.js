@@ -5,33 +5,22 @@ var string=[];
 choose1=document.getElementById("1");
 choose2=document.getElementById("2");
 $(document).ready(function() {
-                $("input[type=radio][value=1]").click(function() {
-                    var flag1 = $("input[type=radio][value=1]").attr("checked")=="checked"? false: "checked";
-                    $("input[type=radio][value=1]").attr("checked",flag1);
-                })
-                $("input[type=radio][value=2]").click(function() {
-                    var flag2 = $("input[type=radio][value=2]").attr("checked")=="checked"? false: "checked";
-                    $("input[type=radio][value=2]").attr("checked",flag2);
-                    if (flag2){
-                        var url1=$("#urlpart").val();
-                        var ifrm=document.getElementById("iframepart");
-                        ifrm.hidden = false;
-                    }
-                })
-
-            })
-// {#       捕捉url变化，一旦url变化，iframe实时更新     #}
+    $("input[type=radio][value=1]").click(function() {
+        var flag1 = $("input[type=radio][value=1]").attr("checked")=="checked"? false: "checked";
+        $("input[type=radio][value=1]").attr("checked",flag1);
+    })
+    $("input[type=radio][value=2]").click(function() {
+        var flag2 = $("input[type=radio][value=2]").attr("checked")=="checked"? false: "checked";
+        $("input[type=radio][value=2]").attr("checked",flag2);
+        if (flag2){
+            var url1=$("#urlpart").val();
+            var ifrm=document.getElementById("iframepart");
+            ifrm.hidden = false;
+        }
+    })
+})
 function urlchange(){
     var url1=$("#urlpart").val();
-    // alert("aass");
-//     var ifrm=document.getElementById("iframepart");
-//     ifrm.hidden = false;
-//     ifrm.src = "/addhtmlurl/?url1="+url1;
-//     ifrm.onload = function(){
-//         var div=ifrm.contentWindow.document.getElementsByTagName("div")
-//         // alert(div.length)
-// // {#                  alert(ifrm.contentWindow.document.getElementById('page').innerHTML);//弹出恭喜你操作到内部iframe中的元素了！！！#}
-//         };
     str="http://";
     if (url1.indexOf(str)>=0 && url1){
     }
@@ -67,7 +56,6 @@ function deletechoose(a){
         }
     });
     b=b+";";
-    // console.log(b);
     return b;
 }
 function ced() {
@@ -75,7 +63,6 @@ function ced() {
     var b=document.getElementById("detailwuss");
     b.value=deptObjs.value;
     console.log(b.value);
-    // alert(deptObjs.value);
 }
 function onclickon(a) {
     if (a.style.backgroundColor!="rgba(76, 175, 80, 0.65098)"){
@@ -88,12 +75,8 @@ function onclickon(a) {
             if (e.stopPropagation) e.stopPropagation();
             else e.cancelBubble = true;
         })(event);
-
-        // alert(a.toString())
         $.each(a.attributes,function (ii,at) {
-           // console.log(ii+"name:"+at.name+"value:"+at.value);
             if (b.value==null){
-                // alert(at.value);
                 if(choose_property(at.value)){
                     b.value=at.name+":"+at.value+",";
                 }
@@ -112,7 +95,6 @@ function onclickon(a) {
         a.style.backgroundColor="";
         c=deletechoose(a);
         b.value=b.value.replace(c,"");
-        // alert(b.wuss);
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();
@@ -121,8 +103,6 @@ function onclickon(a) {
     }
     var qq=document.getElementById("detailwuss");
     qq.value=b.value;
-    // console.log(qq);
-    // console.log(b.value);
 }
 function mousemoveon(a) {
     if (a.wuss=="yes" || a.wuss==null)
@@ -132,19 +112,10 @@ function mousemoveout(a){
     if (a.wuss=="yes" || a.wuss==null)
         a.style.backgroundColor="";
 }
-function firm() {
-        //利用对话框返回的值 （true 或者 false）
-        if (confirm("你确定提交吗？")) {
-            alert("点击了确定");
-        }
-        else {
-            alert("点击了取消");
-        }
-
-    }
 function test() {
     var type=["div","form","a","span","p","h1","h2","h3","h4","h5","h6","pre","table","ul","li"];
-    var dont=["wuss","wuss1","wuss2","wuss3","wuss4","wuss5","wuss6","wuss7"];
+    var dont=["wuss","wuss1","wuss2","wuss3","wuss4","wuss5","wuss6","wuss7","wuss8","wuss9","wuss10"
+    ,"wuss11"];
     for (i in type){
         // console.log(type[i]);
         lala=document.getElementsByTagName(type[i]);
@@ -203,3 +174,4 @@ function linkHTML() {
     }
 // {#            window.location.href="../add_url_HTML/";#}
 }
+

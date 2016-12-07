@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>新增url</title>
+    <title>新增RSSurl</title>
 {#    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">#}
     <link rel="stylesheet" type="text/css" href="/static/css/public.css">
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
@@ -11,7 +11,6 @@
 {#    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
     <script src="/static/js/jquery-1.10.2.min.js"></script>
     <script src="/static/js/jquery-1.4.2.min.js"></script>
-    <script src="/static/js/addurl.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/addurl.css">
 
 </head>
@@ -32,20 +31,22 @@
 {##}
 {#    </div>#}
 {#</div>#}
-{#<input type="button" onclick="test()" value="lalal">#}
+
 <div class="usermain">
         <div class="usermain_right_mainboard_for_URL" style="color: white;">
+            <h2>RSS订阅添加</h2>
             <form action="/add_url/" method="post" style="position: absolute;width: 523px">
                     <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
+                    <input type ="hidden" name="type" value="0">
                     <table>
                         <tr>
                             <th width="100px"></th>
                             <th width="300px"></th>
                         </tr>
-                        <tr>
-                            <td><input type="radio" name="RSSorHTML" value="1" style="margin: 0px" id="1">选择</td>
-                            <th>RSS订阅方式</th>
-                        </tr>
+{#                        <tr>#}
+{#                            <td><input type="radio" name="RSSorHTML" value="1" style="margin: 0px" id="1">选择</td>#}
+{#                            <th>RSS订阅方式</th>#}
+{#                        </tr>#}
                         <tr>
                             <td><br></td>
                             <td></td>
@@ -69,6 +70,7 @@
                                 <input type="radio" name="track_status" value="False" checked style="margin: 0px">否<br/>
                             </td>
                         </tr>
+
                     </table>
                     <br>
                     <table>
@@ -79,68 +81,64 @@
                         </tr>
                     </table>
                 </form>
-            <form action="/add_url_by_HTML/" method="post" style="position: absolute;width: 523px;top: 263px;">
-                    <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
-                    <table>
-                        <tr>
-                            <th width="100px"></th>
-                            <th width="300px"></th>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="RSSorHTML" value="2" style="margin: 0px" id="2">选择</td>
-                            <th>HTML订阅方式</th>
-                        </tr>
-                        <tr>
-                            <td><br></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><span class="edit_url_span">url:</span></td>
-                            <td><input type="text" name="url" id="urlpart" placeholder="http://www.arnoldhby.pro" onchange="urlchange()"/><br/></td>
-                        </tr>
-                        <tr>
-                            <td><span class="edit_url_span">标题:</span></td>
-                            <td><input type="text" name="title"/><br/></td>
-                        </tr>
-                        <tr>
-                            <td><span class="edit_url_span">更新频率:</span></td>
-                            <td><input type="text"size="1" name="update_fq " value="{{ edit_url.update_fq }}"/>天一次<br/></td>
-                        </tr>
-                        <tr>
-                            <td><span class="edit_url_span">是否跟踪:</span></td>
-                            <td>
-                                <input type="radio" name="track_status" value="True" checked style="margin: 0px">是
-                                <input type="radio" name="track_status" value="False" checked style="margin: 0px">否<br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <input type="hidden" name="spider_guide"  id="detailwuss" value="11" wuss="">
-                            </td>
-                        </tr>
+{#            <form action="/add_url_by_HTML/" method="post" style="position: absolute;width: 523px;top: 263px;">#}
+{#                    <input type ="hidden" name="urlid" value="{{ edit_url.id }}">#}
+{#                    <table>#}
 {#                        <tr>#}
-{#                            <td><span class="edit_url_span">是否推送:</span></td>#}
+{#                            <th width="100px"></th>#}
+{#                            <th width="300px"></th>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td><input type="radio" name="RSSorHTML" value="2" style="margin: 0px" id="2">选择</td>#}
+{#                            <th>HTML订阅方式</th>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td><br></td>#}
+{#                            <td></td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td><span class="edit_url_span">url:</span></td>#}
+{#                            <td><input type="text" name="url" id="urlpart" placeholder="http://www.arnoldhby.pro" onchange="urlchange()"/><br/></td>#}
+{#                            <td><input type="button" onclick="ced()" value="确认添加" class="btn"></td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td><span class="edit_url_span">标题:</span></td>#}
+{#                            <td><input type="text" name="title"/><br/></td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td><span class="edit_url_span">更新频率:</span></td>#}
+{#                            <td><input type="text"size="1" name="update_fq " value="{{ edit_url.update_fq }}"/>天一次<br/></td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td><span class="edit_url_span">是否跟踪:</span></td>#}
 {#                            <td>#}
-{#                                <input type="radio" name="push_status" value="True" checked>是#}
-{#                                <input type="radio" name="push_status" value="False" checked>否<br/>#}
+{#                                <input type="radio" name="track_status" value="True" checked style="margin: 0px">是#}
+{#                                <input type="radio" name="track_status" value="False" checked style="margin: 0px">否<br/>#}
 {#                            </td>#}
 {#                        </tr>#}
-                    </table>
-                    <br>
-                    <table>
-                        <tr>
-                            <td width="140px"></td>
-                            <td width="80px"><a href="/../urlmanagement/" class="btn">返回</a> </td>
-                            <td><input type="submit" value="确认添加" class="btn"></td>
-                        </tr>
-                    </table>
-                </form>
-            <iframe style="position: absolute;right: 0px;width: 523px;height: 400px" src=/addhtmlurl id="iframepart" hidden>
-
-            </iframe>
+{#                        <tr>#}
+{#                            <td></td>#}
+{#                            <td>#}
+{#                                <input type="hidden" name="spider_guide"  id="detailwuss" value="" wuss="">#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                    <br>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <td width="140px"></td>#}
+{#                            <td width="80px"><a href="/../urlmanagement/" class="btn">返回</a> </td>#}
+{#                            <td><input type="submit" value="确认添加" class="btn"></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </form>#}
+{#            <iframe style="position: absolute;right: 0px;width: 523px;height: 400px" src=/addhtmlurl id="iframepart" hidden>#}
+{##}
+{#            </iframe>#}
 
         </div>
 </div>
+    <script src="/static/js/addurl.js"></script>
+
 </body>
 </html>

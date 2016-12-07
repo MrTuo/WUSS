@@ -195,5 +195,7 @@ def get_attr_dic(attr_str):
     arr = attr_str.split(',')
     for a in arr:
         arr2 = a.split(':')
+        if arr2[0]=='class':
+            arr2[1]=arr2[1].replace(' hover','')# 删除hover class
         attr_dic[arr2[0]] = arr2[1]
     return attr_dic

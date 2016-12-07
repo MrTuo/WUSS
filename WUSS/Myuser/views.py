@@ -17,6 +17,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.mail import send_mail,EmailMessage
 import urllib
+import urllib.request
 
 
 #encoding:utf-8
@@ -282,7 +283,9 @@ def text(request):
 
 def addhtmlurl(request):
     url=request.GET.get('url1')
-    response = urllib.request.urlopen(url)
+    rq = urllib.request.Request(url)
+    rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
+    response = urllib.request.urlopen(rq)
     html = response.read()
     try:
         html=html.decode('UTF-8')
@@ -302,8 +305,9 @@ def addhtmlurl(request):
                         html = html.decode('ASCII')
     content={
         'htmlurl':html,
+        'url':url,
     }
     return render(request, 'addhtmlurl.html', content)
 
-import urllib.request
+
 

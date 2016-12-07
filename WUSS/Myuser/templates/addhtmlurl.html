@@ -3,13 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title>添加htmlurl</title>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="/static/js/addurl.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/addurl.css">
 </head>
 <body onload="test()">
-
+    <wuss id="wuss" class="mydiv" style="left:0px;top: 20px;">
+        <wuss id="wuss0">
+            <form action="/add_url/" method="post" id="wuss1" >
+                <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
+                <input type ="hidden" name="type" value="1">
+                <input type="hidden" id="detailwuss" value="" wuss="" name="spider_guide">
+                <table id="wuss2">
+                    <tr>
+                        <th width="100px"></th>
+                        <th width="300px"></th>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><span class="edit_url_span color" id="wuss4">url:</span></td>
+                        <td><input type="text" name="url" value="{{ url }}" onchange="urlchange()" id="urlpart" /><br/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="edit_url_span color" id="wuss5">标题:</span></td>
+                        <td><input type="text" name="title"/><br/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="edit_url_span color" id="wuss6">更新频率:</span></td>
+                        <td><input type="text"size="1" name="update_fq " value="{{ edit_url.update_fq }}"/>天一次<br/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="edit_url_span color" id="wuss7">是否跟踪:</span></td>
+                        <td>
+                            <input type="radio" name="track_status" value="True" checked style="margin: 0px"><span class="color">是</span>
+                            <input type="radio" name="track_status" value="False" checked style="margin: 0px"><span class="color">否</span> <br/>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <table id="wuss3">
+                    <tr>
+                        <td width="140px"></td>
+                        <td width="80px"><a href="/../urlmanagement/" class="btn">返回</a> </td>
+                        <td><input type="submit" value="确认添加" class="btn"></td>
+                    </tr>
+                </table>
+            </form>
+        </wuss>
+    </wuss>
     {{ htmlurl|safe }}
 
 </body>
+<script>
+    var posX;
+    var posY;
+    fwuss = document.getElementById("wuss");
+    fwuss.onmousedown=function(e){
+        console.log(event.x);
+        posX = event.x - fwuss.offsetLeft;
+        posY = event.y - fwuss.offsetTop;
+        document.onmousemove = mousemove;
+
+        console.log("("+posX+","+posY+")");
+        console.log("("+fwuss.offsetLeft+","+fwuss.offsetTop+")");
+
+    }
+    document.onmouseup = function()
+    {
+        document.onmousemove = null;
+    }
+    function mousemove(ev)
+    {
+        if(ev==null) ev = window.event;//IE
+        fwuss.style.left = (ev.clientX - posX) + "px";
+        fwuss.style.top = (ev.clientY - posY) + "px";
+    }
+</script>
+<style>
+    .mydiv{
+{#        left:0px;#}
+        position: fixed;
+        width: 434px;
+        height: 206px;
+        z-index: 1000;
+{#        top:20px;#}
+        background: rgba(0, 0, 0, 0.73);
+    }
+    .color{
+        color: white;
+        right: 0px;
+    }
+</style>
 </html>

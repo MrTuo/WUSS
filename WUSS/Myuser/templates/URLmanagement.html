@@ -22,6 +22,7 @@
 <body class="bodypublic">
     {% include 'top1.html' %}
 
+    <a href="#" onclick="showPopup();" >Open popup</a>
     <div class="navcontrol">
         <div class="navbar">
             <div class="navbar-inner">
@@ -35,7 +36,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" class="urltable">
                 <tr>
                     <th>URL管理</th>
-                    <th><a href="/add_url/"style="color: mediumspringgreen;">添加新的URL</a></th>
+                    <th><a href="javascript:showPopup()"style="color: mediumspringgreen;">添加新的URL</a></th>
                 </tr>
                 <tr>
                     <td><hr></td>
@@ -69,5 +70,50 @@
             </table>
         </div>
     </div>
+
+    <div id="popupcontent" class="myalert">
+        <div class="row-fluid">
+            <div class="span12">
+                <p >请选择添加的方式：</p>
+            </div>
+            <div class="span12">
+                <p style="text-align: center">RSS订阅为.xml格式；HTML订阅为正常网页格式</p>
+            </div>
+        </div>
+        <br><br><br><br>
+        <div class="row-fluid">
+            <div class="mydiv span4 "><input type="button" class="btn btn-info myinput" style="width: 120px" value="RSS订阅方式" onclick="linkRSS()"></div>
+            <div class="mydiv span4 "><input type="button" class="btn btn-info myinput" style="width: 120px" value="取消" onclick="hidePopup()"></div>
+            <div class="mydiv span4 "><input type="button" class="btn btn-info myinput" style="width: 120px" value="HTML订阅方式" onclick="linkHTML()"></div>
+        </div>
+    </div>
+    <script src="/static/js/addurl.js"></script>
+    <style>
+        #popupcontent{
+            position: absolute;
+            visibility: hidden;
+            overflow: hidden;
+            border:1px solid #CCC;
+            background-color:#F9F9F9;
+            border:1px solid #333;
+            padding:5px;
+        }
+        .mydiv{
+            position: relative;
+        }
+        .myinput{
+            position: absolute;
+        }
+        .myalert{
+            top:160px;
+            left:-210px;
+            margin-left: 50%;
+            width: 410px;
+            height: 200px;
+            position: absolute;
+            z-index: 1;
+
+        }
+    </style>
 </body>
 </html>

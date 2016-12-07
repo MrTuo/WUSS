@@ -208,3 +208,7 @@ html, body {
 .edit_url_span{
     color: rgb(62, 253, 69);
 }
+.my-input {
+    width: 400px;
+    display: inline-block;
+}bootstrap.min.css

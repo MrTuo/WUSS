@@ -281,33 +281,7 @@ def text(request):
     print (a)
     return render(request,'text.html',content)
 
-def addhtmlurl(request):
-    url=request.GET.get('url1')
-    rq = urllib.request.Request(url)
-    rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
-    response = urllib.request.urlopen(rq)
-    html = response.read()
-    try:
-        html=html.decode('UTF-8')
-    except:
-        try:
-            html=html.decode('gb2312')
-        except:
-            try:
-                html = html.decode('ANSI')
-            except:
-                try:
-                    html = html.decode('GBK')
-                except:
-                    try:
-                        html = html.decode('UNICODE')
-                    except:
-                        html = html.decode('ASCII')
-    content={
-        'htmlurl':html,
-        'url':url,
-    }
-    return render(request, 'addhtmlurl.html', content)
+
 
 
 

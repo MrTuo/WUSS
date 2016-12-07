@@ -69,12 +69,19 @@ function onclickon(a) {
         a.style.backgroundColor="rgba(76, 175, 80, 0.65098)";
         a.wuss="no";
         var b=document.getElementsByName("spider_guide");
-        var bb=b[0];
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();
             else e.cancelBubble = true;
         })(event);
+        // console.log(a.tagName);
+        if (b.value==null) {
+            b.value="tag:"+a.tagName+",";
+        }
+        else {
+            b.value=b.value+"tag:"+a.tagName+",";
+        }
+
         $.each(a.attributes,function (ii,at) {
             if (b.value==null){
                 if(choose_property(at.value)){
@@ -88,6 +95,7 @@ function onclickon(a) {
             }
         });
         b.value=b.value+";";
+        console.log(b.value);
     }
     else{
         var b=document.getElementsByName("spider_guide");
@@ -127,7 +135,6 @@ function test() {
                 lala[i].addEventListener("click",onclickon.bind(lala[i],lala[i]));
         }
     }
-
     $(function() {
         for (i in type){
             $(type[i]).mouseover(function(e) {

@@ -1,26 +1,26 @@
-/**
- * Created by Arnold on 2016/12/4.
- */
-var string=[];
-choose1=document.getElementById("1");
-choose2=document.getElementById("2");
-$(document).ready(function() {
-    $("input[type=radio][value=1]").click(function() {
-        var flag1 = $("input[type=radio][value=1]").attr("checked")=="checked"? false: "checked";
-        $("input[type=radio][value=1]").attr("checked",flag1);
-    })
-    $("input[type=radio][value=2]").click(function() {
-        var flag2 = $("input[type=radio][value=2]").attr("checked")=="checked"? false: "checked";
-        $("input[type=radio][value=2]").attr("checked",flag2);
-        if (flag2){
-            var url1=$("#urlpart").val();
-            var ifrm=document.getElementById("iframepart");
-            ifrm.hidden = false;
-        }
-    })
-})
+// /**
+//  * Created by Arnold on 2016/12/4.
+//  */
+// var string=[];
+// choose1=document.getElementById("1");
+// choose2=document.getElementById("2");
+// $(document).ready(function() {
+//     $("input[type=radio][value=1]").click(function() {
+//         var flag1 = $("input[type=radio][value=1]").attr("checked")=="checked"? false: "checked";
+//         $("input[type=radio][value=1]").attr("checked",flag1);
+//     })
+//     $("input[type=radio][value=2]").click(function() {
+//         var flag2 = $("input[type=radio][value=2]").attr("checked")=="checked"? false: "checked";
+//         $("input[type=radio][value=2]").attr("checked",flag2);
+//         if (flag2){
+//             var url1=$("#urlpart").val();
+//             var ifrm=document.getElementById("iframepart");
+//             ifrm.hidden = false;
+//         }
+//     })
+// })
 function urlchange(){
-    var url1=$("#urlpart").val();
+    var url1=document.getElementById("urlpart").value;
     str="http://";
     if (url1.indexOf(str)>=0 && url1){
     }
@@ -42,6 +42,7 @@ function choose_property(str){
 }
 function deletechoose(a){
     b="";
+    b="tag:"+(a.tagName).toLowerCase()+",";
     $.each(a.attributes,function (ii,at) {
         if (b==null){
             // alert(at.value);
@@ -55,6 +56,7 @@ function deletechoose(a){
             }
         }
     });
+    // b=b+"index:"+a.getAttribute("index")+";";
     b=b+";";
     return b;
 }
@@ -76,10 +78,10 @@ function onclickon(a) {
         })(event);
         // console.log(a.tagName);
         if (b.value==null) {
-            b.value="tag:"+a.tagName+",";
+            b.value="tag:"+(a.tagName).toLowerCase()+",";
         }
         else {
-            b.value=b.value+"tag:"+a.tagName+",";
+            b.value=b.value+"tag:"+(a.tagName).toLowerCase()+",";
         }
 
         $.each(a.attributes,function (ii,at) {
@@ -94,6 +96,7 @@ function onclickon(a) {
                 }
             }
         });
+        // b.value=b.value+"index:"+a.getAttribute("index")+";";
         b.value=b.value+";";
         console.log(b.value);
     }
@@ -103,6 +106,7 @@ function onclickon(a) {
         a.style.backgroundColor="";
         c=deletechoose(a);
         b.value=b.value.replace(c,"");
+        console.log(b.value);
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();
@@ -131,8 +135,13 @@ function test() {
         for (i=0;i<lala.length;i++){
             // console.log(lala[i].id);
             str=lala[i].id;
-            if (str.indexOf("wuss")<0)
+            if (str.indexOf("wuss")<0){
                 lala[i].addEventListener("click",onclickon.bind(lala[i],lala[i]));
+                lala[i].setAttribute("index",i);
+                // console.log("i="+i+" wuss:"+lala[i].getAttribute("index"));
+                // console.log(lala[i]);
+            }
+
         }
     }
     $(function() {

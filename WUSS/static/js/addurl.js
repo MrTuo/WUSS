@@ -42,6 +42,7 @@ function choose_property(str){
 }
 function deletechoose(a){
     b="";
+    b="tag:"+(a.tagName).toLowerCase()+",";
     $.each(a.attributes,function (ii,at) {
         if (b==null){
             // alert(at.value);
@@ -76,10 +77,10 @@ function onclickon(a) {
         })(event);
         // console.log(a.tagName);
         if (b.value==null) {
-            b.value="tag:"+a.tagName+",";
+            b.value="tag:"+(a.tagName).toLowerCase()+",";
         }
         else {
-            b.value=b.value+"tag:"+a.tagName+",";
+            b.value=b.value+"tag:"+(a.tagName).toLowerCase()+",";
         }
 
         $.each(a.attributes,function (ii,at) {
@@ -103,6 +104,7 @@ function onclickon(a) {
         a.style.backgroundColor="";
         c=deletechoose(a);
         b.value=b.value.replace(c,"");
+        console.log(b.value);
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();

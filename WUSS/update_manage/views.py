@@ -114,7 +114,8 @@ def get_spider_item(url):
                 if familiar <= 0.8:  # 相似度小于阈值说明有内容更新
                     is_update = True  # 当前URL有更新
                     item.push_status = True
-                    item.text_content = new_content
+                    item.text_content = new_content # 这里保存文字内容
+                    item.html_content = target.prettify().encode('utf-8') # 这里保存html内容
                     item.save()
             else:  # target中无元素，说明页面发生改变，用户需要重新选择区域。
                 item.has_changed = True
@@ -142,12 +143,15 @@ def send_update_email(user):
                 dic_RSSurls.append(dic_RSSurl)
             else:  # url为一般url
                 dic_url = {}
+                dic_url['last_check_time'] = url.last_check_time
+                dic_url['title'] = url.title
                 dic_url['items'] = SpiderItem.objects.filter(url=url,push_status=1)
                 dic_urls.append(dic_url)
 
         context['RSSurls'] = dic_RSSurls
         context['username'] = user.username
         context['urls'] = dic_urls
+        context['now'] = timezone.now()
         html_content = loader.render_to_string(
             'send_email_template.html',
             context,
@@ -205,3 +209,36 @@ def get_attr_dic(attr_str):
             arr2[1]=arr2[1].replace(' hover','')# 删除hover class
         attr_dic[arr2[0]] = arr2[1]
     return attr_dic
+
+def show_mail_temp(request):
+    '''
+    用于测试邮件模板输出
+    :param req:
+    :return:
+    '''
+    user = request.user
+    urls = Urls.objects.filter(user=user)
+    if urls:
+        dic_RSSurls = []
+        dic_urls = []
+        context = {}
+        for url in urls:  # 将url更新数据进行整理保存
+            if url.type == 0:  # url为RSS url
+                dic_RSSurl = {}
+                dic_RSSurl['last_check_time'] = url.last_check_time
+                dic_RSSurl['title'] = url.title
+                dic_RSSurl['items'] = RssItem.objects.filter(url=url)
+                dic_RSSurls.append(dic_RSSurl)
+            else:  # url为一般url
+                dic_url = {}
+                dic_url['last_check_time'] = url.last_check_time
+                dic_url['title'] = url.title
+                dic_url['items'] = SpiderItem.objects.filter(url=url)
+                dic_urls.append(dic_url)
+
+        context['RSSurls'] = dic_RSSurls
+        context['username'] = user.username
+        context['urls'] = dic_urls
+        context['now'] = timezone.now()
+
+        return render_to_response('send_email_template.html',context)

@@ -27,7 +27,8 @@ class SpiderItem(models.Model):
     保存一般URL中的用户指定标签内容
     '''
     attr_str = models.CharField(max_length=200)  # 保存属性键值对
-    text_content = models.TextField(blank=True)  # 保存最近爬取到的文字信息
+    text_content = models.TextField(blank=True)  # 保存最近爬取到的文字信息，用于更新判断
+    html_content = models.TextField(blank=True)   # 保存最近爬取到的html信息，用于推送及展示
     has_changed = models.BooleanField(default=0)  # 原网页的这个标签是否已经发生改变，如果发生改变，需要用户到页面重新选取这个标签。
     url = models.ForeignKey(Urls)  # 所属url
     push_status = models.BooleanField(default=0)  # 保存是否需要推送

@@ -82,7 +82,7 @@ def edit_find(request, urlid):
             old = Urls.objects.get(id=urlid)
             new_url = request.POST.get('url', '')
             new_title = request.POST.get('title', '')
-            new_update_fq = request.POST.get('update_fq', 0)
+            new_update_fq = request.POST.get('update_fq', 1)
 
             new_track_status = request.POST.get('track_status', 'True')
             spider_guide = request.POST.get('spider_guide', '')  # 若为空代表为RSSurl，不空则为普通URL

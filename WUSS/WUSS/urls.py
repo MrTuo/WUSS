@@ -18,6 +18,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from Myuser import views as myuserviews
 from url_manage import views as manageviews
+from update_manage import views as updateviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$',views.mainhomepage),
@@ -46,7 +47,7 @@ urlpatterns = [
     url(r'^edit_find/(\d+)/$', manageviews.edit_find),
     url(r'^delete_url/(\d+)/$', manageviews.delete_url),
     url(r'^addhtmlurl/$',manageviews.addhtmlurl),
-    # url(r'^addhtmlurl/$',views.add_url_by_HTML),
+    url(r'^show_email/$',updateviews.show_mail_temp),
 
     # url(r'^$', manageviews.show_url),
 ]

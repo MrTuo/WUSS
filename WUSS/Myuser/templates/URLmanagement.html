@@ -32,9 +32,12 @@
     </div>
 
     <div class="usermain" style="margin-top: 150px">
+        <div class="usermain_left_nav">
+            {% include 'user_main_left1.html' %}
+        </div>
         <div class="usermain_right_mainboard_for_URL" style="color: white;">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="urltable">
-                <tr>
+            <table border="0" cellpadding="0" cellspacing="0"  class="urltable">
+                <!-- <tr>
                     <th></th>
                     <th><a href="javascript:showPopup()"style="color: mediumspringgreen;">添加新的URL</a></th>
                     <th></th>
@@ -42,21 +45,28 @@
                 <tr>
                     <td><hr></td>
                     <td><hr></td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td>
                         <table class="urltable">
+                            <tr>
+                                <td width="330px"> &nbsp</td>
+                                <td width="208px"> </td>
+                                <td width="208px"> </td>
+                                <td width="50px"> </td>
+                                <td width="50px"> </td>
+                            </tr>
                             {% for i in urls %}
                             <tr>
-                                <td>URL地址:{{ i.url }}</td>
-                                <td> URL名称:{{ i.title }}</td>
-                                <td>上次更新时间:{{ i.last_check_time }}</td>
-                                <td width="50px">
+                                <td><span style="color: mediumspringgreen;">URL地址:</span>{{ i.url }}</td>
+                                <td><span style="color: mediumspringgreen;">URL名称:</span>{{ i.title }}</td>
+                                <td><span style="color: mediumspringgreen;">更新时间:</span>{{ i.last_check_time }}</td>
+                                <td >
                                     <a href="/edit_find/{{ i.id }}" style="color: mediumspringgreen;">
                                         编辑
                                     </a>
                                 </td>
-                                <td width="50px">
+                                <td >
                                     <a href="/delete_url/{{ i.id }}"style="color: mediumspringgreen;">
                                         删除
                                     </a>

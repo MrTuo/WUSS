@@ -46,7 +46,10 @@ def add_url(request):
                         url=new_url
                     )
                     new_item.save()
-
+            cacheurl = CacheFile.objects.filter(url=url)# 查找是否已经保存url
+            if not cacheurl : # 未保存
+                new_cachefile = CacheFile(url=url)
+                new_cachefile.save()
             return HttpResponseRedirect('/urlmanagement/')
         content = {
             'user_is_logic': 'YES',
@@ -104,6 +107,10 @@ def edit_find(request, urlid):
                         url=old
                     )
                     new_item.save()
+            cacheurl = CacheFile.objects.filter(url=new_url)  # 查找是否已经保存url
+            if not cacheurl:  # 未保存
+                new_cachefile = CacheFile(url=new_url)
+                new_cachefile.save()
             return HttpResponseRedirect('/')
         edit_url = Urls.objects.get(id=urlid)
 

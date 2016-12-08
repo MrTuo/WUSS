@@ -13,7 +13,7 @@ from update_manage.models import RssItem, SpiderItem
 from django.core.mail import send_mail, EmailMessage
 from django.template import loader
 from django.utils import timezone
-from WUSS.settings import TIME_ZONE, EMAIL_HOST_USER
+from WUSS.settings import TIME_ZONE, EMAIL_HOST_USER, CACHE_FQ, CACHE_PATH
 import urllib.request
 from bs4 import BeautifulSoup
 import Levenshtein
@@ -109,10 +109,13 @@ def get_spider_item(url):
         for item in items:  # 比较每一个标签对象是否发生更新
             attr_dic = get_attr_dic(item.attr_str)  # 创建标签属性键值对
             tag_name = attr_dic['tag']  # 获取标签名称
+            index = int(attr_dic['index'])
             del attr_dic['tag']  # 删除标签名称键值对
-            target = soup.find_all(tag_name, attrs=attr_dic)  # 根据标签属性键值定位到标签
+            del attr_dic['index']
+            target = soup.find_all(tag_name)  # 根据标签属性键值定位到标签
+            #target = soup.find_all(tag_name, attrs=attr_dic)  # 根据标签属性键值定位到标签
             if target:  # target中有元素
-                target = target[0]
+                target = target[index]
                 new_content = ""  # 保存新爬取下来的内容
                 for string in target.stripped_strings:  # 将target标签中所有文字信息提取并保存到new_content中
                     new_content += string + "\n"
@@ -248,3 +251,27 @@ def show_mail_temp(request):
         context['now'] = timezone.now()
 
         return render_to_response('send_email_template.html',context)
+
+def cache_file():
+    last_cache_time = datetime.datetime.now()-datetime.timedelta(seconds=CACHE_FQ)
+
+    while 1: # 进入缓存线程
+        urls = Urls.objects.filter() #
+        now = datetime.datetime.now()
+        if last_cache_time + datetime.timedelta(seconds=CACHE_FQ) <= now:
+            # 距离上次缓存时间达到指定要求，开始缓存
+            for url in urls:
+                rq = urllib.request.Request(url)
+                rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
+                response1 = urllib.request.urlopen(rq)
+                html_content = response1.read()  # 获取页面html信息
+
+                soup = BeautifulSoup(html_content, 'lxml')  # 创建bs对象处理html页面
+                img_tag = soup.find_all(name='img')  # 删除所有img标签
+                # s3 = s2.find_all(name='img')
+                for tag in img_tag:
+                    tag.decompose()
+
+                f = open(str(time.time())+'.html', 'wb')
+                f.write(soup.prettify().encode('utf-8'))
+                f.close()

@@ -146,3 +146,8 @@ EMAIL_HOST_PASSWORD = 'qq963852741'#第三方邮件收发授权码
 # EMAIL_PORT = 25                        #SMTP服务器端口
 # EMAIL_HOST_USER = 'wussapp@163.com'    #用户名
 # EMAIL_HOST_PASSWORD = 'wussapp20162016'#第三方邮件收发授权码
+
+# 缓存设置
+CACHE_COUNT = 30 #
+CACHE_FQ = 30*60 # 缓存频率,单位：秒
+CACHE_PATH = os.path.join(BASE_DIR, 'cache/').replace('\\','/')  # 缓存文件路径

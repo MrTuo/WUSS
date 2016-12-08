@@ -25,13 +25,23 @@ import urllib.request
 def userhomepage(request):#into the userhomepage
     login_User = request.user
     login_User_Urls = Urls.objects.filter(user=login_User)
+    dic_RSSurls=[]
     dic_urls=[]
     for url in login_User_Urls:
-        dic_url = {}
-        dic_url['last_check_time']=url.last_check_time
-        dic_url['title'] = url.title
-        dic_url['items'] = RssItem.objects.filter(url = url)
-        dic_urls.append(dic_url)
+        if url.type == False:
+            dic_RSSurl = {}
+            dic_RSSurl['last_check_time']=url.last_check_time
+            dic_RSSurl['type']=url.type
+            dic_RSSurl['title'] = url.title
+            dic_RSSurl['items'] = RssItem.objects.filter(url = url)
+            dic_RSSurls.append(dic_RSSurl)
+        else:
+            dic_url = {}
+            dic_url['last_check_time'] = url.last_check_time
+            dic_url['type'] = url.type
+            dic_url['title'] = url.title
+            dic_url['items'] = SpiderItem.objects.filter(url = url)
+            dic_urls.append(dic_url)
 
     content = {
         'user_is_logic': 'YES',
@@ -39,6 +49,7 @@ def userhomepage(request):#into the userhomepage
         'chooise':1,
         'chooise_user_left_nav':1,
         'urls':dic_urls,
+        'RSSurls':dic_RSSurls,
     }
     return render(request, 'userhomepage.html', content)
 

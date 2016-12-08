@@ -58,7 +58,13 @@ def get_RSS_item(url):
                 title = item.title
                 link = item.link
                 author = item.author
-                description = item.description
+                # 删除所有img标签
+                dp = item.description
+                soup = BeautifulSoup(dp, 'html.parser', from_encoding='utf-8')
+                s2 = soup.find_all(name='img')
+                for s in s2:
+                    s.decompose()
+                description = soup.prettify().encode('utf-8')# 保存去除img后的标签内容
                 new_item = RssItem(
                     title=title,
                     link=link,

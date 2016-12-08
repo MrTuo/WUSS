@@ -70,7 +70,7 @@ function onclickon(a) {
     if (a.style.backgroundColor!="rgba(76, 175, 80, 0.65098)"){
         a.style.backgroundColor="rgba(76, 175, 80, 0.65098)";
         a.wuss="no";
-        var b=document.getElementsByName("spider_guide");
+        var b=document.getElementsByName("spider_guide");//b是要放的spider_guide
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();
@@ -97,8 +97,22 @@ function onclickon(a) {
             }
         });
         // b.value=b.value+"index:"+a.getAttribute("index")+";";
+        //PS这是尝试更新index的
+        // console.log(a.className);
+        // allclass=a.className;
+        // allclass=allclass.replace("hover","");
+        // spidernumber=document.getElementsByClassName(allclass)
+        // for (i in spidernumber){
+        //     console.log(spidernumber[i].getAttribute("index"));
+        //     if (spidernumber[i].getAttribute("index")==a.getAttribute("index")){
+        //         console.log("find");
+        //         break;
+        //     }
+        // }
+
         b.value=b.value+";";
-        console.log(b.value);
+
+        // console.log(b.value);
     }
     else{
         var b=document.getElementsByName("spider_guide");
@@ -106,7 +120,7 @@ function onclickon(a) {
         a.style.backgroundColor="";
         c=deletechoose(a);
         b.value=b.value.replace(c,"");
-        console.log(b.value);
+        // console.log(b.value);
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();

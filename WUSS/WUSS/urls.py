@@ -20,8 +20,8 @@ from Myuser import views
 from url_manage import views as manageviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^$',views.mainhomepage),
-    url(r'^$',views.userhomepage),
+    url(r'^$',views.mainhomepage),
+    # url(r'^$',views.userhomepage),
     url(r'^userhomepage/$',views.userhomepage),
     url(r'^usermanagement/$',views.usermanagement),
     url(r'^urlmanagement/$',views.urlmanagement),

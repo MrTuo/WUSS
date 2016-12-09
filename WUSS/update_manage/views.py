@@ -284,7 +284,7 @@ def cache_file():
                 f.close()
                 url.file_name = new_file_name # 更改新的缓存文件名称
                 url.save()
-
+                print('cachefile:url[',url.url,'],  filename[',new_file_name,'],   ',datetime.datetime.now())
                 last_cache_time = datetime.datetime.now()
 
 def get_cache_file(url):
@@ -296,8 +296,11 @@ def get_cache_file(url):
     obj = CacheFile.objects.filter(url=url)
     if obj:
         file_name = obj[0].file_name
-        f=codecs.open(CACHE_PATH+file_name,'r','utf-8')
-        s=f.read()
-        return s
+        try:
+            f=codecs.open(CACHE_PATH+file_name,'r','utf-8')
+            s=f.read()
+            return s
+        except:
+            return ''
     else:
         return ''

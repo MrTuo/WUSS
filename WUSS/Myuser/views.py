@@ -37,6 +37,7 @@ def userhomepage(request):#into the userhomepage
             dic_RSSurls.append(dic_RSSurl)
         else:
             dic_url = {}
+            dic_url['url'] = url.url
             dic_url['last_check_time'] = url.last_check_time
             dic_url['type'] = url.type
             dic_url['title'] = url.title
@@ -141,7 +142,7 @@ def Register(request):#register
         user.set_password(registpassword)
         user.email = registemail
         user.save()
-        return HttpResponseRedirect('/logic')
+        return HttpResponseRedirect('/login')
     return render(request, 'Register.html')
 
 def Registerajax(request):#judge if the username exciting or not

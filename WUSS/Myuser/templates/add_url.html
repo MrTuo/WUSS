@@ -34,7 +34,7 @@
 
 <div class="usermain">
         <div class="usermain_right_mainboard_for_URL" style="color: white;">
-            <h2>RSS订阅添加</h2>
+            <p>RSS订阅添加</p>
             <form action="/add_url/" method="post" style="position: absolute;width: 523px;top: 11px;">
                     <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
                     <input type ="hidden" name="type" value="0">
@@ -99,22 +99,22 @@
             console.log(str);
             mydiv=$("#wussjudge");
             btn=$("#onlyyes")[0];
-            var re= /^http(s){0,1}:\/\/([a-z]|[A-Z]|[0-9]|\/|\:|\.|\_){1,100}.xml$/;
+{#            var re= /^http(s){0,1}:\/\/([a-z]|[A-Z]|[0-9]|\/|\:|\.|\_){1,100}.xml$/;#}
+{#            if(re.test(str)){#}
+            re=/^([0-9]){1,3}$/;
+            time=$("#checktimes")[0];
+            str=time.value;
             if(re.test(str)){
-                re=/^([0-9]){1,3}$/;
-                time=$("#checktimes")[0];
-                str=time.value;
-                if(re.test(str)){
-                    btn.disabled="";
-                }
-                else{
-                    btn.disabled="disable";
-                }
+                btn.disabled="";
             }
             else{
-                mydiv[0].style.display="block";
                 btn.disabled="disable";
             }
+{#            }#}
+{#            else{#}
+{#                mydiv[0].style.display="block";#}
+{#                btn.disabled="disable";#}
+{#            }#}
         }
         function hiddenRSS() {
             mydiv=$("#wussjudge");
@@ -126,15 +126,17 @@
             btn=$("#onlyyes")[0];
             var re=/^([0-9]){1,3}$/;
             if (re.test(str)){
-                re= /^http(s){0,1}:\/\/([a-z]|[A-Z]|[0-9]|\/|\:|\.|\_){1,100}.xml$/;
-                urls=$("#checkurls")[0];
-                str=urls.value;
-                if(re.test(str)){
-                    btn.disabled="";
-                }
-                else{
-                    btn.disabled="disable";
-                }
+{#                re= /^http(s){0,1}:\/\/([a-z]|[A-Z]|[0-9]|\/|\:|\.|\_|\?|\&){1,100}$/;#}
+
+{#                urls=$("#checkurls")[0];#}
+{#                str=urls.value;#}
+{#                if(re.test(str)){#}
+{#                    btn.disabled="";#}
+{#                }#}
+{#                else{#}
+{#                    btn.disabled="disable";#}
+{#                }#}
+                btn.disabled=""
             }
             else{
                 mydiv[0].style.display="block";

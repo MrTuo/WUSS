@@ -40,9 +40,7 @@
         </script>
             {% for item in url.items %}
             <div class="accordion-inner">
-                <p>订阅区域已更新：</p>
-                <br>
-                <br>
+            <a href="{{ url.url }}">原文链接</a>
                 <div><p>{{ item.html_content|safe|cut:"background"|cut:"color" }}</p></div>
                 <script>
                     mytest1()

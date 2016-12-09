@@ -149,7 +149,8 @@ html, body {
 }
 .usermain{
     width:1046px;
-    height: 400px;
+    /*height: 400px;*/
+    height:90%;
     /*border: 1px solid blue;*/
     margin-top: 20px;
     position: relative;
@@ -158,7 +159,8 @@ html, body {
 }
 .usermain_left_nav{
     width:200px;
-    height: 400px;
+    /*height: 400px;*/
+    height: 100%;
     /*border:1px solid pink;*/
     margin-left: 0px;
     margin-top: 0px;
@@ -171,7 +173,8 @@ html, body {
 }
 .usermain_right_mainboard{
     width: 846px;
-    height: 400px;
+    /*height: 400px;*/
+    height:100%;
     /*border: 1px solid purple;*/
     position: absolute;
     right:0px;
@@ -180,7 +183,8 @@ html, body {
 }
 .usermain_right_mainboard_for_URL{
     width: 846px;
-    height: 400px;
+    /*height: 400px;*/
+    height:100%;
     /*border: 1px solid purple;*/
     position: absolute;
     right:0px;

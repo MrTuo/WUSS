@@ -20,3 +20,6 @@ WUSS/__pycache__/*
 update_manage/__pycache__/*
 Myuser/__pycache__/*
 url_manage/__pycache__/*
+
+# 缓存文件
+WUSS/cache/*

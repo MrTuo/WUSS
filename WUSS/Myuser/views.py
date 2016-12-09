@@ -37,6 +37,7 @@ def userhomepage(request):#into the userhomepage
             dic_RSSurls.append(dic_RSSurl)
         else:
             dic_url = {}
+            dic_url['url'] = url.url
             dic_url['last_check_time'] = url.last_check_time
             dic_url['type'] = url.type
             dic_url['title'] = url.title
@@ -131,7 +132,7 @@ def Register(request):#register
         registname = request.POST.get('idname', '')
         registemail = request.POST.get('idemail', '')
         registpassword = request.POST.get('idpassword', '')
-
+        print(registemail+registname+registpassword)
         filterResult = User.objects.filter(username=registname)  # judge the exciting of user
         filterResultemail = User.objects.filter(email=registemail) #judge the exciting of email
         if len(filterResult) > 0 or len(filterResultemail) > 0:
@@ -141,7 +142,7 @@ def Register(request):#register
         user.set_password(registpassword)
         user.email = registemail
         user.save()
-        return HttpResponseRedirect('/logic')
+        return HttpResponseRedirect('/login')
     return render(request, 'Register.html')
 
 def Registerajax(request):#judge if the username exciting or not
@@ -149,7 +150,7 @@ def Registerajax(request):#judge if the username exciting or not
     try:
         user=User.objects.get(username=name)
     except:
-        return HttpResponse("可以使用该用户名")
+        return HttpResponse("可以使用该用户名：点击此处修改")
     return HttpResponse("用户已存在")
 
 
@@ -158,7 +159,7 @@ def Registerajaxemail(request):#judge if the email exciting or not
     try:
         user = User.objects.get(email=email)
     except:
-        return HttpResponse("可以使用该邮箱")
+        return HttpResponse("可以使用该邮箱：点击此处修改")
     return HttpResponse("邮箱已注册")
 
 def error(request):#error
@@ -291,8 +292,3 @@ def text(request):
     }
     print (a)
     return render(request,'text.html',content)
-
-
-
-
-

@@ -35,3 +35,13 @@ class SpiderItem(models.Model):
 
     def __str__(self):
         return self.url.title
+
+class CacheFile(models.Model):
+    '''
+    保存缓存文件名和对应url
+    '''
+    url = models.CharField(max_length = 150)  #url内容
+    file_name = models.CharField(max_length=20,default='',blank=True) #文件名
+
+    def __str__(self):
+        return self.url

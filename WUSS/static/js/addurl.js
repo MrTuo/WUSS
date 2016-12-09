@@ -193,12 +193,12 @@ function linkRSS(){
 }
 function linkHTML() {
     htmlurl=prompt("请输入您要订阅的网页地址","");
-    str="http://";
-    if (htmlurl.indexOf(str)>=0){
-    }
-    else{
-        htmlurl=str+htmlurl;
-    }
+    // str1="http://";
+    // if (htmlurl.indexOf(str)>=0){
+    // }
+    // else{
+    //     htmlurl=str+htmlurl;
+    // }
     if (htmlurl){
         window.location.href="/addhtmlurl/?url1="+htmlurl;
     }

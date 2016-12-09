@@ -14,6 +14,8 @@ class Urls(models.Model):
     push_status = models.BooleanField(default = 0) #推送状态
     user = models.ForeignKey(User)                 #所属用户
     title = models.CharField(max_length = 30)      #url名（供推送显示）
-
+    type = models.BooleanField(default=0)          #0:RSSURL    1:非RSSURL
+    spider_guide = models.TextField(blank=True)              #爬虫导向，仅当type为1时才有值，type为0时为空。
     def __str__(self):
         return self.url
+

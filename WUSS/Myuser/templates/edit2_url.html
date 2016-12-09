@@ -12,7 +12,7 @@
 <body onload="test()">
     <wuss id="wuss" class="mydiv" style="left:0px;top: 20px;">
         <wuss id="wuss0">
-            <form action="/add_url/" method="post" id="wuss1" >
+            <form action="." method="post" id="wuss1" >
                 <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
                 <input type ="hidden" name="type" value="1">
                 <input type="hidden" id="detailwuss" value="" wuss="" name="spider_guide">
@@ -27,21 +27,21 @@
                     </tr>
                     <tr>
                         <td><span class="edit_url_span color" id="wuss4">url:</span></td>
-                        <td><input type="text" name="url" onchange="urlchange()" id="urlpart" value="{{ url }}" required/><br/></td>
+                        <td><input type="text" name="url" value="{{ edit_url.url }}" onchange="urlchange()" id="urlpart" /><br/></td>
                     </tr>
                     <tr>
                         <td><span class="edit_url_span color" id="wuss5">标题:</span></td>
-                        <td><input type="text" name="title" required/><br/></td>
+                        <td><input type="text" name="title" value="{{ edit_url.title }}"/><br/></td>
                     </tr>
                     <tr>
-                        <td><span class="edit_url_span color" id="wuss6" >更新频率:</span></td>
-                        <td><input type="text"size="1" name="update_fq "onblur="checktime(this)" onclick="hiddenchecktime(this)" required/>天一次<br/></td>
+                        <td><span class="edit_url_span color" id="wuss6">更新频率:</span></td>
+                        <td><input type="text"size="1" name="update_fq " value="{{ edit_url.update_fq }}"/>天一次<br/></td>
                     </tr>
                     <tr>
                         <td><span class="edit_url_span color" id="wuss7">是否跟踪:</span></td>
                         <td>
-                            <input type="radio" name="track_status" value="True" checked style="margin: 0px"><span class="color">是</span>
-                            <input type="radio" name="track_status" value="False" checked style="margin: 0px"><span class="color">否</span> <br/>
+                            <input type="radio" name="track_status" value="True" {% if edit_url.track_status %}checked{% endif %} style="margin: 0px"><span class="color">是</span>
+                            <input type="radio" name="track_status" value="False" {% if not edit_url.track_status %}checked{% endif %} style="margin: 0px"><span class="color">否</span> <br/>
                         </td>
                     </tr>
                 </table>
@@ -50,15 +50,10 @@
                     <tr>
                         <td width="140px"></td>
                         <td width="80px"><a href="/../urlmanagement/" class="btn">返回</a> </td>
-                        <td><input type="submit" value="确认添加" class="btn" id="onlyyes" disabled="disabled"></td>
+                        <td><input type="submit" value="确认添加" class="btn"></td>
                     </tr>
                 </table>
             </form>
-            <div class="popover fade right in" style="top: 75px; left: 327px; " id="wuss8">
-                <div class="arrow" id="wuss9"></div>
-                <h3 class="popover-title" id="wuss10">提示</h3>
-                <div class="popover-content" id="wuss11">请输入正确的更新频率</div>
-            </div>
         </wuss>
     </wuss>
     {{ htmlurl|safe }}
@@ -69,9 +64,14 @@
     var posY;
     fwuss = document.getElementById("wuss");
     fwuss.onmousedown=function(e){
+        console.log(event.x);
         posX = event.x - fwuss.offsetLeft;
         posY = event.y - fwuss.offsetTop;
         document.onmousemove = mousemove;
+
+        console.log("("+posX+","+posY+")");
+        console.log("("+fwuss.offsetLeft+","+fwuss.offsetTop+")");
+
     }
     document.onmouseup = function()
     {
@@ -82,23 +82,6 @@
         if(ev==null) ev = window.event;//IE
         fwuss.style.left = (ev.clientX - posX) + "px";
         fwuss.style.top = (ev.clientY - posY) + "px";
-    }
-    function checktime(time){
-        str=time.value;
-        mydiv=$("#wuss8");
-        btn=$("#onlyyes")[0];
-        var re=/^([0-9]){1,3}$/;
-        if (re.test(str)){
-            btn.disabled="";
-        }
-        else{
-            mydiv[0].style.display="block";
-            btn.disabled="disable";
-        }
-    }
-    function hiddenchecktime(time){
-        mydiv=$("#timejudge");
-        mydiv[0].style.display="";
     }
 </script>
 <style>
@@ -116,5 +99,4 @@
         right: 0px;
     }
 </style>
-
 </html>

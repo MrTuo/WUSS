@@ -1,4 +1,4 @@
-# WUSS (Web update subscription system) 说明文档
+# 软工大作业-WUSS (Web update subscription system) 说明文档
 ## 项目简介
 WUSS系统是一个网页更新订阅系统。用户可以对自己感兴趣的URL进行订阅，系统定时自动追踪这也页面的更新（识别页面内容的变化），并把更新内容加以提取，通过email或者手机短信推送至用户。
 
@@ -55,8 +55,8 @@ Python3 + Django1.10
 
 ## 关于我们
 任何问题可以联系邮箱：
-- tuomingxiang@gmail.com（负责订阅模块实现）
-- 501874997@qq.com（负责URL管理模块实现）
-- zengxuwei9595@qq.com（负责整个网站前端以及用户模块实现）
+- tuomingxiang@gmail.com（MrTuo负责订阅模块实现）
+- 501874997@qq.com（Arnold负责整个网站前端以及用户模块实现）
+- zengxuwei9595@qq.com（Aloey负责URL管理模块实现）
 
 

@@ -17,7 +17,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.mail import send_mail,EmailMessage
 import urllib
-import urlopen
+import urllib.request
 
 
 #encoding:utf-8
@@ -25,13 +25,23 @@ import urlopen
 def userhomepage(request):#into the userhomepage
     login_User = request.user
     login_User_Urls = Urls.objects.filter(user=login_User)
+    dic_RSSurls=[]
     dic_urls=[]
     for url in login_User_Urls:
-        dic_url = {}
-        dic_url['last_check_time']=url.last_check_time
-        dic_url['title'] = url.title
-        dic_url['items'] = RssItem.objects.filter(url = url)
-        dic_urls.append(dic_url)
+        if url.type == False:
+            dic_RSSurl = {}
+            dic_RSSurl['last_check_time']=url.last_check_time
+            dic_RSSurl['type']=url.type
+            dic_RSSurl['title'] = url.title
+            dic_RSSurl['items'] = RssItem.objects.filter(url = url)
+            dic_RSSurls.append(dic_RSSurl)
+        else:
+            dic_url = {}
+            dic_url['last_check_time'] = url.last_check_time
+            dic_url['type'] = url.type
+            dic_url['title'] = url.title
+            dic_url['items'] = SpiderItem.objects.filter(url = url)
+            dic_urls.append(dic_url)
 
     content = {
         'user_is_logic': 'YES',
@@ -39,6 +49,7 @@ def userhomepage(request):#into the userhomepage
         'chooise':1,
         'chooise_user_left_nav':1,
         'urls':dic_urls,
+        'RSSurls':dic_RSSurls,
     }
     return render(request, 'userhomepage.html', content)
 
@@ -281,33 +292,7 @@ def text(request):
     print (a)
     return render(request,'text.html',content)
 
-def addhtmlurl(request):
-    url=request.GET.get('url1')
-    rq = urllib.request.Request(url)
-    rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
-    response = urllib.request.urlopen(rq)
-    html = response.read()
-    try:
-        html=html.decode('UTF-8')
-    except:
-        try:
-            html=html.decode('gb2312')
-        except:
-            try:
-                html = html.decode('ANSI')
-            except:
-                try:
-                    html = html.decode('GBK')
-                except:
-                    try:
-                        html = html.decode('UNICODE')
-                    except:
-                        html = html.decode('ASCII')
-    content={
-        'htmlurl':html,
-        'url':url,
-    }
-    return render(request, 'addhtmlurl.html', content)
 
-import urllib.request
+
+
 

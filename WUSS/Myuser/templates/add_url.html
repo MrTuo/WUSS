@@ -32,15 +32,17 @@
 {#    </div>#}
 {#</div>#}
 
-<div class="usermain" style="margin-top: 150px">
-    <div class="usermain_right_mainboard_for_URL" style="color: white;">
-        <form action="/add_url/" method="post" style="position: absolute;width: 523px;top: 11px;">
-            <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
-            <table>
-                <tr>
-                    <th width="100px"></th>
-                    <th width="300px"></th>
-                    </tr>
+<div class="usermain">
+        <div class="usermain_right_mainboard_for_URL" style="color: white;">
+            <h2>RSS订阅添加</h2>
+            <form action="/add_url/" method="post" style="position: absolute;width: 523px;top: 11px;">
+                    <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
+                    <input type ="hidden" name="type" value="0">
+                <table>
+                        <tr>
+                            <th width="100px"></th>
+                            <th width="300px"></th>
+                        </tr>
 {#                        <tr>#}
 {#                            <td><input type="radio" name="RSSorHTML" value="1" style="margin: 0px" id="1">选择</td>#}
 {#                            <th>RSS订阅方式</th>#}
@@ -59,7 +61,7 @@
                 </tr>
                 <tr>
                     <td><span class="edit_url_span">更新频率:</span></td>
-                    <td><input type="text"size="1" required name="update_fq " onblur="checktime(this)" onclick="hiddenchecktime(this)" id="checktimes"/>天一次<br/></td>
+                    <td><input type="text"size="1" required name="update_fq " value="{{ edit_url.update_fq }}" onblur="checktime(this)" onclick="hiddenchecktime(this)" id="checktimes"/>天一次<br/></td>
                 </tr>
                 <tr>
                     <td><span class="edit_url_span">是否跟踪:</span></td>

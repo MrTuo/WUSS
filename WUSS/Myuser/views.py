@@ -132,7 +132,7 @@ def Register(request):#register
         registname = request.POST.get('idname', '')
         registemail = request.POST.get('idemail', '')
         registpassword = request.POST.get('idpassword', '')
-
+        print(registemail+registname+registpassword)
         filterResult = User.objects.filter(username=registname)  # judge the exciting of user
         filterResultemail = User.objects.filter(email=registemail) #judge the exciting of email
         if len(filterResult) > 0 or len(filterResultemail) > 0:
@@ -150,7 +150,7 @@ def Registerajax(request):#judge if the username exciting or not
     try:
         user=User.objects.get(username=name)
     except:
-        return HttpResponse("可以使用该用户名")
+        return HttpResponse("可以使用该用户名：点击此处修改")
     return HttpResponse("用户已存在")
 
 
@@ -159,7 +159,7 @@ def Registerajaxemail(request):#judge if the email exciting or not
     try:
         user = User.objects.get(email=email)
     except:
-        return HttpResponse("可以使用该邮箱")
+        return HttpResponse("可以使用该邮箱：点击此处修改")
     return HttpResponse("邮箱已注册")
 
 def error(request):#error
@@ -292,8 +292,3 @@ def text(request):
     }
     print (a)
     return render(request,'text.html',content)
-
-
-
-
-

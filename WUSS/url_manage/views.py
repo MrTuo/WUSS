@@ -51,6 +51,7 @@ def add_url(request):
             return HttpResponseRedirect('/urlmanagement/')
         content = {
             'user_is_logic': 'YES',
+            'chooise_user_left_nav':2,
         }
         return render(request, 'add_url.html', content)
 

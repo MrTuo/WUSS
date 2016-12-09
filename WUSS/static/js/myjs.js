@@ -65,33 +65,62 @@ function send()
 }
 function judgeforexisting(thisbtn)
 {
-    var name=$("#inputName").val()
+    var a=$("#inputName");
+    var name=a.val();
     var btn=thisbtn
-    $.ajax({
-        url:"/Registerajax/",
-        data:{
-            name:name,
-        },
-        type:'post',
-        success:function (arg) {
-            btn.value=arg
-        }
-    })
+    console.log(a[0].readOnly);
+    if (a[0].disabled==true){
+        btn.value="查看用户是否存在";
+        a[0].readOnly=false;
+    }
+    else {
+        $.ajax({
+            url:"/Registerajax/",
+            data:{
+                name:name,
+            },
+            type:'post',
+            success:function (arg) {
+                btn.value=arg;
+                if (btn.value=="用户已存在"){
+
+                }
+                else {
+                    a[0].readOnly=true;
+                }
+            }
+        })
+    }
+
 }
 function judgeforemail(thisbtn)
 {
-    var email=$("#inputEmail").val()
+    var a=$("#inputEmail");
+    var email=a.val();
     var btn=thisbtn
-    $.ajax({
-        url:"/Registerajaxemail/",
-        data:{
-            email:email,
-        },
-        type:'post',
-        success:function (arg) {
-            btn.value=arg
-        }
-    })
+    if (a[0].disabled==true){
+        btn.value="查看邮箱是否注册";
+        a[0].readOnly=false;
+    }
+    else {
+        $.ajax({
+            url:"/Registerajaxemail/",
+            data:{
+                email:email,
+            },
+            type:'post',
+            success:function (arg) {
+                btn.value=arg;
+                if (btn.value=="邮箱已注册"){
+
+                }
+                else {
+                    a[0].readOnly=true;
+                }
+            }
+        })
+    }
+
 }
 function myFunction()
 {

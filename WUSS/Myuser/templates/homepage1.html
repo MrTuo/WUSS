@@ -17,206 +17,179 @@
     {% include 'top1.html' %}
 
 	<div id="wrapper" class="wrapper">
-        <div class="mypublic_main_show">
+        <div class="mypublic_main_show" style="margin-top:93px;">
             <div class="mypublic_main_show1">
-                <div class="row clearfix">
-                <div class="col-md-2 column">
-                    <img alt="" src="/static/img/subscibe.jpg" height="200" width="200" />
-                </div>
-                <div class="col-md-8 column">
-
-                </div>
-                <div class="col-md-2 column">
-
-                </div>
-            </div>
-                <div class="carousel slide " id="carousel-195588">
-                    <ol class="carousel-indicators" style="width: 628px;left: 530px;margin-left: -314px">
-                        <li class="active" data-slide-to="0" data-target="#carousel-195588">
-                        </li>
-                        <li data-slide-to="1" data-target="#carousel-195588">
-                        </li>
-                        <li data-slide-to="2" data-target="#carousel-195588">
-                        </li>
-                    </ol>
-                    <div class="carousel-inner" style="width: 1046px">
+                <div class="bs-docs-example">
+                    <div id="myCarousel" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                            <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+                        </ol><div class="carousel-inner">
+                        <div class="item">
+                            <!-- <img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt=""> -->
+                            <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
+                            <div class="carousel-caption"style="top:0px">
+                                <input type="button" class="btn  btn-success" value="点击此处订阅" url="http://news.163.com/" onclick="htmldingyue(this)">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <!-- <img src="assets/img/bootstrap-mdo-sfmoma-02.jpg" alt=""> -->
+                            <iframe src="http://news.baidu.com/" width="1046px" height="650px"></iframe>
+                            <div class="carousel-caption"style="top:0px">
+                                <<input type="button" class="btn  btn-success" value="点击此处订阅" url="http://news.163.com/" onclick="htmldingyue(this)">
+                            </div>
+                        </div>
                         <div class="item active">
-                            <img alt="" src="/static/img/default (1).jpg" />
-                            <div class="carousel-caption">
-                                <h4>
-                                    First Thumbnail label
-                                </h4>
-                                <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img alt="" src="/static/img/default (2).jpg" />
-                            <div class="carousel-caption">
-                                <h4>
-                                    Second Thumbnail label
-                                </h4>
-                                <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img alt="" src="/static/img/default (3).jpg" />
-                            <div class="carousel-caption">
-                                <h4>
-                                    Third Thumbnail label
-                                </h4>
-                                <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
+                            <!-- <img src="assets/img/bootstrap-mdo-sfmoma-03.jpg" alt=""> -->
+                            <iframe src="http://news.sina.com.cn/" width="1046px" height="650px"></iframe>
+                            <div class="carousel-caption"style="top:0px">
+                                <input type="button" class="btn  btn-success" value="点击此处订阅" url="http://news.163.com/" onclick="htmldingyue(this)">
                             </div>
                         </div>
                     </div>
-
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                    </div>
                 </div>
-
-                <hr align="left" width="1046px" color="#FF0000" size="60" class="mypublic_cut_off_rule"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-6 column">
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
-                            </div>
+                <script>
+                    function htmldingyue(btn){
+                        window.location.href="/addhtmlurl/?url1="+btn.getAttribute("url");
+                    }
+                </script>
+                <!-- <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
                         </div>
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.baidu.com/" width="1046px" height="650px"></iframe>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 column">
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
-                            </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
                         </div>
-                        <div class="row clearfix">
-                            <div class="col-md-4 column">
-                                <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                            </div>
-                            <div class="col-md-8 column">
-                                <p>
-                                     <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                                </p>
+                        <div id="collapseTwo" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <hr align="left" width="1046px" color="#FF0000" size="60" class="mypublic_cut_off_rule1"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.sina.com.cn/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
-                    </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2" />
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                    </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.huanqiu.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://daily.zhihu.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
-                    </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
-                    </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
-                    </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.gamersky.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="row clearfix">
-                    <div class="col-md-2 column">
-                        <img alt="140x140" src="/static/img/default.jpg" class="img-circle" />
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseSeven" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.csdn.net/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-7 column">
-                        <p>
-                             <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-                        </p>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseEight" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.ifeng.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3 column">
-                        <img alt="140x140" src="/static/img/default.jpg" />
+                </div> -->
+                <!-- <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseNine" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <hr style="border:1px dashed #9E9E9E" width="1046px" size="1" class="mypublic_cut_off_rule2"/>
-
-                <div class="mypublicbottom section_more">
-                    <span>
-                        <a href="#" class="add_more" >+ 加载更多</a>
-                    </span>
-
-                </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseTen" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
 		    </div>
-        </div>
-    </div>
+  </div>
     {% include 'homepage_left_show.html' %}
 
 

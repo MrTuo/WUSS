@@ -21,7 +21,7 @@ from url_manage import views as manageviews
 from update_manage import views as updateviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^$',views.mainhomepage),
+    # url(r'^',views.mainhomepage),
     url(r'^$',myuserviews.userhomepage),
     url(r'^userhomepage/$',myuserviews.userhomepage),
     url(r'^usermanagement/$',myuserviews.usermanagement),

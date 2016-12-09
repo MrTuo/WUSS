@@ -299,6 +299,7 @@ def get_cache_file(url):
         try:
             f=codecs.open(CACHE_PATH+file_name,'r','utf-8')
             s=f.read()
+            # print("the url:",url," cache file",file_name, " successfully read!")
             return s
         except:
             return ''

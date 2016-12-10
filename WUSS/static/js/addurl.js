@@ -21,7 +21,7 @@
 // })
 function urlchange(){
     var url1=document.getElementById("urlpart").value;
-    str="http://";
+    str="";
     if (url1.indexOf(str)>=0 && url1){
     }
     else{

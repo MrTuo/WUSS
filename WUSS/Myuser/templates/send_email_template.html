@@ -81,7 +81,7 @@
 
                             {% for url in  urls%}
                                 <tr>
-                                    <td><h2>题目：{{ url.title }}</h2>(更新时间截止{{ url.last_check_time }})</td>
+                                    <td><h2>题目：{{ url.title }}<a href="{{ url.url }}">（查看原文）</h2>(更新时间截止{{ url.last_check_time }})</td>
                                 </tr>
 								<tr>
 									<td>

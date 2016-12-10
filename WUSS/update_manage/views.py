@@ -115,7 +115,7 @@ def get_spider_item(url):
             index = int(attr_dic['index'])
             del attr_dic['tag']  # 删除标签名称键值对
             del attr_dic['index']
-            target = soup.find_all(tag_name)  # 根据标签属性键值定位到标签
+            target = soup.find_all(class_=attr_dic['class'])  # 只根据class属性和ind来查找
             #target = soup.find_all(tag_name, attrs=attr_dic)  # 根据标签属性键值定位到标签
             if target:  # target中有元素
                 try:
@@ -157,6 +157,7 @@ def send_update_email(user):
                 dic_RSSurls.append(dic_RSSurl)
             else:  # url为一般url
                 dic_url = {}
+                dic_url['url'] = url.url
                 dic_url['last_check_time'] = url.last_check_time
                 dic_url['title'] = url.title
                 dic_url['items'] = SpiderItem.objects.filter(url=url,push_status=1)
@@ -201,9 +202,14 @@ def check_all_update():
     :return:
     '''
     while 1:
-        users = User.objects.all()
-        for user in users:
-            check_update(user)
+        print('in check')
+        try:
+            users = User.objects.all()
+            for user in users:
+                check_update(user)
+        except:
+            print('rcheck')
+            continue
 
 def get_attr_dic(attr_str):
     '''
@@ -261,31 +267,37 @@ def cache_file():
     '''
     last_cache_time = datetime.datetime.now()-datetime.timedelta(seconds=CACHE_FQ) # 记录最近一次缓存时间
     while 1: # 进入缓存线程
-        urls = CacheFile.objects.all() #获取所有追踪状态的url
-        now = datetime.datetime.now()
-        if last_cache_time + datetime.timedelta(seconds=CACHE_FQ) <= now:
-            # 距离上次缓存时间达到指定要求，开始缓存
-            for url in urls:
-                if os.path.exists(CACHE_PATH) & os.path.isfile(CACHE_PATH + url.file_name) :
-                    os.remove(CACHE_PATH + url.file_name) # 删除原缓存文件
-                rq = urllib.request.Request(url.url)
-                rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
-                response1 = urllib.request.urlopen(rq)
-                html_content = response1.read()  # 获取页面html信息
+        print('in cache')
+        try:
+            urls = CacheFile.objects.all() #获取所有追踪状态的url
+            now = datetime.datetime.now()
+            if last_cache_time + datetime.timedelta(seconds=CACHE_FQ) <= now:
+                # 距离上次缓存时间达到指定要求，开始缓存
+                for url in urls:
+                    if os.path.exists(CACHE_PATH) & os.path.isfile(CACHE_PATH + url.file_name) :
+                        os.remove(CACHE_PATH + url.file_name) # 删除原缓存文件
+                    rq = urllib.request.Request(url.url)
+                    rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
+                    response1 = urllib.request.urlopen(rq)
+                    html_content = response1.read()  # 获取页面html信息
 
-                soup = BeautifulSoup(html_content, 'lxml')  # 创建bs对象处理html页面
-                img_tag = soup.find_all(name='img')  # 删除所有img标签
-                # s3 = s2.find_all(name='img')
-                for tag in img_tag:
-                    tag.decompose()
-                new_file_name = str(time.time())
-                f = open(CACHE_PATH + new_file_name, 'wb') # 以时间戳作为文件名，防止重名
-                f.write(soup.prettify().encode('utf-8'))
-                f.close()
-                url.file_name = new_file_name # 更改新的缓存文件名称
-                url.save()
-                print('cachefile:url[',url.url,'],  filename[',new_file_name,'],   ',datetime.datetime.now())
-                last_cache_time = datetime.datetime.now()
+                    soup = BeautifulSoup(html_content, 'lxml')  # 创建bs对象处理html页面
+                    img_tag = soup.find_all(name='img')  # 删除所有img标签
+                    # s3 = s2.find_all(name='img')
+                    for tag in img_tag:
+                        tag.decompose()
+                    new_file_name = str(time.time())
+                    f = open(CACHE_PATH + new_file_name, 'wb') # 以时间戳作为文件名，防止重名
+                    f.write(soup.prettify().encode('utf-8'))
+                    f.close()
+                    url.file_name = new_file_name # 更改新的缓存文件名称
+                    url.save()
+                    print('cachefile:url[',url.url,'],  filename[',new_file_name,'],   ',datetime.datetime.now())
+                    last_cache_time = datetime.datetime.now()
+                time.sleep(CACHE_FQ)
+        except:
+            print('rcache')
+            continue
 
 def get_cache_file(url):
     '''

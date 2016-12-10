@@ -202,7 +202,7 @@ def check_all_update():
     :return:
     '''
     while 1:
-        print('in check')
+        #print('in check')
         try:
             users = User.objects.all()
             for user in users:
@@ -267,7 +267,7 @@ def cache_file():
     '''
     last_cache_time = datetime.datetime.now()-datetime.timedelta(seconds=CACHE_FQ) # 记录最近一次缓存时间
     while 1: # 进入缓存线程
-        print('in cache')
+       # print('in cache')
         try:
             urls = CacheFile.objects.all() #获取所有追踪状态的url
             now = datetime.datetime.now()

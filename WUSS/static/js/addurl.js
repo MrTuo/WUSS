@@ -102,7 +102,7 @@ function onclickon(a) {
     if (a.style.backgroundColor!="rgba(76, 175, 80, 0.65098)"){
         a.style.backgroundColor="rgba(76, 175, 80, 0.65098)";
         a.wuss="no";
-        var b=document.getElementsByName("spider_guide");//b是要放的spider_guide
+        var b=document.getElementsByName("spider_guide")[0];//b是要放的spider_guide
         (function(e){
             var e = window.event || e;
             if (e.stopPropagation) e.stopPropagation();
@@ -152,11 +152,20 @@ function onclickon(a) {
         //PS这是尝试更新index的
         console.log(a.className);
         b.value=b.value+";";
-
         console.log(b.value);
+        console.log(b);
+        //当点击事件完成的时候，如果频率已经选好了，那么就可以点击提交了
+        if(b.value==""){
+
+        }
+        else{
+            btn=$("#onlyyes")[0];
+            btn.disabled="";
+        }
     }
     else{
-        var b=document.getElementsByName("spider_guide");
+        var b=document.getElementsByName("spider_guide")[0];
+        console.log(b);
         a.wuss="yes";
         a.style.backgroundColor="";
         c=deletechoose(a);
@@ -167,6 +176,15 @@ function onclickon(a) {
             if (e.stopPropagation) e.stopPropagation();
             else e.cancelBubble = true;
         })(event)
+        //点去取消的时候可能会将所有的订阅部分取消掉，这时候需要将提交按钮取消
+        if(b.value==""){
+            btn=$("#onlyyes")[0];
+            btn.disabled="disabled";
+        }
+        else{
+            btn=$("#onlyyes")[0];
+            btn.disabled="";
+        }
     }
     var qq=document.getElementById("detailwuss");
     qq.value=b.value;
@@ -182,7 +200,7 @@ function mousemoveout(a){
 function test() {//添加点击事件
     var type=["div","form","span","pre","table","ul"];
     var dont=["wuss","wuss1","wuss2","wuss3","wuss4","wuss5","wuss6","wuss7","wuss8","wuss9","wuss10"
-    ,"wuss11"];
+    ,"wuss11","wuss12","wuss13","wuss15","wuss16","wuss17","wuss18","wuss19","wuss20"];
     for (i in type){
         // console.log(type[i]);
         lala=document.getElementsByTagName(type[i]);

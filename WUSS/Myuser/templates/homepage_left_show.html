@@ -1,0 +1,38 @@
+<button id="mm-menu-toggle" class="mm-menu-toggle" style="top: 113px;">Toggle Menu</button>
+	<nav id="mm-menu" class="mm-menu" style="top: 93px;background-color: #252222">
+	  <div class="mm-menu__header" style="background-color: black">
+	    <h2 class="mm-menu__title">你好啊{{ user }}</h2>
+	  </div>
+	  <ul class="mm-menu__items">
+	    <li class="mm-menu__item">
+	      <a class="mm-menu__link" href="/">
+	        <span class="mm-menu__link-text"><i class="md md-home"></i> 主页</span>
+	      </a>
+	    </li>
+	    <li class="mm-menu__item">
+	      <a class="mm-menu__link" href="/usermanagement">
+	        <span class="mm-menu__link-text"><i class="md md-person"></i> 用户</span>
+	      </a>
+	    </li>
+	    <li class="mm-menu__item">
+	      <a class="mm-menu__link" href="#">
+	        <span class="mm-menu__link-text"><i class="md md-inbox"></i> 消息</span>
+	      </a>
+	    </li>
+	    <li class="mm-menu__item">
+	      <a class="mm-menu__link" href="/userhomepage">
+	        <span class="mm-menu__link-text"><i class="md md-favorite"></i> 我的订阅</span>
+	      </a>
+	    </li>
+	    <li class="mm-menu__item">
+	      <a class="mm-menu__link" href="#">
+	        <span class="mm-menu__link-text"><i class="md md-settings"></i> 设置</span>
+	      </a>
+	    </li>
+	  </ul>
+	</nav><!-- /nav -->
+
+	<script src="js/production/materialMenu.min.js"></script>
+	<script>
+	  var menu = new Menu;
+	</script>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增url</title>
+{#    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">#}
+    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
+{#    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>#}
+{#    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+    <script src="/static/js/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/jquery-1.4.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/addurl.css">
+
+</head>
+<body >
+
+{% include 'top1.html' %}
+
+    <div class="navcontrol" style="top:70px;position: absolute;left: -523px;margin-left: 50%">
+        <div class="navbar">
+            <div class="navbar-inner">
+                {% include 'userhomepage_nav1.html' %}
+            </div>
+        </div>
+    </div>
+{#<div id="aaa" style="height: 100px;width: 100px;border: solid red 1px;" class="lalala" id="ladasd" fuck="asdasdasd">#}
+{#    2232#}
+{#    <div style="height: 50px;width: 50px;border: solid yellow 1px;">#}
+{##}
+{#    </div>#}
+{#</div>#}
+
+<div class="usermain" style="margin-top: 150px">
+        <div class="usermain_left_nav">
+            {% include 'user_main_left1.html' %}
+        </div>
+        <div class="usermain_right_mainboard_for_URL" style="color: white;">
+            <p>RSS订阅添加</p>
+            <form action="/add_url/" method="post" style="position: absolute;width: 523px;top: 11px;">
+                    <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
+                    <input type ="hidden" name="type" value="0">
+                <table>
+                        <tr>
+                            <th width="100px"></th>
+                            <th width="300px"></th>
+                        </tr>
+{#                        <tr>#}
+{#                            <td><input type="radio" name="RSSorHTML" value="1" style="margin: 0px" id="1">选择</td>#}
+{#                            <th>RSS订阅方式</th>#}
+{#                        </tr>#}
+                <tr>
+                    <td><br></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span class="edit_url_span">url:</span></td>
+                    <td><input type="text" name="url" required placeholder="http://xxx.xxx.xxx/rss.xml" onblur="changeRSS(this)" onclick="hiddenRSS()" id="checkurls"/><br/></td>
+                </tr>
+                <tr>
+                    <td><span class="edit_url_span">标题:</span></td>
+                    <td><input type="text" name="title" required /><br/></td>
+                </tr>
+                <tr>
+                    <td><span class="edit_url_span">更新频率:</span></td>
+                    <td><input type="text"size="1" required name="update_fq " value="{{ edit_url.update_fq }}" onblur="checktime(this)" onclick="hiddenchecktime(this)" id="checktimes"/>天一次<br/></td>
+                </tr>
+                <tr>
+                    <td><span class="edit_url_span">是否跟踪:</span></td>
+                    <td>
+                        <input type="radio" name="track_status" value="True" checked style="margin: 0px">是
+                        <input type="radio" name="track_status" value="False" checked style="margin: 0px">否<br/>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tr>
+                    <td width="140px"></td>
+                    <td width="80px"><a href="/../urlmanagement/" class="btn">返回</a> </td>
+                    <td><input type="submit" value="确认添加" class="btn" id="onlyyes" disabled="disabled"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="popover fade right in" style="top: 4.5px; left: 327px; " id="wussjudge">
+        <div class="arrow"></div>
+        <h3 class="popover-title">提示</h3>
+        <div class="popover-content">请输入正确的RSS订阅网站格式</div>
+    </div>
+    <div class="popover fade right in" style="top: 96.5px; left: 327px; " id="timejudge">
+        <div class="arrow"></div>
+        <h3 class="popover-title">提示</h3>
+        <div class="popover-content">请输入正确的更新频率</div>
+    </div>
+</div>
+    <script src="/static/js/addurl.js"></script>
+    <script>
+        function changeRSS(url){
+            str=url.value;
+            console.log(str);
+            mydiv=$("#wussjudge");
+            btn=$("#onlyyes")[0];
+{#            var re= /^http(s){0,1}:\/\/([a-z]|[A-Z]|[0-9]|\/|\:|\.|\_){1,100}.xml$/;#}
+{#            if(re.test(str)){#}
+            re=/^([0-9]){1,3}$/;
+            time=$("#checktimes")[0];
+            str=time.value;
+            if(re.test(str)){
+                btn.disabled="";
+            }
+            else{
+                btn.disabled="disable";
+            }
+{#            }#}
+{#            else{#}
+{#                mydiv[0].style.display="block";#}
+{#                btn.disabled="disable";#}
+{#            }#}
+        }
+        function hiddenRSS() {
+            mydiv=$("#wussjudge");
+            mydiv[0].style.display="";
+        }
+        function checktime(time){
+            str=time.value;
+            mydiv=$("#timejudge");
+            btn=$("#onlyyes")[0];
+            var re=/^([0-9]){1,3}$/;
+            if (re.test(str)){
+{#                re= /^http(s){0,1}:\/\/([a-z]|[A-Z]|[0-9]|\/|\:|\.|\_|\?|\&){1,100}$/;#}
+{##}
+{#                urls=$("#checkurls")[0];#}
+{#                str=urls.value;#}
+{#                if(re.test(str)){#}
+{#                    btn.disabled="";#}
+{#                }#}
+{#                else{#}
+{#                    btn.disabled="disable";#}
+{#                }#}
+                btn.disabled=""
+            }
+            else{
+                mydiv[0].style.display="block";
+                btn.disabled="disable";
+            }
+        }
+        function hiddenchecktime(time){
+            mydiv=$("#timejudge");
+            mydiv[0].style.display="";
+        }
+    </script>
+</body>
+</html>

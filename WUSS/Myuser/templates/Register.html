@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<title>用户注册</title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/homepage.css">
+    <!-- <script src="/static/js/CheckRegister.js"></script> -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script src="/static/js/myjs.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/addurl.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/addurl.css">
+</head>
+<body>
+<div style="top: 50%;
+			position: absolute;
+		    margin: 0 auto;
+		    left: 50%;
+		    margin-left: -300px;
+		    margin-top: -200px;">
+	<div class="Menu_register">
+		<h1>注册新用户</h1>
+		<form class="form-horizontal" action = "../Register/" method="post">
+            <div style="left:50px;">
+                <div class="control-group">
+                    <div style="margin-top:20px ">
+                        <img src="/static/img/adm.png" class="adm">
+                        <input type="text" id="inputName" placeholder="UserName" required name='idname' onblur="checktime1(this)" onclick="hiddenchecktime1(this)" onchange="changede()">
+                        <input type="button" onclick="judgeforexisting(this)" id="btnname" value="查看用户是否存在">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <img src="/static/img/adm.png" class="adm">
+                    <input type="text" id="inputEmail" placeholder="Email" required name='idemail'onblur="checktime2(this)" onclick="hiddenchecktime2(this)" onchange="changede()">
+                    <input type="button" onclick="judgeforemail(this)" value="查看邮箱是否注册" id="btnemail">
+                </div>
+
+                <div class="control-group">
+                    <img src="/static/img/key.png" class="key">
+                    <input type="password" onblur="checktime3(this)" onclick="hiddenchecktime3(this)" id="inputPassword" placeholder="Password" required name='idpassword' onchange="changede()">
+                </div>
+
+                <div class="control-group">
+                    <img src="/static/img/key.png" class="key">
+                    <input type="password" onblur="checktime4(this)" onclick="hiddenchecktime4(this)" id="inputPasswordAgain" placeholder="Password Again" required name='idpasswordagain' onchange="changede()">
+                </div>
+            </div>
+            <div style="left: 40px;position: relative;">
+                <input type="submit"  value="Create Account" class="submit" id="onlyyes" disabled="disabled" number=0>
+            </div>
+            <div>
+                <a href="/" style="float: left;left: 40px;top:30px">Back</a>
+            </div>
+		</form>
+	</div>
+    <div class="popover fade right in" style="top: 70px; left: 263px;"display="" id="wuss1" yes="no">
+        <div class="arrow"></div>
+        <h3 class="popover-title">提示</h3>
+        <div class="popover-content">用户名最长为20个字符由英文字母和数字组成</div>
+    </div>
+		<div class="popover fade right in" style="top: 122px; left: 263px;"display="" id="wuss2" yes="no">
+        <div class="arrow"></div>
+        <h3 class="popover-title">提示</h3>
+        <div class="popover-content">请输入正确的邮箱格式例如:user@host.domainnames</div>
+    </div>
+		<div class="popover fade right in" style="top: 173px; left: 263px;"display="" id="wuss3" yes="no">
+        <div class="arrow"></div>
+        <h3 class="popover-title">提示</h3>
+        <div class="popover-content">密码由最多14位数字或英文组成</div>
+    </div>
+		<div class="popover fade right in" style="top: 223px; left: 263px;"display="" id="wuss4" yes="no">
+        <div class="arrow"></div>
+        <h3 class="popover-title">提示</h3>
+        <div class="popover-content">两次输入密码不相同</div>
+    </div>
+</div>
+<script>
+		function changede(){
+				console.log("yes");
+				var btn=document.getElementById('onlyyes');
+				var btnname=document.getElementById("btnname").value;
+				var btnemail=document.getElementById("btnemail").value;
+				var check1=document.getElementById("wuss1");
+				var check2=document.getElementById("wuss2");
+				var check3=document.getElementById("wuss3");
+				var check4=document.getElementById("wuss4");
+				var mima1=document.getElementById("inputPassword").value;
+				var mima2=document.getElementById("inputPasswordAgain").value;
+				console.log(btnname);
+				if (btnname=="可以使用该用户名：点击此处修改" &&btnemail=="可以使用该邮箱：点击此处修改"){
+						console.log("1");
+						console.log(check1.style.display);
+						if(!(check1.style.display&&check2.style.display&&check3.style.display&&check4.style.display)){
+								console.log("2");
+								console.log(mima1);
+								console.log(mima2);
+								if(mima1==mima2){
+										console.log(btn.disabled);
+										btn.disabled=false;
+								}
+						}
+				}
+		}
+    function checktime1(time){
+        str=time.value;
+        mydiv=$("#wuss1");
+        var re = /^([a-z]|[A-Z]|[0-9]){1,20}$/;
+        if (re.test(str)){
+        }
+        else{
+            mydiv[0].style.display="block";
+            // btn.disabled="disable";
+        }
+    }
+    function hiddenchecktime1(time){
+        mydiv=$("#wuss1");
+        mydiv[0].style.display="";
+    }
+		function checktime2(time){
+        str=time.value;
+				console.log(str);
+        mydiv=$("#wuss2");
+        // btn=$("#onlyyes")[0];
+        var re = /^([a-z]|[A-Z]|[0-9]){1,20}@([a-z]|[A-Z]|[0-9]|.){1,10}$/;
+        if (re.test(str)){
+        }
+        else{
+            mydiv[0].style.display="block";
+            // btn.disabled="disable";
+        }
+    }
+    function hiddenchecktime2(time){
+        mydiv=$("#wuss2");
+        mydiv[0].style.display="";
+    }
+		function checktime3(time){
+        str=time.value;
+				console.log(str);
+        mydiv=$("#wuss3");
+        btn=$("#onlyyes")[0];
+        var re = /^([a-z]|[A-Z]|[0-9]){1,14}$/;
+        if (re.test(str)){
+        }
+        else{
+            mydiv[0].style.display="block";
+            // btn.disabled="disable";
+        }
+    }
+    function hiddenchecktime3(time){
+        mydiv=$("#wuss3");
+        mydiv[0].style.display="";
+    }
+		function checktime4(time){
+        str=time.value;
+        mydiv=$("#wuss4");
+				mima=document.getElementById("inputPassword").value;
+				if (mima==str){
+				}
+				else {
+					mydiv[0].style.display="block";
+				}
+        // btn=$("#onlyyes")[0];
+
+    }
+    function hiddenchecktime4(time){
+        mydiv=$("#wuss4");
+        mydiv[0].style.display="";
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL管理</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号管理</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="bodypublic">
+    {% include 'top1.html' %}
+
+{#    <a href="#" onclick="showPopup();" >Open popup</a>#}
+    <div class="navcontrol" style="top:70px;position: absolute;left: -523px;margin-left: 50%">
+        <div class="navbar">
+            <div class="navbar-inner">
+                {% include 'userhomepage_nav1.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="usermain" style="margin-top: 150px">
+        <div class="usermain_left_nav">
+            {% include 'user_main_left1.html' %}
+        </div>
+        <div class="usermain_right_mainboard_for_URL" style="color: white;">
+            <table border="0" cellpadding="0" cellspacing="0"  class="urltable">
+                <!-- <tr>
+                    <th></th>
+                    <th><a href="javascript:showPopup()"style="color: mediumspringgreen;">添加新的URL</a></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><hr></td>
+                    <td><hr></td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <table class="urltable">
+                            <tr>
+                                <td width="330px"> &nbsp</td>
+                                <td width="208px"> </td>
+                                <td width="208px"> </td>
+                                <td width="50px"> </td>
+                                <td width="50px"> </td>
+                            </tr>
+                            {% for i in urls %}
+                            <tr>
+                                <td><span style="color: mediumspringgreen;">URL地址:</span>{{ i.url }}</td>
+                                <td><span style="color: mediumspringgreen;">URL名称:</span>{{ i.title }}</td>
+                                <td><span style="color: mediumspringgreen;">更新时间:</span>{{ i.last_check_time }}</td>
+                                <td >
+                                    <a href="/edit_find/{{ i.id }}" style="color: mediumspringgreen;">
+                                        编辑
+                                    </a>
+                                </td>
+                                <td >
+                                    <a href="/delete_url/{{ i.id }}"style="color: mediumspringgreen;">
+                                        删除
+                                    </a>
+                                </td>
+
+                            </tr>
+                            <tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="popupcontent" class="myalert">
+        <div class="row-fluid">
+            <div class="span12">
+                <p >请选择添加的方式：</p>
+            </div>
+            <div class="span12">
+                <p style="text-align: center">RSS订阅为.xml格式；HTML订阅为正常网页格式</p>
+            </div>
+        </div>
+        <br><br><br><br>
+        <div class="row-fluid">
+            <div class="mydiv span4 "><input type="button" class="btn btn-info myinput" style="width: 120px" value="RSS订阅方式" onclick="linkRSS()"></div>
+            <div class="mydiv span4 "><input type="button" class="btn btn-info myinput" style="width: 120px" value="取消" onclick="hidePopup()"></div>
+            <div class="mydiv span4 "><input type="button" class="btn btn-info myinput" style="width: 120px" value="HTML订阅方式" onclick="linkHTML()"></div>
+        </div>
+    </div>
+    <script src="/static/js/addurl.js"></script>
+    <style>
+        #popupcontent{
+            position: absolute;
+            visibility: hidden;
+            overflow: hidden;
+            border:1px solid #CCC;
+            background-color:#F9F9F9;
+            border:1px solid #333;
+            padding:5px;
+        }
+        .mydiv{
+            position: relative;
+        }
+        .myinput{
+            position: absolute;
+        }
+        .myalert{
+            top:160px;
+            left:-210px;
+            margin-left: 50%;
+            width: 410px;
+            height: 200px;
+            position: absolute;
+            z-index: 1;
+
+        }
+    </style>
+
+</body>
+</html>

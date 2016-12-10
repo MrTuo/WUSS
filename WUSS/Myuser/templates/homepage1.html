@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>主页</title>
+	<link rel="stylesheet" type="text/css" href="/static/mainstyle/css/default.css">
+  	<link rel="stylesheet" href="/static/mainstyle/css/style.min.css">
+    <script src="/static/mainstyle/js/development/materialMenu.js"></script>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+    {% include 'top1.html' %}
+
+	<div id="wrapper" class="wrapper">
+        <div class="mypublic_main_show" style="margin-top:93px;">
+            <div class="mypublic_main_show1">
+                <div class="bs-docs-example">
+                    <div id="myCarousel" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                            <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+                        </ol><div class="carousel-inner">
+                        <div class="item">
+                            <!-- <img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt=""> -->
+                            <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
+                            <div class="carousel-caption"style="top:0px">
+                                <input type="button" class="btn  btn-success" value="点击此处订阅" url="http://news.163.com/" onclick="htmldingyue(this)">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <!-- <img src="assets/img/bootstrap-mdo-sfmoma-02.jpg" alt=""> -->
+                            <iframe src="http://news.baidu.com/" width="1046px" height="650px"></iframe>
+                            <div class="carousel-caption"style="top:0px">
+                                <<input type="button" class="btn  btn-success" value="点击此处订阅" url="http://news.163.com/" onclick="htmldingyue(this)">
+                            </div>
+                        </div>
+                        <div class="item active">
+                            <!-- <img src="assets/img/bootstrap-mdo-sfmoma-03.jpg" alt=""> -->
+                            <iframe src="http://news.sina.com.cn/" width="1046px" height="650px"></iframe>
+                            <div class="carousel-caption"style="top:0px">
+                                <input type="button" class="btn  btn-success" value="点击此处订阅" url="http://news.163.com/" onclick="htmldingyue(this)">
+                            </div>
+                        </div>
+                    </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                    </div>
+                </div>
+                <script>
+                    function htmldingyue(btn){
+                        window.location.href="/addhtmlurl/?url1="+btn.getAttribute("url");
+                    }
+                </script>
+                <!-- <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.baidu.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.sina.com.cn/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.huanqiu.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://daily.zhihu.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.gamersky.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseSeven" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.csdn.net/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseEight" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://www.ifeng.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseNine" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">
+                                <h2 style="color:mediumturquoise">名称：</h2>
+                            </a>
+                        </div>
+                        <div id="collapseTen" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <iframe src="http://news.163.com/" width="1046px" height="650px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+		    </div>
+  </div>
+    {% include 'homepage_left_show.html' %}
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号管理</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head class="bodypublic">
+    <meta charset="UTF-8">
+    <title>账号管理</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    {% include 'top1.html' %}
+
+    <div class="navcontrol" style="top:70px;position: absolute;left: -523px;margin-left: 50%">
+        <div class="navbar">
+            <div class="navbar-inner">
+                {% include 'userhomepage_nav1.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="usermain" style="margin-top: 150px">
+        <div class="usermain_left_nav">
+            {% include 'user_main_left.html' %}
+        </div>
+        <div class="usermain_right_mainboard" style="color: white;">
+            <span>基本信息</span>
+            <hr>
+            <span>用户名：{{ username }}</span><br>
+            <span>登录邮箱：{{ useremail }}</span><br><br><br>
+            <span>账号活动状态</span>
+            <hr>
+            <span>上次登录时间：{{ usertime }}</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# pycharm 配置文件
+.idea/*
+
+# python 编译文件
+*.pyc
+
+# migrations 同步记录文件
+WUSS/Myuser/migrations/*
+WUSS/WUSS/migrations/*
+WUSS/update_manage/migrations/*
+WUSS/url_manage/migrations/*
+
+
+# 数据库文件
+*.sqlite3
+*.DS_Store
+
+# __pycache__
+WUSS/__pycache__/*
+update_manage/__pycache__/*
+Myuser/__pycache__/*
+url_manage/__pycache__/*
+
+# 缓存文件
+WUSS/cache/*

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑url</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/css3-dropdown-menu-icon/css/style.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+{% include 'top1.html' %}
+
+    <div class="navcontrol">
+        <div class="navbar">
+            <div class="navbar-inner">
+                {% include 'userhomepage_nav1.html' %}
+            </div>
+        </div>
+    </div>
+
+<div class="usermain">
+        <div class="usermain_right_mainboard_for_URL" style="color: white;">
+            <div class="edit_url">
+                <form action="." method="post">
+                    <input type ="hidden" name="urlid" value="{{ edit_url.id }}">
+                    <table>
+                        <tr>
+                            <th width="100px"></th>
+                            <th width="300px"></th>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">url{{ a }}:</span></td>
+                            <td><input type="text" name="url"  value="{{ edit_url.url }}" /><br/></td>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">标题:</span></td>
+                            <td><input type="text" name="title" value="{{ edit_url.title }}"/><br/></td>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">更新频率:</span></td>
+                            <td><input type="text"size="1" name="update_fq" value="{{ edit_url.update_fq }}"/>天一次<br/></td>
+                        </tr>
+                        <tr>
+                            <td><span class="edit_url_span">是否跟踪:</span></td>
+                            <td>
+
+                                {% if edit_url.track_status != "False" %}
+                                <input type="radio" name="track_status" value="True" checked>是
+                                <input type="radio" name="track_status" value="False">否<br/>
+                                {% else %}
+                                <input type="radio" name="track_status" value="True" >是
+                                <input type="radio" name="track_status" value="False"checked>否<br/>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+{#                        <tr>#}
+{#                            <td><span class="edit_url_span">是否推送:</span></td>#}
+{#                            <td>#}
+{#                                <input type="radio" name="push_status" value="True" checked>是#}
+{#                                <input type="radio" name="push_status" value="False" checked>否<br/>#}
+{#                            </td>#}
+{#                        </tr>#}
+                    </table>
+                    <br>
+                    <table>
+                        <tr>
+                            <td width="140px"></td>
+                            <td width="80px"><a href="/../urlmanagement/" class="btn">返回</a> </td>
+                            <td><input type="submit" value="确认修改" class="btn"></td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
+        </div>
+</div>
+
+
+
+</body>
+</html>

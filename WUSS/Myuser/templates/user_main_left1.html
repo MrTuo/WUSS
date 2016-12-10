@@ -1,0 +1,33 @@
+<div class="menu__body">
+    {% if chooise_user_left_nav == 1 %}
+    <ul class="nav">
+        <li class="nav__item">
+            <a href="/urlmanagement" class="nav__item-link is-active">
+                <i class="fa fa-envelope nav__item-icon"></i>
+                <span class="nav__item-text" style="color: white">URL管理</span>
+            </a>
+        </li>
+        <li class="nav__item">
+            <a href="javascript:showPopup()"class="nav__item-link">
+                <i class="fa fa-envelope nav__item-icon"></i>
+                <span class="nav__item-text" style="color: white">添加新的URL</span>
+            </a>
+        </li>
+    </ul>
+    {% elif chooise_user_left_nav == 2 %}
+    <ul class="nav">
+        <li class="nav__item">
+            <a href="/urlmanagement" class="nav__item-link ">
+                <i class="fa fa-envelope nav__item-icon"></i>
+                <span class="nav__item-text" style="color: white">URL管理</span>
+            </a>
+        </li>
+        <li class="nav__item">
+            <a href="#" class="nav__item-link is-active" >
+                <i class="fa fa-flag nav__item-icon"></i>
+                <span class="nav__item-text" style="color: white">修URL</span>
+            </a>
+        </li>
+    </ul>
+    {% endif %}
+</div>

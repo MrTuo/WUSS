@@ -1,0 +1,55 @@
+<div class="accordion" id="accordion2">
+    {% for url in RSSurls %}
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="color:mediumturquoise;display: inline-block" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseOne id="generala">
+                [RSS订阅]: {{ url.title }}
+            </a>
+        <span style="color:white;float:right;line-height: 32px;">上次检查更新时间：{{ url.last_check_time }}</span>
+        </div>
+        <div id="generalb" class="accordion-body collapse in">
+        <script>
+            mytest2()
+        </script>
+            {% for item in url.items %}
+            <div class="accordion-inner">
+                <a style="color: mediumspringgreen;" href={{ item.link }}> 标题:{{ item.title }} </a>
+                <br>
+                <br>
+                <div id="general"><p>{{ item.description|cut:"background"|cut:"color" }}</p></div>
+                <script>
+                    mytest1()
+                </script>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endfor %}
+{% for url in urls %}
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="color:mediumturquoise;display: inline-block" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href=#collapseOne id="generala">
+                [其他订阅]: {{ url.title }}
+            </a>
+        <span style="color:white;float:right;line-height: 32px;">上次检查更新时间：{{ url.last_check_time }}</span>
+        </div>
+        <div id="generalb" class="accordion-body collapse in">
+        <script>
+            mytest2()
+        </script>
+            {% for item in url.items %}
+            <div class="accordion-inner">
+            <a href="{{ url.url }}">原文链接</a>
+                <div><p>{{ item.html_content|safe|cut:"background"|cut:"color" }}</p></div>
+                <script>
+                    mytest1()
+                </script>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+

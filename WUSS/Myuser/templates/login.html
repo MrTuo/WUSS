@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>用户登录</title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/homepage.css">
+    <script src="/static/js/jquery-1.8.0.js"></script>
+    <script src="/static/js/myjs.js"></script>
+</head>
+<body>
+<div style="top: 50%;
+			position: absolute;
+		    margin: 0 auto;
+		    left: 50%;
+		    margin-left: -150px;
+		    margin-top: -200px;">
+	<div class="Menu_homepage">
+		<h1>Please Login</h1>
+
+		<form class="form-horizontal" method='POST' action="../logic/">
+            <div class="control-group">
+                <div style="margin-top:20px ">
+                    <img src="/static/img/adm.png" class="adm">
+                    <input type="text" id="inputEmail" placeholder="Username" required name='username'>
+                </div>
+            </div>
+            <div class="control-group">
+		  		<img src="/static/img/key.png" class="key">
+		      	<input type="password" id="inputPassword" placeholder="Password" required name="password">
+            </div>
+            <div class="control-group">
+		  	<div class="remember">
+			  	<div class="slideThree">
+			      	<input type="checkbox" value="None" id="slideThree" name="check" checked="">
+			      	<label for="slideThree"></label>
+			    </div>
+		 	</div>
+		 	<div class="remember_text">记住密码</div>
+            </div>
+
+            <div style="left: 40px;position: relative;">
+		  	<input type="button" onclick="send()"  value="Sign in" class="submit" style="width: 220px">
+            </div>
+
+            <div>
+                <a href="/forgetpassword" style="float: left;left: 40px">忘记密码？</a>
+                <a href="/Register" style="float: right;right: 40px">注册</a>
+            </div>
+        </form>
+	</div>
+</div>
+</body>
+</html>

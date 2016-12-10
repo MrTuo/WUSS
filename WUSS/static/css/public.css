@@ -1,0 +1,217 @@
+body{
+    background: url(/static/img/140656-106.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+html, body {
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+.mypublicpadding1{
+    padding-right: 0px;
+    padding-bottom: 40px;
+    padding-left: 0px;
+}
+.mypublicpadding2{
+    padding-left: 0px;
+    width: 62px;
+    position: absolute;
+}
+.mypubliccontrol_homepage_change_picutre{
+    width:157px;
+    height: 327px;
+}
+.mypublic_navigation{
+    background-color: #1f2021;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+}
+.mypublic_cut_off_rule{
+    border-top: 10px solid #eee;
+}
+.mypublic_cut_off_rule1{
+    border-top: 5px solid #eee;
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
+.mypublic_cut_off_rule2{
+    border-top: 10px solid #eee;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.mypublic_main_show{
+    /*overflow-x: auto;
+    overflow-y: auto;*/
+    /*height: 500px;*/
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    width: 1100px;
+    /* padding-left: 100px; */
+    left: 48px;
+    /*border:10px solid yellow;*/
+}
+.mypublic_main_show1{
+    margin: 0px 5% 0px 5%;
+    background-color: rgba(128, 128, 128, 0.56);
+    color: rgb(255, 255, 255);
+    width: 1046px;
+    /*border:10px solid yellow;*/
+}
+.mypublicbottom{
+    border-bottom: 10px solid green;
+    background-color: #dddddd;
+    height: 60px;
+}
+.mypublicleft_show{
+    height: 1000px;
+    width: 62px;
+    /*border: 10px solid red;*/
+    margin:0px 0px 0px 0px;
+    position: absolute;
+}
+.add_more {
+    color: #888;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    line-height: 51px;
+    text-align: center;
+    font-weight: bold;
+}
+.article_sec .section_more {
+    height: 57px;
+    background-color: #f0f0f0;
+    margin-top: 39px;
+    margin-bottom: 48px;
+    position: relative;
+}
+.left_nav_wrap{
+    background-color:#222;
+    overflow:auto;
+    overflow-x:hidden;
+    height:100%;
+    width:260px;
+    float:left;
+    position:relative;
+    -webkit-transition:width .2s linear;
+    -moz-transition:width .2s linear;
+    -o-transition:width .2s linear;
+    transition:width .2s linear
+}
+.ct_layout {
+    width: 64px;
+    height: 1000px;
+}
+.lef_nav_inner {
+    margin-bottom: 45px;
+    overflow: hidden;
+}
+.lef_nav_inner .layout {
+    display: block;
+    text-align: right;
+    overflow: hidden;
+    padding-top: 27px;
+    padding-bottom: 78px;
+    padding-right: 18px;
+    cursor: pointer;
+}
+.layout_icon {
+    background-position: 0 0;
+    height: 23px;
+    width: 30px;
+    display: inline-block;
+    zoom: 1;
+}
+.lef_nav_inner .nav_content {
+    padding-left: 22px;
+}
+.index_icon {
+    background-position: 0 -27px;
+    height: 20px;
+    width: 23px;
+    _background: url(../img/left_index_icon_ie6.png) no-repeat;
+    _background-position: 0 0;
+}
+.layout_icon, .index_icon, .dy_icon, .myDy_icon, .myFav_icon, .loginDy_icon, .introUp_icon, .introDown_icon, .pre_arrow, .next_arrow, .ws .pre_arrow, .ws .next_arrow, .search_icon, .add_dy_small, .cancel_dy_small, .cancel_dy_small:hover, .tie_num_icon, .share_num_icon, .con_tie_icon, .search_icon_small, .enter_icon, .dmore_icon, .error_icon, .close-btn, .rtriangle_icon, .btriangle_icon {
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+}
+
+.user_navigation{
+    width: 100px;
+    color: red;
+    border: 1px solid;
+    margin-right: 0px;
+    position: relative;
+}
+.usermain{
+    width:1046px;
+    /*height: 400px;*/
+    height:90%;
+    /*border: 1px solid blue;*/
+    margin-top: 20px;
+    position: relative;
+    margin:0 auto;
+    overflow: auto;
+}
+.usermain_left_nav{
+    width:200px;
+    /*height: 400px;*/
+    height: 100%;
+    /*border:1px solid pink;*/
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    position: absolute;
+    left:0px;
+    border-right:1px solid rgba(12, 10, 10, 0.15);
+    background-color: rgba(158, 158, 158, 0.8);
+}
+.usermain_right_mainboard{
+    width: 846px;
+    /*height: 400px;*/
+    height:100%;
+    /*border: 1px solid purple;*/
+    position: absolute;
+    right:0px;
+    background-color: rgba(158, 158, 158, 0.8);
+    overflow: auto;
+}
+.usermain_right_mainboard_for_URL{
+    width: 846px;
+    /*height: 400px;*/
+    height:100%;
+    /*border: 1px solid purple;*/
+    position: absolute;
+    right:0px;
+    background-color: rgba(158, 158, 158, 0.8);
+    overflow: auto;
+}
+.navcontrol{
+    width: 1046px;
+    margin: 0 auto;
+}
+.urltable{
+    width: 846px;
+    table-layout:fixed;
+    /*border:purple solid 1px;*/
+    position: absolute;
+}
+.urltitle{
+    width: 1046px;
+    text-align: center;
+
+}
+.bodypublic{
+    overflow: auto;
+}
+.edit_url{
+    /*border: 1px solid purple;*/
+}
+.edit_url_span{
+    color: rgb(62, 253, 69);
+}

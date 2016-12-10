@@ -26,7 +26,8 @@ SECRET_KEY = 'io5x9=2ror04istxc^o!95w(er+gu7c9$39=ah=e!@n2!b_wri'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['123.206.92.43','127.0.0.1']
+
 
 DEFAULT_CHARSET = 'utf-8'
 # Application definition
@@ -149,5 +150,5 @@ EMAIL_HOST_PASSWORD = 'qq963852741'#第三方邮件收发授权码
 
 # 缓存设置
 CACHE_COUNT = 30 # 最大缓存文件数量
-CACHE_FQ = 1*60 # 缓存频率,单位：秒
+CACHE_FQ = 30*60 # 缓存频率,单位：秒
 CACHE_PATH = os.path.join(BASE_DIR, 'cache/').replace('\\','/')  # 缓存文件路径

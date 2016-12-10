@@ -207,8 +207,8 @@ def check_all_update():
             users = User.objects.all()
             for user in users:
                 check_update(user)
-        except:
-            print('rcheck')
+        except Exception,ex:
+            print(Exception,":",ex)
             continue
 
 def get_attr_dic(attr_str):
@@ -313,7 +313,8 @@ def get_cache_file(url):
             s=f.read()
             # print("the url:",url," cache file",file_name, " successfully read!")
             return s
-        except:
+        except Exception, ex:
+            print(Exception, ":", ex)
             return ''
     else:
         return ''

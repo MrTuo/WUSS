@@ -14,7 +14,7 @@
 
 {% include 'top1.html' %}
 
-    <div class="navcontrol">
+    <div class="navcontrol" style="top:70px;position: absolute;left: -523px;margin-left: 50%">
         <div class="navbar">
             <div class="navbar-inner">
                 {% include 'userhomepage_nav1.html' %}
@@ -22,7 +22,10 @@
         </div>
     </div>
 
-<div class="usermain">
+<div class="usermain" style="margin-top: 150px">
+    <div class="usermain_left_nav">
+        {% include 'user_main_left1.html' %}
+    </div>
         <div class="usermain_right_mainboard_for_URL" style="color: white;">
             <div class="edit_url">
                 <form action="." method="post">

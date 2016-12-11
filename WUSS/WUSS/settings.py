@@ -26,7 +26,7 @@ SECRET_KEY = 'io5x9=2ror04istxc^o!95w(er+gu7c9$39=ah=e!@n2!b_wri'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['123.206.92.43']
+ALLOWED_HOSTS = ['*']
 
 DEFAULT_CHARSET = 'utf-8'
 # Application definition
@@ -122,6 +122,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+
 TEMPLATE_DIRS=(
         './Myuser/templates/',
         './update_manage/templates',

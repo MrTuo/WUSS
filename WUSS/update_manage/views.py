@@ -207,8 +207,9 @@ def check_all_update():
             users = User.objects.all()
             for user in users:
                 check_update(user)
-        except:
-            print('rcheck')
+            time.sleep(3)
+        except Exception as e:
+            print('[rcheck]',type(e),e)
             continue
 
 def get_attr_dic(attr_str):

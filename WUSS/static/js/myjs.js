@@ -69,7 +69,7 @@ function judgeforexisting(thisbtn)
     var name=a.val();
     var btn=thisbtn
     console.log(a[0].readOnly);
-    if (a[0].disabled==true){
+    if (a[0].readOnly==true){
         btn.value="查看用户是否存在";
         a[0].readOnly=false;
     }
@@ -87,6 +87,7 @@ function judgeforexisting(thisbtn)
                 }
                 else {
                     a[0].readOnly=true;
+                    changede();
                 }
             }
         })
@@ -98,7 +99,7 @@ function judgeforemail(thisbtn)
     var a=$("#inputEmail");
     var email=a.val();
     var btn=thisbtn
-    if (a[0].disabled==true){
+    if (a[0].readOnly==true){
         btn.value="查看邮箱是否注册";
         a[0].readOnly=false;
     }
@@ -116,12 +117,110 @@ function judgeforemail(thisbtn)
                 }
                 else {
                     a[0].readOnly=true;
+                    changede();
                 }
             }
         })
     }
 
 }
+function changede(){
+    console.log("yes");
+    var btn=document.getElementById('onlyyes');
+    var btnname=document.getElementById("btnname").value;
+    var btnemail=document.getElementById("btnemail").value;
+    var check1=document.getElementById("wuss1");
+    var check2=document.getElementById("wuss2");
+    var check3=document.getElementById("wuss3");
+    var check4=document.getElementById("wuss4");
+    var mima1=document.getElementById("inputPassword").value;
+    var mima2=document.getElementById("inputPasswordAgain").value;
+    console.log(btnname);
+    if (btnname=="可以使用该用户名：点击此处修改" &&btnemail=="可以使用该邮箱：点击此处修改"){
+        console.log("1");
+        console.log(check1.style.display);
+        if(!(check1.style.display&&check2.style.display&&check3.style.display&&check4.style.display)){
+            console.log("2");
+            console.log(mima1);
+            console.log(mima2);
+            if(mima1==mima2){
+                console.log(btn.disabled);
+                btn.disabled=false;
+            }
+        }
+        else{
+            btn.disabled=true;
+        }
+    }
+}
+function checktime1(time){
+    str=time.value;
+    mydiv=$("#wuss1");
+    var re = /^([a-z]|[A-Z]|[0-9]){1,20}$/;
+    btn=$("#onlyyes")[0];
+    if (re.test(str)){
+    }
+    else{
+        mydiv[0].style.display="block";
+        btn.disabled="disable";
+    }
+}
+function hiddenchecktime1(time){
+    mydiv=$("#wuss1");
+    mydiv[0].style.display="";
+}
+function checktime2(time){
+    str=time.value;
+    console.log(str);
+    mydiv=$("#wuss2");
+    btn=$("#onlyyes")[0];
+    var re = /^([a-z]|[A-Z]|[0-9]){1,20}@([a-z]|[A-Z]|[0-9]|.){1,10}$/;
+    if (re.test(str)){
+    }
+    else{
+        mydiv[0].style.display="block";
+        btn.disabled="disable";
+    }
+}
+function hiddenchecktime2(time){
+    mydiv=$("#wuss2");
+    mydiv[0].style.display="";
+}
+function checktime3(time){
+    str=time.value;
+    console.log(str);
+    mydiv=$("#wuss3");
+    btn=$("#onlyyes")[0];
+    var re = /^([a-z]|[A-Z]|[0-9]){1,14}$/;
+    if (re.test(str)){
+    }
+    else{
+        mydiv[0].style.display="block";
+        btn.disabled="disable";
+    }
+}
+function hiddenchecktime3(time){
+    mydiv=$("#wuss3");
+    mydiv[0].style.display="";
+}
+function checktime4(time){
+    str=time.value;
+    mydiv=$("#wuss4");
+    btn=$("#onlyyes")[0];
+    mima=document.getElementById("inputPassword").value;
+    if (mima==str){
+    }
+    else {
+        mydiv[0].style.display="block";
+        btn.disabled="disable";
+    }
+
+}
+function hiddenchecktime4(time){
+    mydiv=$("#wuss4");
+    mydiv[0].style.display="";
+}
+    ///-------------------------------
 function myFunction()
 {
     var btn1=$("#btnname").val()

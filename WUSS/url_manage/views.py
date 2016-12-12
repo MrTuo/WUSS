@@ -178,7 +178,6 @@ def edit_find(request, urlid):
 def addhtmlurl(request):
     url=request.GET.get('url1')
     html = get_cache_file(url) # 从缓存中加载html
-    print(url)
     if not html : # 若缓存中没有，则使用爬虫爬取
         rq = urllib.request.Request(url)
         rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器

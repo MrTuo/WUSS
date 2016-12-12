@@ -195,7 +195,7 @@ def send_update_email(user):
         )
         msg.content_subtype = "html"
         print("---send_mail---", timezone.now())
-        print("user:", user.username, "urls:")
+        print("user:", user.username, "email:",user.email,'urls:')
         for url in urls:
             print(url.url)
         try:

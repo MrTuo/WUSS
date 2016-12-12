@@ -100,8 +100,23 @@ def get_spider_item(url):
             rq.add_header("user-agent", "Mozilla/5.0")  # 伪装浏览器
             response1 = urllib.request.urlopen(rq)
             html_content = response1.read()  # 获取页面html信息
-
-        soup = BeautifulSoup(html_content, 'lxml')  # 创建bs对象处理html页面
+            try:
+                html_content = html_content.decode('UTF-8')
+            except:
+                try:
+                    html_content = html_content.decode('gb2312')
+                except:
+                    try:
+                        html_content = html_content.decode('ANSI')
+                    except:
+                        try:
+                            html_content = html_content.decode('GBK')
+                        except:
+                            try:
+                                html_content = html_content.decode('UNICODE')
+                            except:
+                                html_content = html_content.decode('ASCII')
+        soup = BeautifulSoup(html_content, 'html.parser')  # 创建bs对象处理html页面
         img_tag = soup.find_all(name='img')  # 删除所有img标签
         # s3 = s2.find_all(name='img')
         for tag in img_tag:
@@ -207,8 +222,8 @@ def check_all_update():
             users = User.objects.all()
             for user in users:
                 check_update(user)
-        except Exception as inst:
-            print(type(inst),":",inst.args)
+        except:
+            print('rcheck')
             continue
 
 def get_attr_dic(attr_str):

@@ -35,13 +35,17 @@
                     </tr>
                     <tr>
                         <td><span class="edit_url_span color" id="wuss6" >更新频率:</span></td>
-                        <td><input type="text"size="1" name="update_fq "onblur="checktime(this)" onclick="hiddenchecktime(this)" required/>天一次<br/></td>
+                        <td><input type="text"size="1" name="update_fq "onblur="checktime(this)" onclick="hiddenchecktime(this)" required id="wuss14"/><span class="color" id="wuss16">天一次</span><br/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="edit_url_span color" id="wuss15">推送时间:</span></td>
+                        <td><input type="text" name="time" placeholder="18:00或者08:00" onblur="checktuisong(this)" onclick="hiddentuisong(this)" required id="wuss16"></td>
                     </tr>
                     <tr>
                         <td><span class="edit_url_span color" id="wuss7">是否跟踪:</span></td>
                         <td>
-                            <input type="radio" name="track_status" value="True" checked style="margin: 0px"><span class="color">是</span>
-                            <input type="radio" name="track_status" value="False" checked style="margin: 0px"><span class="color">否</span> <br/>
+                            <input type="radio" name="track_status" value="True" checked style="margin: 0px"><span class="color" id="wuss12">是</span>
+                            <input type="radio" name="track_status" value="False" checked style="margin: 0px"><span class="color" id="wuss13">否</span> <br/>
                         </td>
                     </tr>
                 </table>
@@ -54,10 +58,15 @@
                     </tr>
                 </table>
             </form>
-            <div class="popover fade right in" style="top: 75px; left: 523px; " id="wuss8">
+            <div class="popover fade right in" style="top: 55px; left: 315px; " id="wuss8">
                 <div class="arrow" id="wuss9"></div>
                 <h3 class="popover-title" id="wuss10">提示</h3>
                 <div class="popover-content" id="wuss11">请输入正确的更新频率</div>
+            </div>
+            <div class="popover fade right in" style="top:96px; left: 315px;" id="wuss17">
+                <div class="arrow" id="wuss18"></div>
+                <h3 class="popover-title" id="wuss19">提示</h3>
+                <div class="popover-content" id="wuss20">请输入正确的推送时间</div>
             </div>
         </wuss>
     </wuss>
@@ -87,9 +96,17 @@
         str=time.value;
         mydiv=$("#wuss8");
         btn=$("#onlyyes")[0];
+        value=document.getElementById("detailwuss").value;
+        console.log(value);
         var re=/^([0-9]){1,3}$/;
         if (re.test(str)){
-            btn.disabled="";
+            if(value==""){
+{#                alert("记得添加要订阅的模块");#}
+            }
+            else {
+                btn.disabled="";
+            }
+
         }
         else{
             mydiv[0].style.display="block";
@@ -100,6 +117,30 @@
         mydiv=$("#wuss8");
         mydiv[0].style.display="";
     }
+    function checktuisong(time){
+        var re=/^((([0-9])|(1[0-9])|(2[0-4])):[0-5][0-9])$/;
+        str=time.value;
+        mydiv=$("#wuss17");
+        btn=$("#onlyyes")[0];
+        value=document.getElementById("detailwuss").value;
+        console.log(value);
+        if(re.test(str)){
+            if(value==""){
+                alert("记得添加要订阅的模块");
+            }
+            else{
+                btn.disabled=""
+            }
+        }
+        else {
+            mydiv[0].style.display="block";
+            btn.disabled="disable";
+        }
+    }
+    function hiddentuisong(value){
+        mydiv=$("#wuss17");
+        mydiv[0].style.display="";
+    }
 </script>
 <style>
     /*ul:hover{
@@ -108,8 +149,8 @@
     .mydiv{
 {#        left:0px;#}
         position: fixed;
-        width: 434px;
-        height: 206px;
+        width: 448px;
+        height: 268px;
         z-index: 1000;
 {#        top:20px;#}
         background: rgba(0, 0, 0, 0.73);

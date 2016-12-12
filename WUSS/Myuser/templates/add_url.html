@@ -67,6 +67,10 @@
                     <td><input type="text"size="1" required name="update_fq " value="{{ edit_url.update_fq }}" onblur="checktime(this)" onclick="hiddenchecktime(this)" id="checktimes"/>天一次<br/></td>
                 </tr>
                 <tr>
+                    <td><span class="edit_url_span color" id="wuss15">推送时间:</span></td>
+                    <td><input type="text" name="time" placeholder="18:00或者08:00" onblur="checktuisong(this)" onclick="hiddentuisong(this)" required id="wuss16"></td>
+                </tr>
+                <tr>
                     <td><span class="edit_url_span">是否跟踪:</span></td>
                     <td>
                         <input type="radio" name="track_status" value="True" checked style="margin: 0px">是

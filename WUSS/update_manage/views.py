@@ -186,8 +186,8 @@ def send_update_email(user):
             msg.send()
             print("success!")
 
-        except Exception as e:
-            print(e)
+        except Exception as inst:
+            print(type(inst), ":", inst.args)
 
         for url in urls:   # 将所有已更新的一般url的item推送状态设为0
             if url.type==1:
@@ -298,8 +298,8 @@ def cache_file():
                     print('cachefile:url[',url.url,'],  filename[',new_file_name,'],   ',datetime.datetime.now())
                     last_cache_time = datetime.datetime.now()
                 time.sleep(CACHE_FQ)
-        except:
-            print('rcache')
+        except Exception as e:
+            print('[rcheck]', type(e), e)
             continue
 
 def get_cache_file(url):

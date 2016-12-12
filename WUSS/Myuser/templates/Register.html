@@ -24,20 +24,20 @@
 		    margin-top: -200px;">
 	<div class="Menu_register">
 		<h1>注册新用户</h1>
-		<form class="form-horizontal" action = "../Register/" method="post">
+		<form class="form-horizontal" action = "../Register/" method="post"style="top: 96px;position: absolute;">
             <div style="left:50px;">
                 <div class="control-group">
                     <div style="margin-top:20px ">
                         <img src="/static/img/adm.png" class="adm">
                         <input type="text" id="inputName" placeholder="UserName" required name='idname' onblur="checktime1(this)" onclick="hiddenchecktime1(this)" onchange="changede()">
-                        <input type="button" onclick="judgeforexisting(this)" id="btnname" value="查看用户是否存在">
+                        <input type="button" onclick="judgeforexisting(this)" id="btnname" value="查看用户是否存在" class="submit">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <img src="/static/img/adm.png" class="adm">
                     <input type="text" id="inputEmail" placeholder="Email" required name='idemail'onblur="checktime2(this)" onclick="hiddenchecktime2(this)" onchange="changede()">
-                    <input type="button" onclick="judgeforemail(this)" value="查看邮箱是否注册" id="btnemail">
+                    <input type="button" onclick="judgeforemail(this)" value="查看邮箱是否注册" id="btnemail" class="submit">
                 </div>
 
                 <div class="control-group">

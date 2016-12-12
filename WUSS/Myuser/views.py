@@ -84,16 +84,15 @@ def urlmanagement(request):#URL management
         return render(request,'URLmanagement.html',content)
     return HttpResponseRedirect('/error')
 
-
 def Userjudge(request):# if login or not
     if request.user.is_authenticated():
         return HttpResponseRedirect("/userhomepage")
     else:
         return HttpResponseRedirect("/login")
 
-
 def mainhomepage(request):#into the homepage
     if request.user.is_authenticated():
+
         content={
             'user_is_logic':'YES'
         }

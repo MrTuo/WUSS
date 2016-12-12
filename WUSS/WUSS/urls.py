@@ -19,6 +19,8 @@ from django.contrib import admin
 from Myuser import views as myuserviews
 from url_manage import views as manageviews
 from update_manage import views as updateviews
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^',views.mainhomepage),

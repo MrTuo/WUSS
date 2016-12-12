@@ -202,10 +202,13 @@ def check_all_update():
     '''
     while 1:
         print('in check')
+
         try:
             users = User.objects.all()
+            #print('start time:', datetime.datetime.now())
             for user in users:
                 check_update(user)
+            #print('end time:', datetime.datetime.now())
             time.sleep(3)
         except Exception as e:
             print('[rcheck]',type(e),e)

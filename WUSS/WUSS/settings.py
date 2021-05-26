@@ -146,7 +146,7 @@ EMAIL_HOST_PASSWORD = ''#第三方邮件收发授权码
 # EMAIL_HOST = 'smtp.163.com'            #SMTP服务器
 # EMAIL_PORT = 25                        #SMTP服务器端口
 # EMAIL_HOST_USER = 'wussapp@163.com'    #用户名
-# EMAIL_HOST_PASSWORD = 'wussapp20162016'#第三方邮件收发授权码
+# EMAIL_HOST_PASSWORD = ''#第三方邮件收发授权码
 
 # 缓存设置
 CACHE_COUNT = 30 # 最大缓存文件数量

@@ -139,7 +139,7 @@ EMAIL_USE_TLS = False
 EMAIL_HOST = 'smtp.sina.com'            #SMTP服务器
 EMAIL_PORT = 25                        #SMTP服务器端口
 EMAIL_HOST_USER = 'qq519043202@sina.com'    #用户名
-EMAIL_HOST_PASSWORD = 'qq963852741'#第三方邮件收发授权码
+EMAIL_HOST_PASSWORD = ''#第三方邮件收发授权码
 
 #定义Email信息-网易smtp
 # EMAIL_USE_TLS = False
